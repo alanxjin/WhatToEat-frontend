@@ -1,0 +1,3 @@
+rootProject.name = 'WhatToEat_frontend'
+
+include ':app'
