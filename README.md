@@ -36,9 +36,3 @@ Here's a great tutorial on Lynda which shows how to build a food recommendation 
 
 https://www.lynda.com/React-Native-tutorials/React-Native-Building-Mobile-Apps/547379-2.html?srchtrk=index%3a19%0alinktypeid%3a2%0aq%3areact+native%0apage%3a1%0as%3arelevance%0asa%3atrue%0aproducttypeid%3a2
 
-## Tutorial 
-
-Here's a great tutorial on Lynda which shows how to build a food recommendation application with react-native. Remember to use your school account to log in
-
-https://www.lynda.com/React-Native-tutorials/React-Native-Building-Mobile-Apps/547379-2.html?srchtrk=index%3a19%0alinktypeid%3a2%0aq%3areact+native%0apage%3a1%0as%3arelevance%0asa%3atrue%0aproducttypeid%3a2
-
