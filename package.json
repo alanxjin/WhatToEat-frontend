@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"android-setup": "node node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && node node_modules/react-native/local-cli/cli.js run-android",
+		"android": "node node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && node node_modules/react-native/local-cli/cli.js run-android",
 		"start": "node node_modules/react-native/local-cli/cli.js start",
 		"test": "jest"
 	},
@@ -11,6 +11,7 @@
 		"native-base": "^2.3.3",
 		"react": "16.0.0",
 		"react-native": "0.50.3",
+		"react-native-vector-icons": "^4.4.2",
 		"react-navigation": "^1.0.0-beta.21"
 	},
 	"devDependencies": {
