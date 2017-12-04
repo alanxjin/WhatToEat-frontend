@@ -27,9 +27,9 @@ export default class App extends Component<{}> {
       },
       theme: theme
     }
-    this.toggleDrawer = this.toggleDrawer.bind(this);
   }
   toggleDrawer() {
+    //console.log(this)
     this.state.toggled ? this._drawer.close() : this._drawer.open()
   }
   openDrawer() {
@@ -44,7 +44,10 @@ export default class App extends Component<{}> {
 
 
       <Drawer
-        ref={(ref) => this._drawer = ref}
+        ref={(ref) => {
+          //console.log(this)
+          this._drawer = ref
+        }}
         //type="displace"
         
         content={<Sidebar navigation={this.props.navigation} theme={this.state.theme}/>}
