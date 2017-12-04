@@ -6,6 +6,7 @@ export default class SplashScreen extends Component {
   constructor(props) {
     super(props)
   }
+  
   componentDidMount() {
     const { settings } = this.props.screenProps
     setTimeout(() => {
