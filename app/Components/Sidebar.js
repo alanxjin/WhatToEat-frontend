@@ -10,7 +10,7 @@ import {
   Button
 } from 'native-base'
 
-export default class SideMenu extends Component {
+export default class Sidebar extends Component {
   constructor(props) {
     super(props)
   }
