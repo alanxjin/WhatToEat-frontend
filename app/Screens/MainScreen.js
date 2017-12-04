@@ -1,14 +1,31 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
+import {
+  Platform,
+  StyleSheet
+} from 'react-native';
 import { View, Drawer, Container, Header, Content, Footer, FooterTab, Button, Text, Left, Right, Icon, Body, Title } from 'native-base';
 import Sidebar from '../Components/Sidebar'
+import SettingsStore from '../Stores/SettingsStore'
+import theme from '../theme/base-theme'
 
-export default class App extends Component {
+const settings = new SettingsStore()
+
+const instructions = Platform.select({
+  ios: 'Press Cmd+R to reload,\n' +
+    'Cmd+D or shake for dev menu',
+  android: 'Double tap R on your keyboard to reload,\n' +
+    'Shake or press menu button for dev menu',
+});
+
+export default class App extends Component<{}> {
   constructor(props) {
     super(props)
     this.state = {
       toggled: false,
-    
+      store: {
+        settings: settings
+      },
+      theme: theme
     }
   }
   toggleDrawer() {
@@ -24,13 +41,16 @@ export default class App extends Component {
 
   render() {
     return (
+
+
       <Drawer
         ref={(ref) => {
           //console.log(this)
           this._drawer = ref
         }}
         //type="displace"
-        content={<Sidebar navigation={this.props.navigation} theme={this.props.screenProps.theme} />}
+        
+        content={<Sidebar navigation={this.props.navigation} theme={this.state.theme}/>}
         onClose={this.closeDrawer.bind(this)}
         onOpen={this.openDrawer.bind(this)}
         //openDrawerOffset={0.2}
@@ -53,19 +73,19 @@ export default class App extends Component {
               This is Content Section
             </Text>
             <Button info onPress={() => this.props.navigation.navigate('Test')}>
-              <Text>
-                Go to Test Page
+            <Text>
+              Go to Test Page
             </Text>
+          </Button>
+        </Content>
+        <Footer>
+          <FooterTab>
+            <Button full>
+              <Text>Footer</Text>
             </Button>
-          </Content>
-          <Footer>
-            <FooterTab>
-              <Button full>
-                <Text>Footer</Text>
-              </Button>
-            </FooterTab>
-          </Footer>
-        </Container>
+          </FooterTab>
+        </Footer>
+      </Container>
       </Drawer >
     );
   }
