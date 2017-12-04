@@ -20,7 +20,7 @@ unable to load script from assets index.android.bundle
 then, run the following instead of "react-native run-android"
 
 ```
-$ npm run android-setup
+$ npm run android
 ```
 
 ## DO NOT UPGRADE GRADLE !
