@@ -3,6 +3,11 @@ import { StackNavigator } from 'react-navigation'
 import MainScreen from '../Screens/MainScreen'
 import TestScreen from '../Screens/TestScreen'
 
+import SettingsStore from '../Stores/SettingsStore'
+import theme from '../theme/base-theme'
+
+const settings = new SettingsStore()
+
 const MainNavigator = StackNavigator(
   {
     Main: {
@@ -18,4 +23,10 @@ const MainNavigator = StackNavigator(
   }
 );
 
-export default MainNavigator;
+const props = {
+  settings: settings,
+  theme: theme,
+}
+
+
+export default  () => <MainNavigator screenProps={props}/>

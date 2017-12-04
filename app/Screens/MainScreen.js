@@ -1,16 +1,14 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet
 } from 'react-native';
 import { View, Drawer, Container, Header, Content, Footer, FooterTab, Button, Text, Left, Right, Icon, Body, Title } from 'native-base';
+import Sidebar from '../Components/Sidebar'
+import SettingsStore from '../Stores/SettingsStore'
+import theme from '../theme/base-theme'
 
+const settings = new SettingsStore()
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -24,8 +22,10 @@ export default class App extends Component<{}> {
     super(props)
     this.state = {
       toggled: false,
-      store: {},
-      theme: null
+      store: {
+        settings: settings
+      },
+      theme: theme
     }
     this.toggleDrawer = this.toggleDrawer.bind(this);
   }
@@ -46,7 +46,8 @@ export default class App extends Component<{}> {
       <Drawer
         ref={(ref) => this._drawer = ref}
         //type="displace"
-        content={<View style={{ backgroundColor: "#000", height: 1000 }} />}
+        
+        content={<Sidebar navigation={this.props.navigation} theme={this.state.theme}/>}
         onClose={this.closeDrawer.bind(this)}
         onOpen={this.openDrawer.bind(this)}
         //openDrawerOffset={0.2}
@@ -82,22 +83,7 @@ export default class App extends Component<{}> {
           </FooterTab>
         </Footer>
       </Container>
-
-        {/* <View style={styles.container}>
-          <Text style={styles.welcome}>
-            Main Pagin!!!!
-          </Text>
-          <Button
-            onPress={() => this.props.navigation.navigate('Test')}
-            title="Go to Test Page"
-          />
-        </View> */}
-
-
       </Drawer >
-
-
-
     );
   }
 }
