@@ -10,9 +10,9 @@ export default class App extends Component {
       toggled: false,
     
     }
-    this.toggleDrawer = this.toggleDrawer.bind(this);
   }
   toggleDrawer() {
+    //console.log(this)
     this.state.toggled ? this._drawer.close() : this._drawer.open()
   }
   openDrawer() {
@@ -26,7 +26,7 @@ export default class App extends Component {
     return (
       <Drawer
         ref={(ref) => {
-          console.log(this)
+          //console.log(this)
           this._drawer = ref
         }}
         //type="displace"
