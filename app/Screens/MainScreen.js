@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
-import { View, Drawer, Container, Header, Content, Footer, FooterTab, Button, Text, Left, Right, Icon, Body, Title } from 'native-base';
+import { View, Drawer, Container, Header, Content, Footer, FooterTab, Button, Text, Left, Right, Icon, Body, Title, Root } from 'native-base';
 import Sidebar from '../Components/Sidebar'
+import CardStack from '../Components/CardStack'
+
+
+
+
 import SettingsStore from '../Stores/SettingsStore'
 import theme from '../theme/base-theme'
 
@@ -31,15 +36,18 @@ export default class MainScreen extends Component<{}> {
 
   render() {
     return (
+      // <CardStack style={{flex: 1}}/>
       <Drawer
         ref={(ref) => { this._drawer = ref }}
         //type="displace"
         content={<Sidebar navigation={this.props.navigation} theme={this.state.theme} />}
         onClose={this.closeDrawer.bind(this)}
         onOpen={this.openDrawer.bind(this)}
-        //openDrawerOffset={0.2}
-        panOpenMask={.2}
+      //openDrawerOffset={0.2}
+      //panOpenMask={.2}
       >
+
+
         <Container>
           <Header>
             <Left>
@@ -52,16 +60,11 @@ export default class MainScreen extends Component<{}> {
             </Body>
             <Right />
           </Header>
-          <Content>
-            <Text>
-              This is Content Section
-            </Text>
-            <Button info onPress={() => this.props.navigation.navigate('Test')}>
-              <Text>
-                Go to Test Page
-              </Text>
-            </Button>
-          </Content>
+          <Root>
+            <Container padder>
+              <CardStack />
+            </Container>
+          </Root>
           <Footer>
             <FooterTab>
               <Button full>
@@ -75,21 +78,21 @@ export default class MainScreen extends Component<{}> {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#F5FCFF',
+//   },
+//   welcome: {
+//     fontSize: 20,
+//     textAlign: 'center',
+//     margin: 10,
+//   },
+//   instructions: {
+//     textAlign: 'center',
+//     color: '#333333',
+//     marginBottom: 5,
+//   },
+// });
