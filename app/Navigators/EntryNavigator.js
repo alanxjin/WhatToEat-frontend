@@ -23,7 +23,7 @@ const EntryNavigator = StackNavigator(
     }
   },
   {
-    initialRouteName: 'Splash',
+    initialRouteName: 'Login',
     headerMode: 'none',
   }
 );

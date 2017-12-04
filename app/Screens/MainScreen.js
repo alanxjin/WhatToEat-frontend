@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet
-} from 'react-native';
+import { StyleSheet } from 'react-native';
 import { View, Drawer, Container, Header, Content, Footer, FooterTab, Button, Text, Left, Right, Icon, Body, Title } from 'native-base';
 import Sidebar from '../Components/Sidebar'
 import SettingsStore from '../Stores/SettingsStore'
@@ -10,14 +7,8 @@ import theme from '../theme/base-theme'
 
 const settings = new SettingsStore()
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
 
-export default class App extends Component<{}> {
+export default class MainScreen extends Component<{}> {
   constructor(props) {
     super(props)
     this.state = {
@@ -29,8 +20,7 @@ export default class App extends Component<{}> {
     }
   }
   toggleDrawer() {
-    //console.log(this)
-    this.state.toggled ? this._drawer.close() : this._drawer.open()
+    this.state.toggled ? this._drawer._root.close() : this._drawer._root.open()
   }
   openDrawer() {
     this.setState({ toggled: true })
@@ -41,16 +31,10 @@ export default class App extends Component<{}> {
 
   render() {
     return (
-
-
       <Drawer
-        ref={(ref) => {
-          //console.log(this)
-          this._drawer = ref
-        }}
+        ref={(ref) => { this._drawer = ref }}
         //type="displace"
-        
-        content={<Sidebar navigation={this.props.navigation} theme={this.state.theme}/>}
+        content={<Sidebar navigation={this.props.navigation} theme={this.state.theme} />}
         onClose={this.closeDrawer.bind(this)}
         onOpen={this.openDrawer.bind(this)}
         //openDrawerOffset={0.2}
@@ -73,19 +57,19 @@ export default class App extends Component<{}> {
               This is Content Section
             </Text>
             <Button info onPress={() => this.props.navigation.navigate('Test')}>
-            <Text>
-              Go to Test Page
-            </Text>
-          </Button>
-        </Content>
-        <Footer>
-          <FooterTab>
-            <Button full>
-              <Text>Footer</Text>
+              <Text>
+                Go to Test Page
+              </Text>
             </Button>
-          </FooterTab>
-        </Footer>
-      </Container>
+          </Content>
+          <Footer>
+            <FooterTab>
+              <Button full>
+                <Text>Footer</Text>
+              </Button>
+            </FooterTab>
+          </Footer>
+        </Container>
       </Drawer >
     );
   }
