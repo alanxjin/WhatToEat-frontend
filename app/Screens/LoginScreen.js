@@ -25,11 +25,16 @@ export default class App extends Component<{}> {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Login page!
+          Login page!asdasd
         </Text>
 
         <Button
-            onPress={() => this.props.navigation.navigate('Main')}
+            onPress={() => {
+              //console.error("asdasd")
+              this.props.navigation.navigate('Main')
+             
+            }
+            }
             title="Go to Main Page"
         />
       </View>
