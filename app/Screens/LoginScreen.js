@@ -11,7 +11,9 @@ import {
     StyleSheet,
     Text,
     Image,
-    Alert
+    Alert,
+    TextInput,
+    Keyboard
 } from 'react-native';
 import {
     Button,
@@ -47,6 +49,7 @@ export default class LoginScreen extends Component<{}> {
         email = this.state.email;
         pass = this.state.pass;
         conPass = this.state.conPass;
+
         const { navigate } = this.props.navigation;
         navigate('Main')
         // axios.get('').then(function (response_1) {
@@ -74,25 +77,26 @@ export default class LoginScreen extends Component<{}> {
                 <View style={styles.logo_container}>
                     <Image
                         style={styles.image}
-                        source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
+                        source={require('../../images/login_background.jpg')}
+                        resizeMode= 'stretch'
                     />
                     <View style={styles.title_container}>
                         <Text>What To Eat</Text>
                     </View>
                 </View>
                 <View style={styles.info_container}>
-                    <Form>
-                        <Item floatingLabel>
+                    <Form style={styles.form}>
+                        <Item floatingLabel >
                             <Label style={{fontSize: 15, color:'grey'}}>{'Email'}</Label>
-                            <Input type="text" onChangeText={(email) => { this.updateEmail(email)}}/>
+                            <Input onEndEditing={Keyboard.dismiss} keyboardType="email-address" onChangeText={(email) => { this.updateEmail(email)}}/>
                         </Item>
                         <Item floatingLabel>
                             <Label style={{fontSize: 15, color:'grey'}}>{'Password'}</Label>
-                            <Input type="text" onChangeText={(pass) => { this.updatePassword(pass)}}/>
+                            <Input secureTextEntry={true} onChangeText={(pass) => { this.updatePassword(pass)}}/>
                         </Item>
                         <Item floatingLabel>
                             <Label style={{fontSize: 15, color:'grey'}}>{'Confirm Password'}</Label>
-                            <Input type="text" onChangeText={(conpass) => { this.updateConPassword(conpass)}}/>
+                            <Input secureTextEntry={true} onChangeText={(conpass) => { this.updateConPassword(conpass)}}/>
                         </Item>
                     </Form>
                     <View style={styles.buttons_container}>
@@ -110,9 +114,10 @@ export default class LoginScreen extends Component<{}> {
 const styles = StyleSheet.create({
     main_container: {
         flex: 1,
+        backgroundColor:'white',
     },
     logo_container: {
-        flex: 1,
+        flex: 3,
     },
     title_container: {
         position: 'absolute',
@@ -120,37 +125,48 @@ const styles = StyleSheet.create({
         bottom: 0,
         left: 0,
         right: 0,
-        alignItems: 'center',
-
+        alignItems: 'center'
     },
     info_container: {
-        flex: 2,
+        flex: 5,
         marginTop:20,
         marginLeft:20,
         marginRight:20,
-        marginBottom:20
+        marginBottom:20,
+
+    },
+    form: {
+        width:"85%",
+        alignItems:'center',
+        justifyContent:'center',
+        marginLeft:20
     },
     image: {
         flex: 1,
+        height: 'auto',
+        width: '100%',
+
     },
     label: {
-        fontSize: 15,
+        fontSize: 12,
         color:'grey'
     },
     buttons_container:{
         marginTop:50,
-        marginLeft:50,
-        marginRight:50,
+        marginLeft:35,
+        marginRight:35,
         flexDirection:'row',
         justifyContent: 'space-between'
     },
     button: {
-        width: '40%',
-        height: 35,
-        borderRadius:10,
+        width: '48%',
+        height: 40,
+        borderRadius:8,
     },
     button_left: {
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        borderColor: 'black',
+        borderWidth: 1,
     },
     button_right: {
         backgroundColor: 'black'
