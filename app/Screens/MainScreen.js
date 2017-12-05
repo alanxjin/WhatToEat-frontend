@@ -50,7 +50,7 @@ export default class MainScreen extends Component<{}> {
           </Header>
           <Root>
             <Container style={{backgroundColor:"#fff"}}>
-              <CardStack />
+              <CardStack navigation={this.props.navigation}/>
             </Container>
           </Root>
           <Footer style={{backgroundColor:"#F8F7F7", height:100}}>
