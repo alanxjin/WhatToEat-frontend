@@ -154,8 +154,8 @@ export default {
   topTabBarActiveBorderColor: "#fff",
 
   // Header
-  toolbarBtnColor: "#fff",
-  toolbarDefaultBg: "#2874F0",
+  toolbarBtnColor: "#000",
+  toolbarDefaultBg: "#F8F7F7",
   toolbarHeight: platform === "ios" ? (isIphoneX ? 88 : 64) : 56,
   toolbarIconSize: platform === "ios" ? 20 : 22,
   toolbarSearchIconSize: platform === "ios" ? 20 : 23,
@@ -172,7 +172,7 @@ export default {
   },
 
   // Icon
-  iconFamily: "Ionicons",
+  iconFamily: "FontAwesome",
   iconFontSize: platform === "ios" ? 30 : 28,
   iconMargin: 7,
   iconHeaderSize: platform === "ios" ? 33 : 24,
@@ -262,7 +262,7 @@ export default {
   subtitleColor: "#FFF",
 
   // New Variable
-  titleFontColor: "#FFF",
+  titleFontColor: "#000",
 
   // Other
   borderRadiusBase: platform === "ios" ? 5 : 2,
