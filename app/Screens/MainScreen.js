@@ -3,25 +3,14 @@ import { StyleSheet } from 'react-native';
 import { View, Drawer, Container, Header, Content, Footer, FooterTab, Button, Text, Left, Right, Icon, Body, Title, Root } from 'native-base';
 import Sidebar from '../Components/Sidebar'
 import CardStack from '../Components/CardStack'
-
-
-
-
-import SettingsStore from '../Stores/SettingsStore'
-import theme from '../theme/base-theme'
-
-const settings = new SettingsStore()
+import ButtonGroup from '../Components/ButtonGroup'
 
 
 export default class MainScreen extends Component<{}> {
   constructor(props) {
     super(props)
     this.state = {
-      toggled: false,
-      store: {
-        settings: settings
-      },
-      theme: theme
+      toggled: false
     }
   }
   toggleDrawer() {
@@ -35,41 +24,41 @@ export default class MainScreen extends Component<{}> {
   }
 
   render() {
+    const styles = this.props.style;
     return (
-      // <CardStack style={{flex: 1}}/>
+
       <Drawer
         ref={(ref) => { this._drawer = ref }}
         //type="displace"
-        content={<Sidebar navigation={this.props.navigation} theme={this.state.theme} />}
+        content={<Sidebar navigation={this.props.navigation} />}
         onClose={this.closeDrawer.bind(this)}
         onOpen={this.openDrawer.bind(this)}
       //openDrawerOffset={0.2}
       //panOpenMask={.2}
       >
-
-
         <Container>
           <Header>
             <Left>
               <Button transparent onPress={this.toggleDrawer.bind(this)}>
-                <Icon name='menu' />
+                <Icon name='bars' />
               </Button>
             </Left>
             <Body>
-              <Title>Header</Title>
+              <Title>WhatToEat</Title>
             </Body>
             <Right />
           </Header>
           <Root>
-            <Container padder>
+            <Container style={{backgroundColor:"#fff"}}>
               <CardStack />
             </Container>
           </Root>
-          <Footer>
+          <Footer style={{backgroundColor:"#F8F7F7", height:100}}>
             <FooterTab>
-              <Button full>
-                <Text>Footer</Text>
-              </Button>
+              <ButtonGroup/>
+              {/* <Button style={{backgroundColor:"#fff", height:20, width:20}}>
+                <Text>F</Text>
+              </Button> */}
             </FooterTab>
           </Footer>
         </Container>

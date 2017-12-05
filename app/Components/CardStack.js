@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
-import { Image } from 'react-native';
-import { Container, Header, View, DeckSwiper, Card, CardItem, Thumbnail, Text, Left, Body, Icon, Toast } from 'native-base';
+import { Image, Dimensions } from 'react-native';
+import { Container, Header, View, DeckSwiper, Card, CardItem, Thumbnail, Text, Left, Body, Icon, Toast, Button } from 'native-base';
 const cards = [
     {
         text: 'Card One',
-        name: 'One',
+        name: 'Yummy Burger',
         image: { uri: 'https://static.pexels.com/photos/70497/pexels-photo-70497.jpeg' }
     },
     {
         text: 'Card two',
-        name: 'two',
+        name: 'Healthy Food',
         image: require('../../images/splash.jpg')
     }
 ];
 export default class DeckSwiperExample extends Component {
     render() {
+        const { height: screenHeight } = Dimensions.get('window');
+        let cardHeight = screenHeight * 0.5;
+        cardHeight = cardHeight < 300 ? 300 : cardHeight;
         return (
-            <View style={{ margin: 5 }}>
+            <View style={{ margin: 20 }}>
                 <DeckSwiper
-
                     dataSource={cards}
                     renderItem={item =>
                         <Card style={{ elevation: 3, overflow: 'hidden', borderRadius: 10 }}>
@@ -31,12 +33,16 @@ export default class DeckSwiperExample extends Component {
                                     </Body>
                                 </Left>
                             </CardItem> */}
-                            <CardItem cardBody style={{ borderRadius: 0,  overflow: 'hidden',}}>
-                                <Image style={{ height: 300, flex: 1 }} source={item.image} />
+                            <CardItem cardBody style={{ borderRadius: 0, overflow: 'hidden', }}>
+                                <Image style={{ height: cardHeight, flex: 1 }} source={item.image} />
                             </CardItem>
-                            <CardItem>
-                                <Icon name="heart" style={{ color: '#ED4A6A' }} />
+                            <CardItem style={{ justifyContent: 'space-between' }}>
                                 <Text>{item.name}</Text>
+                                <Button transparent={true} style={{ height: 30 }} onPress={() => { console.error("adasd") }}>
+                                    <Icon name="info-circle" style={{ color: '#C3BFBF' }} />
+                                </Button>
+
+
                             </CardItem>
                         </Card>
                     }
@@ -44,7 +50,7 @@ export default class DeckSwiperExample extends Component {
                     onSwipeRight={(card) => {
                         console.log(card)
                         Toast.show({
-                            text: 'Wrong password!',
+                            text: 'Nope!',
                             type: 'warning',
                             duration: 1000,
                             position: 'top',
@@ -54,7 +60,7 @@ export default class DeckSwiperExample extends Component {
                     onSwipeLeft={(card) => {
                         console.log(card)
                         Toast.show({
-                            text: 'Wrong password!',
+                            text: 'Yup!',
                             type: 'success',
                             duration: 1000,
                             position: 'top',
