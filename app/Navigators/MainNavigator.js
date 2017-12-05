@@ -4,7 +4,6 @@ import MainScreen from '../Screens/MainScreen'
 import TestScreen from '../Screens/TestScreen'
 
 import SettingsStore from '../Stores/SettingsStore'
-import theme from '../theme/base-theme'
 
 const settings = new SettingsStore()
 
@@ -24,8 +23,7 @@ const MainNavigator = StackNavigator(
 );
 
 const props = {
-  settings: settings,
-  theme: theme,
+  settings: settings
 }
 
 

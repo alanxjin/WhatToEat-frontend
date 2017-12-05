@@ -18,7 +18,6 @@ export default class DeckSwiperExample extends Component {
         return (
             <View style={{ margin: 5 }}>
                 <DeckSwiper
-
                     dataSource={cards}
                     renderItem={item =>
                         <Card style={{ elevation: 3, overflow: 'hidden', borderRadius: 10 }}>

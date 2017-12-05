@@ -5,23 +5,11 @@ import Sidebar from '../Components/Sidebar'
 import CardStack from '../Components/CardStack'
 
 
-
-
-import SettingsStore from '../Stores/SettingsStore'
-import theme from '../theme/base-theme'
-
-const settings = new SettingsStore()
-
-
 export default class MainScreen extends Component<{}> {
   constructor(props) {
     super(props)
     this.state = {
-      toggled: false,
-      store: {
-        settings: settings
-      },
-      theme: theme
+      toggled: false
     }
   }
   toggleDrawer() {
@@ -35,19 +23,18 @@ export default class MainScreen extends Component<{}> {
   }
 
   render() {
+    const styles = this.props.style;
     return (
-      // <CardStack style={{flex: 1}}/>
+
       <Drawer
         ref={(ref) => { this._drawer = ref }}
         //type="displace"
-        content={<Sidebar navigation={this.props.navigation} theme={this.state.theme} />}
+        content={<Sidebar navigation={this.props.navigation} />}
         onClose={this.closeDrawer.bind(this)}
         onOpen={this.openDrawer.bind(this)}
       //openDrawerOffset={0.2}
       //panOpenMask={.2}
       >
-
-
         <Container>
           <Header>
             <Left>
@@ -61,7 +48,7 @@ export default class MainScreen extends Component<{}> {
             <Right />
           </Header>
           <Root>
-            <Container padder>
+            <Container>
               <CardStack />
             </Container>
           </Root>

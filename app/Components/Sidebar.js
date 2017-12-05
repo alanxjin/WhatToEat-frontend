@@ -27,7 +27,7 @@ export default class Sidebar extends Component {
       }
     }]
     return (
-      <Container theme={this.props.theme} style={{ backgroundColor: "#FFF"}}>
+      <Container style={{ backgroundColor: "#FFF"}}>
         <Header/>
         <View>
           <List dataArray={list} renderRow={(item) => 

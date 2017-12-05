@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import { StackNavigator } from 'react-navigation'
+import { StyleProvider } from 'native-base';
+
+import getTheme from '../../native-base-theme/components';
+import theme from '../theme/theme';
 
 
 import MainNavigator from './MainNavigator'
@@ -7,7 +11,6 @@ import LoginScreen from '../Screens/LoginScreen'
 import SplashScreen from '../Screens/SplashScreen'
 
 import SettingsStore from '../Stores/SettingsStore'
-import theme from '../theme/base-theme'
 
 const settings = new SettingsStore()
 
@@ -30,8 +33,7 @@ const EntryNavigator = StackNavigator(
 );
 
 const props = {
-  settings: settings,
-  theme: theme,
+  settings: settings
 }
 
-export default  () => <EntryNavigator screenProps={props}/>;
+export default  () => <StyleProvider style={getTheme(theme)}><EntryNavigator screenProps={props}/></StyleProvider>;
