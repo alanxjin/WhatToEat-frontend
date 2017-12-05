@@ -38,11 +38,9 @@ export default class DeckSwiperExample extends Component {
                             </CardItem>
                             <CardItem style={{ justifyContent: 'space-between' }}>
                                 <Text>{item.name}</Text>
-                                <Button transparent={true} style={{ height: 30 }} onPress={() => { console.error("adasd") }}>
+                                <Button transparent={true} style={{ height: 30 }} onPress={() => {  this.props.navigation.navigate('Detail') }}>
                                     <Icon name="info-circle" style={{ color: '#C3BFBF' }} />
                                 </Button>
-
-
                             </CardItem>
                         </Card>
                     }
