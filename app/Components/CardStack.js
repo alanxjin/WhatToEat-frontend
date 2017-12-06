@@ -13,7 +13,7 @@ const cards = [
         image: require('../../images/splash.jpg')
     }
 ];
-export default class DeckSwiperExample extends Component {
+export default class CardStack extends Component {
     render() {
         const { height: screenHeight } = Dimensions.get('window');
         let cardHeight = screenHeight * 0.5;

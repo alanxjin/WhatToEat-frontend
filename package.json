@@ -13,6 +13,8 @@
 		"native-base": "^2.3.3",
 		"react": "16.0.0",
 		"react-native": "0.50.3",
+		"react-native-maps": "^0.18.3",
+		"react-native-star-rating": "^1.0.8",
 		"react-native-swipe-cards": "^0.1.1",
 		"react-native-vector-icons": "^4.4.2",
 		"react-navigation": "^1.0.0-beta.21"
@@ -27,5 +29,8 @@
 	},
 	"jest": {
 		"preset": "react-native"
-	}
+	},
+	"rnpm": {
+		"assets": ["./fonts/"]
+	 }
 }

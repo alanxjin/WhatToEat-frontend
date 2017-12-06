@@ -33,7 +33,7 @@ export default class MainScreen extends Component<{}> {
         content={<Sidebar navigation={this.props.navigation} />}
         onClose={this.closeDrawer.bind(this)}
         onOpen={this.openDrawer.bind(this)}
-      //openDrawerOffset={0.2}
+        openDrawerOffset={0.3}
       //panOpenMask={.2}
       >
         <Container>
@@ -49,16 +49,13 @@ export default class MainScreen extends Component<{}> {
             <Right />
           </Header>
           <Root>
-            <Container style={{backgroundColor:"#fff"}}>
-              <CardStack navigation={this.props.navigation}/>
+            <Container style={{ backgroundColor: '#fff' }}>
+              <CardStack navigation={this.props.navigation} />
             </Container>
           </Root>
-          <Footer style={{backgroundColor:"#F8F7F7", height:100}}>
+          <Footer style={{ backgroundColor: '#F8F7F7', height: 100 }}>
             <FooterTab>
-              <ButtonGroup/>
-              {/* <Button style={{backgroundColor:"#fff", height:20, width:20}}>
-                <Text>F</Text>
-              </Button> */}
+              <ButtonGroup />
             </FooterTab>
           </Footer>
         </Container>

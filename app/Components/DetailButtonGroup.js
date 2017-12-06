@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { View, Button, Text, Icon } from 'native-base';
 
-export default class ButtonGroup extends Component {
+export default class DetailButtonGroup extends Component {
     render() {
         return (
             <View style={{ flex: 1, flexDirection: 'row' }}>
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                     <Button style={{ justifyContent: 'center', alignSelf: 'auto', height: 56, width: 56, borderRadius: 50, backgroundColor: "#fff" }} onPress={() => { console.error("adasd") }}>
-                        <Icon name='undo' style={{ color: "#FFAE40" }} />
+                        <Icon name='chevron-left' style={{ color: "#FFAE40" }} />
                     </Button>
                 </View>
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
