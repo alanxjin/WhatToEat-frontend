@@ -28,7 +28,7 @@ export default class Sidebar extends Component {
     }]
     return (
       <Container style={{ backgroundColor: "#FFF"}}>
-        <Header/>
+        <Header style={{height:150}}/>
         <View>
           <List dataArray={list} renderRow={(item) => 
             <ListItem button onPress={item.onPress.bind(this)}>

@@ -13,7 +13,6 @@ export default class DetailScreen extends Component {
                 <StatusBar
                     translucent
                     backgroundColor="rgba(0, 0, 0, 0.20)"
-                    animated
                 />
 
                 <Content style={{ backgroundColor: "#fff" }}>
@@ -31,7 +30,11 @@ export default class DetailScreen extends Component {
                                     latitudeDelta: 0.0922,
                                     longitudeDelta: 0.0421,
                                 }}
+                                liteMode
+                                onPress={()=>{this.props.navigation.navigate('Map')}}
                                 style={{ flex: 1 }}
+                                
+                        cacheEnabled={false}
                             />
                         </View>
                     </View>

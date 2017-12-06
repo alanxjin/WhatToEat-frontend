@@ -3,6 +3,7 @@ import { StackNavigator } from 'react-navigation'
 import MainScreen from '../Screens/MainScreen'
 import TestScreen from '../Screens/TestScreen'
 import DetailScreen from '../Screens/DetailScreen'
+import MapScreen from '../Screens/MapScreen'
 
 import SettingsStore from '../Stores/SettingsStore'
 
@@ -15,6 +16,9 @@ const MainNavigator = StackNavigator(
     },
     Detail:{
       screen: DetailScreen
+    },
+    Map:{
+      screen: MapScreen
     },
     Test: {
       screen: TestScreen
