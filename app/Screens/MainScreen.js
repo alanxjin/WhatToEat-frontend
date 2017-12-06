@@ -33,7 +33,7 @@ export default class MainScreen extends Component<{}> {
         content={<Sidebar navigation={this.props.navigation} />}
         onClose={this.closeDrawer.bind(this)}
         onOpen={this.openDrawer.bind(this)}
-      //openDrawerOffset={0.2}
+        openDrawerOffset={0.3}
       //panOpenMask={.2}
       >
         <Container>

@@ -44,8 +44,6 @@ export default class MapScreen extends Component {
                             right: 0,
                             bottom: 0,
                         }}
-
-                        cacheEnabled={false}
                     />
                 </Container>
 

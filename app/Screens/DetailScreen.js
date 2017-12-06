@@ -33,8 +33,6 @@ export default class DetailScreen extends Component {
                                 liteMode
                                 onPress={()=>{this.props.navigation.navigate('Map')}}
                                 style={{ flex: 1 }}
-                                
-                        cacheEnabled={false}
                             />
                         </View>
                     </View>
