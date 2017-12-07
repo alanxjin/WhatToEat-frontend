@@ -9,7 +9,6 @@ import theme from '../theme/theme';
 import MainNavigator from './MainNavigator'
 import LoginScreen from '../Screens/LoginScreen'
 import SplashScreen from '../Screens/SplashScreen'
-
 import SettingsStore from '../Stores/SettingsStore'
 
 const settings = new SettingsStore()
@@ -36,4 +35,4 @@ const props = {
   settings: settings
 }
 
-export default  () => <StyleProvider style={getTheme(theme)}><EntryNavigator screenProps={props}/></StyleProvider>;
+export default () => <StyleProvider style={getTheme(theme)}><EntryNavigator screenProps={props}/></StyleProvider>;

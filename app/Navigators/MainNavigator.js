@@ -35,4 +35,4 @@ const props = {
 }
 
 
-export default  () => <MainNavigator screenProps={props}/>
+export default () => <MainNavigator screenProps={props}/>

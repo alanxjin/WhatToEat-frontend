@@ -1,84 +1,71 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 import { StyleSheet } from 'react-native';
-import { View, Drawer, Container, Header, Content, Footer, FooterTab, Button, Text, Left, Right, Icon, Body, Title, Root } from 'native-base';
+import {
+  View,
+  Drawer,
+  Container,
+  Header,
+  Content,
+  Footer,
+  FooterTab,
+  Button,
+  Text,
+  Left,
+  Right,
+  Icon,
+  Body,
+  Title,
+  Root
+} from 'native-base';
 import Sidebar from '../Components/Sidebar'
 import CardStack from '../Components/CardStack'
 import ButtonGroup from '../Components/ButtonGroup'
+import MainContainer from '../Components/MainContainer'
+
+const styles = StyleSheet.create({
+  footer: {
+    backgroundColor: '#F8F7F7',
+    height: 100
+  }
+});
 
 
-export default class MainScreen extends Component<{}> {
+export default class MainScreen extends PureComponent {
   constructor(props) {
     super(props)
-    this.state = {
-      toggled: false
-    }
+    this.toggled = false
+    this.SidebarComponent = <Sidebar navigation={this.props.navigation} />
+    this.closeDrawer = this.closeDrawer.bind(this)
+    this.openDrawer = this.openDrawer.bind(this)
+    this.toggleDrawer = this.toggleDrawer.bind(this)
   }
   toggleDrawer() {
-    this.state.toggled ? this._drawer._root.close() : this._drawer._root.open()
+    this.toggled ? this._drawer._root.close() : this._drawer._root.open()
   }
   openDrawer() {
-    this.setState({ toggled: true })
+    this.toggled  = true
   }
   closeDrawer() {
-    this.setState({ toggled: false })
+    this.toggled = false
   }
 
-  render() {
-    const styles = this.props.style;
-    return (
 
+
+
+  render() {
+    return (
       <Drawer
         ref={(ref) => { this._drawer = ref }}
         //type="displace"
-        content={<Sidebar navigation={this.props.navigation} />}
-        onClose={this.closeDrawer.bind(this)}
-        onOpen={this.openDrawer.bind(this)}
+        content={this.SidebarComponent}
+        onClose={this.closeDrawer}
+        onOpen={this.openDrawer}
         openDrawerOffset={0.3}
-      //panOpenMask={.2}
+        //panOpenMask={.2}
       >
-        <Container>
-          <Header>
-            <Left>
-              <Button transparent onPress={this.toggleDrawer.bind(this)}>
-                <Icon name='bars' />
-              </Button>
-            </Left>
-            <Body>
-              <Title>WhatToEat</Title>
-            </Body>
-            <Right />
-          </Header>
-          <Root>
-            <Container style={{ backgroundColor: '#fff' }}>
-              <CardStack navigation={this.props.navigation} />
-            </Container>
-          </Root>
-          <Footer style={{ backgroundColor: '#F8F7F7', height: 100 }}>
-            <FooterTab>
-              <ButtonGroup />
-            </FooterTab>
-          </Footer>
-        </Container>
+        <MainContainer toggleDrawer={this.toggleDrawer} />
       </Drawer >
     );
   }
 }
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: '#F5FCFF',
-//   },
-//   welcome: {
-//     fontSize: 20,
-//     textAlign: 'center',
-//     margin: 10,
-//   },
-//   instructions: {
-//     textAlign: 'center',
-//     color: '#333333',
-//     marginBottom: 5,
-//   },
-// });

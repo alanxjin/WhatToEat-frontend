@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PureComponent } from 'react'
 import { Image } from 'react-native';
 import {
   Container,
@@ -19,7 +19,7 @@ import {
 const avatar = require('../../images/doge.png')
 const backgroundImg = require('../../images/logo.jpg')
 
-export default class Sidebar extends Component {
+export default class Sidebar extends PureComponent {
   constructor(props) {
     super(props)
   }
@@ -39,12 +39,8 @@ export default class Sidebar extends Component {
     return (
       <Container style={{ backgroundColor: "#FFF" }}>
 
-        <Header style={{ height: 150, paddingLeft: 0, paddingRight: 0 }}>
+        {/* <Header style={{ height: 150, paddingLeft: 0, paddingRight: 0 }}>
           <Body>
-            {/* <Image
-              source={backgroundImg}
-              style={{top: 0, left: 0, right: 0, bottom: 0, resizeMode: 'cover', position: 'absolute' }}
-            /> */}
             <View style={{ top: 0, left: 0, right: 0, bottom: 40, position:'absolute' }}>
               <Image style={{ flex: 1, width: null, height:null, opacity: 0.3  }} source={backgroundImg}/>
             </View>
@@ -89,7 +85,7 @@ export default class Sidebar extends Component {
               </Button>
             </Item>
           </Form>
-        </Content>
+        </Content> */}
       </Container>
     )
   }
