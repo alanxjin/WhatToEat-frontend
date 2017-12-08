@@ -62,7 +62,7 @@ export default class DetailScreen extends Component {
                     <View style={styles.imageView}>
                         <Image style={styles.image} source={image} />
                     </View>
-                    <DetailContent />
+                    <DetailContent  {...this.props} />
 
                     <View style={styles.mapView}>
                         <MapView
@@ -76,7 +76,7 @@ export default class DetailScreen extends Component {
 
                 <Footer style={styles.footer}>
                     <FooterTab>
-                        <DetailButtonGroup />
+                        <DetailButtonGroup {...this.props}/>
                     </FooterTab>
                 </Footer>
             </Container>

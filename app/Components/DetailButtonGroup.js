@@ -35,16 +35,22 @@ const styles = StyleSheet.create({
     }
 });
 
-const buttonOnPress = (props) => {
-    //console.error("adasd")
-}
 
 export default class DetailButtonGroup extends Component {
+    constructor(props) {
+        super(props)
+        this.returnOnPress = this.returnOnPress.bind(this)
+    }
+
+    returnOnPress() {
+        this.props.navigation.goBack();
+    }
+
     render() {
         return (
             <View style={styles.buttonGroup}>
                 <View style={styles.buttonView}>
-                    <Button style={styles.button}>
+                    <Button style={styles.button}  onPress={this.returnOnPress}>
                         <Icon name='chevron-left' style={styles.icon1} />
                     </Button>
                 </View>
@@ -54,12 +60,12 @@ export default class DetailButtonGroup extends Component {
                     </Button>
                 </View>
                 <View style={styles.buttonView}>
-                    <Button style={styles.button} onPress={buttonOnPress}>
+                    <Button style={styles.button}>
                         <Icon name='close' style={styles.icon3} />
                     </Button>
                 </View>
                 <View style={styles.buttonView}>
-                    <Button style={styles.button} onPress={buttonOnPress}>
+                    <Button style={styles.button}>
                         <Icon name='bookmark' style={styles.icon4} />
                     </Button>
                 </View>

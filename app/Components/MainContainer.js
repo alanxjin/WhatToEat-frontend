@@ -17,11 +17,11 @@ const styles = StyleSheet.create({
 
 
 export default class MainContainer extends PureComponent {
-    constructor(props){
+    constructor(props) {
         super(props)
         this.toggleDrawer = this.toggleDrawer.bind(this)
     }
-    toggleDrawer(){
+    toggleDrawer() {
         this.props.navigation.navigate('DrawerToggle')
     }
     render() {
@@ -36,7 +36,11 @@ export default class MainContainer extends PureComponent {
                     <Body>
                         <Title>WhatToEat</Title>
                     </Body>
-                    <Right />
+                    <Right>
+                        <Button transparent onPress={this.toggleDrawer}>
+                            <Icon name='filter' />
+                        </Button>
+                    </Right >
                 </Header>
 
                 <Container style={styles.container}>

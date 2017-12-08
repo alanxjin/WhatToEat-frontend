@@ -25,13 +25,22 @@ const initialRegion = {
 }
 
 export default class MapScreen extends Component {
+    constructor(props) {
+        super(props)
+        this.returnOnPress = this.returnOnPress.bind(this)
+    }
+
+    returnOnPress() {
+        this.props.navigation.goBack();
+    }
+
     render() {
         return (
             <Container>
                 <StatusBar translucent={false} />
                 <Header>
                     <Left>
-                        <Button transparent>
+                        <Button transparent onPress={this.returnOnPress}>
                             <Icon name='chevron-left' />
                         </Button>
                     </Left>
