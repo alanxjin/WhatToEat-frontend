@@ -1,6 +1,6 @@
 import React, { Component, PureComponent } from 'react';
 import { StyleSheet } from 'react-native';
-import { View, Drawer, Container, Header, Content, Footer, FooterTab, Button, Text, Left, Right, Icon, Body, Title, Root } from 'native-base';
+import { View, Drawer, Container, Header, Content, Footer, FooterTab, Button, Text, Left, Right, Icon, Body, Title } from 'native-base';
 import Sidebar from '../Components/Sidebar'
 import CardStack from '../Components/CardStack'
 import ButtonGroup from '../Components/ButtonGroup'
@@ -17,13 +17,19 @@ const styles = StyleSheet.create({
 
 
 export default class MainContainer extends PureComponent {
+    constructor(props){
+        super(props)
+        this.toggleDrawer = this.toggleDrawer.bind(this)
+    }
+    toggleDrawer(){
+        this.props.navigation.navigate('DrawerToggle')
+    }
     render() {
         return (
-
             <Container>
                 <Header>
                     <Left>
-                        <Button transparent onPress={this.props.toggleDrawer}>
+                        <Button transparent onPress={this.toggleDrawer}>
                             <Icon name='bars' />
                         </Button>
                     </Left>
@@ -34,9 +40,7 @@ export default class MainContainer extends PureComponent {
                 </Header>
 
                 <Container style={styles.container}>
-                    <Root>
-                        <CardStack navigation={this.props.navigation} />
-                    </Root>
+                    <CardStack navigation={this.props.navigation} />
                 </Container>
 
                 <Footer style={styles.footer}>

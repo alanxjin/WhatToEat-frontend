@@ -34,5 +34,6 @@ const props = {
   settings: settings
 }
 
+const MainNavigatorWrapper =  <MainNavigator screenProps={props}/>
 
 export default () => <MainNavigator screenProps={props}/>

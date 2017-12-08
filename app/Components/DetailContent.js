@@ -1,24 +1,53 @@
 import React, { Component } from 'react';
 import { View, Button, H1, H2, H3, Text, Icon } from 'native-base';
+import { StyleSheet } from 'react-native';
 import StarRating from 'react-native-star-rating';
+
+
+
+const styles = StyleSheet.create({
+    content: { padding: 20 },
+    row: {
+        margin: 5, flexDirection: "row"
+    },
+    body: {
+        flex: 1,
+        margin: 10,
+        flexDirection: 'column'
+    },
+    bodyUpper: {
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    thumbnail: {
+        margin: 15
+    },
+    text: {
+        color: "#959899",
+        fontSize: 12,
+        alignSelf: "center"
+    }
+});
+
+
 
 export default class DetailContent extends Component {
     render() {
         return (
-            <View style={{ padding: 20 }}>
-                <View style={{ margin: 5, flexDirection: "row" }}>
+            <View style={styles.content}>
+                <View style={styles.row}>
                     <H1>Miga</H1>
                 </View>
-                <View style={{ margin: 5, flexDirection: "row" }}>
+                <View style={styles.row}>
                     <Text style={{ color: '#93F04F' }}>Open</Text>
                     <Text style={{ color: '#C3BFBF' }}> until 11:00 PM</Text>
                 </View>
 
-                <View style={{ margin: 5, flexDirection: "row" }}>
+                <View style={styles.row}>
                     <Text style={{ color: '#C3BFBF' }}>Japanese, American (New), Sushi Bars</Text>
                 </View>
 
-                <View style={{ margin: 5, flexDirection: "row" }}>
+                <View style={styles.row}>
                     <View style={{ flex: 0.3 }}>
                         <Text style={{ color: '#C3BFBF' }}>Price:</Text>
                     </View>
@@ -38,7 +67,7 @@ export default class DetailContent extends Component {
                 </View>
 
 
-                <View style={{ margin: 5, flexDirection: "row" }}>
+                <View style={styles.row}>
                     <View style={{ flex: 0.3 }}>
                         <Text style={{ color: '#C3BFBF' }}>Rating:</Text>
                     </View>
@@ -57,7 +86,7 @@ export default class DetailContent extends Component {
                     </View>
                 </View>
 
-                <View style={{ margin: 5, flexDirection: "row" }}>
+                <View style={styles.row}>
                     <View style={{ flex: 0.3 }}>
                         <Text style={{ color: '#C3BFBF' }}>Distance:</Text>
                     </View>

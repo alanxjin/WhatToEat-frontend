@@ -1,5 +1,5 @@
 import React, { Component, PureComponent } from 'react'
-import { Image } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 import {
   Container,
   Header,
@@ -16,45 +16,33 @@ import {
   Body
 } from 'native-base'
 
-const avatar = require('../../images/doge.png')
-const backgroundImg = require('../../images/logo.jpg')
+import SidebarHeader from './SidebarHeader'
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#FFF"
+  },
+  header: {
+    height: 150,
+    paddingLeft: 0,
+    paddingRight: 0
+  }
+})
 
 export default class Sidebar extends PureComponent {
   constructor(props) {
     super(props)
   }
   render() {
-    let list = [{
-      title: "Match",
-      onPress: () => {
-        this.props.navigation.navigate('Test')
-      }
-    }, {
-      title: "History",
-      onPress: () => {
-        this.props.navigation.navigate('Test')
-      }
-    }]
-
     return (
-      <Container style={{ backgroundColor: "#FFF" }}>
+      // <Container >
+      // </Container>
+      <Container style={styles.container}>
 
-        {/* <Header style={{ height: 150, paddingLeft: 0, paddingRight: 0 }}>
-          <Body>
-            <View style={{ top: 0, left: 0, right: 0, bottom: 40, position:'absolute' }}>
-              <Image style={{ flex: 1, width: null, height:null, opacity: 0.3  }} source={backgroundImg}/>
-            </View>
-            <View style={{ flex: 1, margin:10, flexDirection: 'column' }}>
-              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <Thumbnail large style={{ margin: 15 }} source={avatar} />
-                <Text> FeedMeNow! </Text>
-              </View>
-              <Text style={{ color: "#959899", fontSize: 12, alignSelf: "center" }}> SuchWow_ManyCool@Doge.gov </Text>
-            </View>
-
-            
-          </Body>
+        <Header style={styles.header}>
+          <SidebarHeader {...this.props}/>
         </Header>
+        
         <Content style={{ backgroundColor: "#F8F7F7" }}>
           <Form>
             <Item last style={{ flexDirection: 'column' }}>
@@ -85,7 +73,7 @@ export default class Sidebar extends PureComponent {
               </Button>
             </Item>
           </Form>
-        </Content> */}
+        </Content>
       </Container>
     )
   }
