@@ -40,12 +40,8 @@ const initialRegion = {
 }
 
 export default class DetailScreen extends Component {
-    constructor(props) {
-        super(props)
-        this.mapOnPress = this.mapOnPress.bind(this)
-    }
 
-    mapOnPress() {
+    mapOnPress = () => {
         this.props.navigation.navigate('Map')
     }
 

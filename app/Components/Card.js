@@ -30,11 +30,7 @@ const styles = StyleSheet.create({
 });
 
 export default class CardStack extends PureComponent {
-    constructor(props) {
-        super(props)
-        this.buttonOnPress = this.buttonOnPress.bind(this)
-    }
-    buttonOnPress() {
+    buttonOnPress = () => {
         this.props.navigation.navigate('Detail')
     }
 

@@ -28,15 +28,14 @@ const cards = [
 
 
 export default class CardStack extends PureComponent {
-    constructor(props){
-        super(props)
-        this.renderItem = this.renderItem.bind(this)
-    }
-    renderItem(item) {
+    // constructor(props){
+    //     super(props)
+    // }
+    renderItem = (item) => {
         return <CardElement {...item} {...this.props} />
     }
 
-    onSwipeRight(card) {
+    onSwipeRight = (card) => {
         // Toast.show({
         //     text: 'Nope!',
         //     type: 'warning',
@@ -45,7 +44,7 @@ export default class CardStack extends PureComponent {
         // })
     }
 
-    onSwipeLeft(card) {
+    onSwipeLeft = (card) => {
         // Toast.show({
         //     text: 'Yup!',
         //     type: 'success',

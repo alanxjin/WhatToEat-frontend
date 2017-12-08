@@ -30,9 +30,6 @@ const styles = StyleSheet.create({
 })
 
 export default class Sidebar extends PureComponent {
-  constructor(props) {
-    super(props)
-  }
   render() {
     return (
       // <Container >

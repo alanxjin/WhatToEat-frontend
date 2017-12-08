@@ -1,9 +1,10 @@
 import React, { Component, PureComponent } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Slider } from 'react-native';
 import { View, Drawer, Container, Header, Content, Footer, FooterTab, Button, Text, Left, Right, Icon, Body, Title } from 'native-base';
 import Sidebar from '../Components/Sidebar'
 import CardStack from '../Components/CardStack'
 import ButtonGroup from '../Components/ButtonGroup'
+
 
 const styles = StyleSheet.create({
     container: {
@@ -19,11 +20,15 @@ const styles = StyleSheet.create({
 export default class MainContainer extends PureComponent {
     constructor(props) {
         super(props)
-        this.toggleDrawer = this.toggleDrawer.bind(this)
+        // this.state = {
+        //     selected: 1,
+        // }
+        //this.toggleDrawer = this.toggleDrawer.bind(this)
     }
-    toggleDrawer() {
+    toggleDrawer = () => {
         this.props.navigation.navigate('DrawerToggle')
     }
+
     render() {
         return (
             <Container>
@@ -37,7 +42,7 @@ export default class MainContainer extends PureComponent {
                         <Title>WhatToEat</Title>
                     </Body>
                     <Right>
-                        <Button transparent onPress={this.toggleDrawer}>
+                        <Button transparent onPress={()=>{}}>
                             <Icon name='filter' />
                         </Button>
                     </Right >
@@ -52,6 +57,7 @@ export default class MainContainer extends PureComponent {
                         <ButtonGroup />
                     </FooterTab>
                 </Footer>
+
             </Container>
         );
     }

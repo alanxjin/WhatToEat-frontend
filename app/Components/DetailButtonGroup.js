@@ -37,12 +37,7 @@ const styles = StyleSheet.create({
 
 
 export default class DetailButtonGroup extends Component {
-    constructor(props) {
-        super(props)
-        this.returnOnPress = this.returnOnPress.bind(this)
-    }
-
-    returnOnPress() {
+    returnOnPress = () => {
         this.props.navigation.goBack();
     }
 

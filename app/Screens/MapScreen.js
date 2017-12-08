@@ -25,12 +25,8 @@ const initialRegion = {
 }
 
 export default class MapScreen extends Component {
-    constructor(props) {
-        super(props)
-        this.returnOnPress = this.returnOnPress.bind(this)
-    }
 
-    returnOnPress() {
+    returnOnPress = () => {
         this.props.navigation.goBack();
     }
 
