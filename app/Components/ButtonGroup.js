@@ -1,6 +1,7 @@
 import React, { Component, PureComponent } from 'react';
 import { View, Button, Text, Icon } from 'native-base';
 import { StyleSheet } from 'react-native';
+import { Button as RNButton } from 'react-native-elements'
 
 
 const styles = StyleSheet.create({

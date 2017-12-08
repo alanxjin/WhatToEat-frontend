@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 import { View, Button, Text, Icon } from 'native-base';
 import { StyleSheet } from 'react-native';
 
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
 });
 
 
-export default class DetailButtonGroup extends Component {
+export default class DetailButtonGroup extends PureComponent {
     returnOnPress = () => {
         this.props.navigation.goBack();
     }

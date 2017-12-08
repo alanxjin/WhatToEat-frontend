@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 import { Image, StatusBar, StyleSheet } from 'react-native';
 import { Container, Header, Left, Right, Content, Footer, FooterTab, List, ListItem, Text, Root, View, CardItem, Body, Button, Icon, Title } from 'native-base';
 import MapView from 'react-native-maps';
@@ -39,7 +39,7 @@ const initialRegion = {
     longitudeDelta: 0.0421,
 }
 
-export default class DetailScreen extends Component {
+export default class DetailScreen extends PureComponent {
 
     mapOnPress = () => {
         this.props.navigation.navigate('Map')
