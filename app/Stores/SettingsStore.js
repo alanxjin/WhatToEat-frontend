@@ -4,7 +4,7 @@ export default class SettingsStore {
     this.splashImg = require('../../images/splash.jpg')
     this.siderbarImg = require('../../images/logo.jpg')
     this.avatarImg = require('../../images/doge.jpg')
-    this.testImg = require('../../images/login.jpg')
+    this.loginImg = require('../../images/login_background.jpg')
   }
   get SplashTime() {
     return this.splashTime
