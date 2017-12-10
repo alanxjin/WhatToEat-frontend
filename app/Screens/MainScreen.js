@@ -18,4 +18,5 @@ const MainScreenDrawer = DrawerNavigator({
     contentComponent: SidebarWrapper
 });
 
+
 export default MainScreenDrawer
