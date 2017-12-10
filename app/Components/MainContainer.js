@@ -1,5 +1,5 @@
 import React, { Component, PureComponent } from 'react';
-import { StyleSheet, Slider } from 'react-native';
+import { StyleSheet, Slider, AsyncStorage, Fetch } from 'react-native';
 import { View, Drawer, Container, Header, Content, Footer, FooterTab, Button, Text, Left, Right, Icon, Body, Title } from 'native-base';
 import Sidebar from '../Components/Sidebar'
 import CardStack from '../Components/CardStack'
@@ -7,6 +7,8 @@ import ButtonGroup from '../Components/ButtonGroup'
 
 import { ActionSheetCustom as ActionSheet } from 'react-native-actionsheet'
 
+var axios = require('axios');
+var dishes = [];
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff'
@@ -42,11 +44,41 @@ export default class MainContainer extends PureComponent {
     constructor(props) {
         super(props)
         this.state = {
-            selected: ''
+            selected: '',
+            loading: true
         }
         this.handlePress = this.handlePress.bind(this)
         this.showActionSheet = this.showActionSheet.bind(this)
     }
+
+    componentWillMount() {
+        this.setState({
+            loading: true
+        })
+        AsyncStorage.multiGet(['email', 'password']).then((data) => {
+            let email = data[0][1];
+            let password = data[1][1];
+            console.log(email)
+
+            if (email === null || password === null){
+                const { navigate } = this.props.navigation;
+                navigate('Login');
+            }else {
+
+                console.log(email)
+                axios.post('https://wte-api.herokuapp.com/api/dishes?limit=20', {'email': email}).then(function (response, error) {
+                    if (error) console.log(error);
+                    else {
+                        dishes = response.data.data.slice();
+                        this.setState({
+                            loading: true
+                        })
+                    }
+                }.bind(this));
+            }
+        });
+    }
+
     toggleDrawer = () => {
         this.props.navigation.navigate('DrawerToggle')
     }
@@ -62,6 +94,9 @@ export default class MainContainer extends PureComponent {
     }
 
     render() {
+        if (loading) {
+            return
+        }
         return (
             <Container>
                 <Header>
