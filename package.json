@@ -19,6 +19,8 @@
 		"react-native-custom-actionsheet": "0.0.3",
 		"react-native-elements": "^0.18.5",
 		"react-native-maps": "^0.18.3",
+		"react-native-modalbox": "^1.4.2",
+		"react-native-popup-dialog": "^0.10.44",
 		"react-native-star-rating": "^1.0.8",
 		"react-native-swipe-cards": "^0.1.1",
 		"react-native-vector-icons": "^4.4.2",

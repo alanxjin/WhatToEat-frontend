@@ -144,7 +144,7 @@ export default class LoginScreen extends Component<{}> {
                 <View style={styles.logo_container}>
                     <Image
                         style={styles.image}
-                        source={require('../../images/login_background.jpg')}
+                        source={this.props.screenProps.settings.loginImg}
                         resizeMode= 'stretch'
                     />
                     <View style={styles.title_container}>
@@ -200,7 +200,6 @@ const styles = StyleSheet.create({
         marginLeft:20,
         marginRight:20,
         marginBottom:20,
-
     },
     form: {
         width:"85%",
@@ -212,7 +211,6 @@ const styles = StyleSheet.create({
         flex: 1,
         height: 'auto',
         width: '100%',
-
     },
     label: {
         fontSize: 12,
