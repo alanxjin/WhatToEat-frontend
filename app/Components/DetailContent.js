@@ -35,30 +35,34 @@ export default class DetailContent extends Component {
     render() {
         return (
             <View style={styles.content}>
+{/* 
                 <View style={styles.row}>
-                    <H1>Miga</H1>
+                    <Text style={{ color: '#C3BFBF' }}>Restaurant</Text>
+                </View> */}
+                <View style={styles.row}>
+                    <H1>{this.props.cardInfo.restaurant.name}</H1>
                 </View>
                 <View style={styles.row}>
                     <Text style={{ color: '#93F04F' }}>Open</Text>
-                    <Text style={{ color: '#C3BFBF' }}> until 11:00 PM</Text>
+                    <Text style={{ color: '#C3BFBF' }}> until 10:00 PM</Text>
                 </View>
-
+                
                 <View style={styles.row}>
-                    <Text style={{ color: '#C3BFBF' }}>Japanese, American (New), Sushi Bars</Text>
+                    <Text style={{ color: '#C3BFBF' }}>Barbecue, Popular</Text>
                 </View>
 
                 <View style={styles.row}>
                     <View style={{ flex: 0.3 }}>
                         <Text style={{ color: '#C3BFBF' }}>Price:</Text>
                     </View>
-                    <View style={{ flex: 0.15 }}>
+                    <View style={{ flex: 0.25 }}>
                         <StarRating
                             disabled={false}
                             emptyStar={'usd'}
                             fullStar={'usd'}
                             halfStar={'usd'}
-                            maxStars={4}
-                            rating={3}
+                            maxStars={5}
+                            rating={this.props.cardInfo.restaurant.price}
                             starColor={'#FFAE40'}
                             emptyStarColor={'#C3BFBF'}
                             starSize={20}
@@ -78,7 +82,7 @@ export default class DetailContent extends Component {
                             fullStar={'heart'}
                             halfStar={'heart'}
                             maxStars={5}
-                            rating={3}
+                            rating={this.props.cardInfo.restaurant.stars}
                             starColor={'#FF6363'}
                             emptyStarColor={'#C3BFBF'}
                             starSize={20}
@@ -86,7 +90,7 @@ export default class DetailContent extends Component {
                     </View>
                 </View>
 
-                <View style={styles.row}>
+                {/* <View style={styles.row}>
                     <View style={{ flex: 0.3 }}>
                         <Text style={{ color: '#C3BFBF' }}>Distance:</Text>
                     </View>
@@ -94,7 +98,7 @@ export default class DetailContent extends Component {
                         <Text style={{ color: '#C3BFBF' }}>1.7 miles</Text>
                     </View>
 
-                </View>
+                </View> */}
             </View>
         );
     }
