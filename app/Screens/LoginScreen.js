@@ -45,15 +45,15 @@ export default class LoginScreen extends Component<{}> {
     }
 
     componentWillMount() {
-        // AsyncStorage.multiGet(['email', 'password']).then((data) => {
-        //     let email = data[0][1];
-        //     let password = data[1][1];
+        AsyncStorage.multiGet(['email', 'password']).then((data) => {
+            let email = data[0][1];
+            let password = data[1][1];
 
-        //     if (email !== null && password !== null){
-        //         const { navigate } = this.props.navigation;
-        //         navigate('Main');
-        //     }
-        // });
+            if (email !== null && password !== null){
+                const { navigate } = this.props.navigation;
+                navigate('Main');
+            }
+        });
     }
 
     updateEmail(email) {this.setState({email})}
@@ -90,32 +90,11 @@ export default class LoginScreen extends Component<{}> {
             }
 
         }.bind(this));
-
-        // axios.post('https://wte-api.herokuapp.com/api/users/register', {'email': email, 'password': pass}).then(function (response) {
-        //     AsyncStorage.multiSet([
-        //         ["email", userInfo.email],
-        //         ["password", userInfo.password]
-        //     ]);
-        //     const { navigate } = this.props.navigation;
-        //     navigate('Main');
-        // }.bind(this)).catch(function (error) {
-        //     console.log(JSON.stringify(error))
-        //     Alert.alert(JSON.stringify(error))
-        // });
     }
 
     handleSignIn() {
         email = this.state.email;
         pass = this.state.pass;
-
-        // axios.post('http://localhost:3000/api/users/login', {email: email, password: pass}).then(function (response_) {
-        //     console.log(email)
-        //     console.log(pass)
-        //     const { navigate } = this.props.navigation;
-        //     navigate('Main')
-        // }.bind(this)).catch(function (error) {
-        //     console.log(error)
-        // });
 
         fetch('https://wte-api.herokuapp.com/api/users/login', {
             method: 'POST',

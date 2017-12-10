@@ -66,8 +66,6 @@ const selectedCard = {
     image: { uri: 'https://static.pexels.com/photos/70497/pexels-photo-70497.jpeg' }
 }
 
-
-
 export default class MainContainer extends PureComponent {
     constructor(props) {
         super(props)
@@ -84,32 +82,19 @@ export default class MainContainer extends PureComponent {
         this.setState({
             loading: true,
         });
-        // axios.post('https://wte-api.herokuapp.com/api/dishes?limit=20', {'email': '123'}).then(function (response, error) {
-        //     if (error) console.log(error);
-        //     else {
-        //         dishes = response.data.data.slice();
-        //         console.log(dishes)
-        //         this.setState({
-        //             loading: false,
-        //         });
-        //     }
-        // }.bind(this));
 
         let email = this.props.navigation.state.params.email;
         let password = this.props.navigation.state.password;
-        console.log(email)
         axios.post('https://wte-api.herokuapp.com/api/dishes?limit=20', {'email': email}).then(function (response, error) {
             if (error) console.log(error);
             else {
                 dishes = response.data.data.slice();
                 console.log(dishes)
-                console.error(this)
                 this.setState({
                     loading: false,
                 });
             }
-        });
-            
+        }.bind(this));
     }
 
     toggleDrawer = () => {
