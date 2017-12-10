@@ -151,7 +151,7 @@ export default class LoginScreen extends Component<{}> {
                     <Image
                         style={styles.image}
                         source={this.props.screenProps.settings.loginImg}
-                        resizeMode= 'stretch'
+                        // resizeMode= 'stretch'
                     />
                     <View style={styles.title_container}>
                         <Text>What To Eat</Text>
