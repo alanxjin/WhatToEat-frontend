@@ -1,14 +1,35 @@
 import React, { Component, PureComponent } from 'react';
-import { StyleSheet, Slider, Alert } from 'react-native';
-import { View, Drawer, Container, Header, Content, Footer, FooterTab, Button, Text, Left, Right, Icon, Body, Title } from 'native-base';
+import {
+    StyleSheet,
+    Slider,
+    AsyncStorage,
+    Fetch,
+    Alert,
+    ActivityIndicator} from 'react-native';
+import {
+    View,
+    Drawer,
+    Container,
+    Header,
+    Content,
+    Footer,
+    FooterTab,
+    Button,
+    Text,
+    Left,
+    Right,
+    Icon,
+    Body,
+    Title } from 'native-base';
 import Sidebar from '../Components/Sidebar'
 import CardStack from '../Components/CardStack'
 import ButtonGroup from '../Components/ButtonGroup'
-//import PopupDialog from 'react-native-popup-dialog';
 import Modal from 'react-native-modalbox';
 
 import { ActionSheetCustom as ActionSheet } from 'react-native-actionsheet'
 
+var axios = require('axios');
+var dishes = [];
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff'
@@ -16,6 +37,10 @@ const styles = StyleSheet.create({
     footer: {
         backgroundColor: '#F8F7F7',
         height: 100
+    },
+    loading_container : {
+        flex: 1,
+        justifyContent: 'center'
     }
 });
 
@@ -375,9 +400,54 @@ const selectedCard = {
 export default class MainContainer extends PureComponent {
     constructor(props) {
         super(props)
+        this.state = {
+            selected: '',
+            loading: true
+        }
+
         this.index = 0
         this.maxIndex = cards.length
     }
+
+    componentWillMount() {
+        this.setState({
+            loading: false,
+        });
+        // axios.post('https://wte-api.herokuapp.com/api/dishes?limit=20', {'email': '123'}).then(function (response, error) {
+        //     if (error) console.log(error);
+        //     else {
+        //         dishes = response.data.data.slice();
+        //         console.log(dishes)
+        //         this.setState({
+        //             loading: false,
+        //         });
+        //     }
+        // }.bind(this));
+
+        // AsyncStorage.multiGet(['email', 'password']).then((data) => {
+        //     let email = data[0][1];
+        //     let password = data[1][1];
+
+        //     if (email === null || password === null){
+        //         const { navigate } = this.props.navigation;
+        //         navigate('Login');
+        //     }else {
+
+        //         console.log(email)
+        //         axios.post('https://wte-api.herokuapp.com/api/dishes?limit=20', {'email': email}).then(function (response, error) {
+        //             if (error) console.log(error);
+        //             else {
+        //                 dishes = response.data.data.slice();
+        //                 console.log(dishes)
+        //                 this.setState({
+        //                     loading: false,
+        //                 });
+        //             }
+        //         }.bind(this));
+        //     }
+        // });
+    }
+
     toggleDrawer = () => {
         this.props.navigation.navigate('DrawerToggle')
     }
@@ -451,6 +521,11 @@ export default class MainContainer extends PureComponent {
     }
 
     render() {
+        if (this.state.loading) {
+            return (<View style={styles.loading_container}>
+                <ActivityIndicator size="large" />
+            </View>)
+        }
         return (
 
             <Container>

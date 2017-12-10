@@ -13,7 +13,9 @@ import {
     Image,
     Alert,
     TextInput,
-    Keyboard
+    Keyboard,
+    AsyncStorage,
+    Fetch
 } from 'react-native';
 import {
     Button,
@@ -27,7 +29,7 @@ import {
     Label
 } from 'native-base';
 
-var axios = require('axios');
+
 
 export default class LoginScreen extends Component<{}> {
     static navigationOptions = {
@@ -41,6 +43,19 @@ export default class LoginScreen extends Component<{}> {
             conPass: ''
         }
     }
+
+    componentWillMount() {
+        // AsyncStorage.multiGet(['email', 'password']).then((data) => {
+        //     let email = data[0][1];
+        //     let password = data[1][1];
+
+        //     if (email !== null && password !== null){
+        //         const { navigate } = this.props.navigation;
+        //         navigate('Main');
+        //     }
+        // });
+    }
+
     updateEmail(email) {this.setState({email})}
     updatePassword(pass) {this.setState({pass})}
     updateConPassword(conPass) {this.setState({conPass})}
@@ -51,24 +66,82 @@ export default class LoginScreen extends Component<{}> {
         conPass = this.state.conPass;
 
         const { navigate } = this.props.navigation;
-        navigate('Main')
-        // axios.get('').then(function (response_1) {
-        //
-        // }.bind(this)).catch(function (error_1) {
-        //
+        navigate('Main');
+
+        // fetch('https://wte-api.herokuapp.com/api/users/register', {
+        //     method: 'POST',
+        //     headers: {
+        //         Accept: 'application/json',
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({
+        //         'email': email,
+        //         'password': pass
+        //     }),
+        // }).then(function (response, error) {
+        //     if (error) {Alert.alert(JSON.stringify(error))}
+        //     else{
+        //         AsyncStorage.multiSet([
+        //             ["email", email],
+        //             ["password", pass]
+        //         ], ()=>{
+        //             const { navigate } = this.props.navigation;
+        //             navigate('Main');
+        //         });
+        //     }
+        // }.bind(this));
+
+        // axios.post('https://wte-api.herokuapp.com/api/users/register', {'email': email, 'password': pass}).then(function (response) {
+        //     AsyncStorage.multiSet([
+        //         ["email", userInfo.email],
+        //         ["password", userInfo.password]
+        //     ]);
+        //     const { navigate } = this.props.navigation;
+        //     navigate('Main');
+        // }.bind(this)).catch(function (error) {
+        //     console.log(JSON.stringify(error))
+        //     Alert.alert(JSON.stringify(error))
         // });
     }
 
     handleSignIn() {
         email = this.state.email;
         pass = this.state.pass;
+
         const { navigate } = this.props.navigation;
-        navigate('Main')
-        // axios.get('').then(function (response_1) {
-        //
-        // }.bind(this)).catch(function (error_1) {
-        //
+        navigate('Main');
+
+        // axios.post('http://localhost:3000/api/users/login', {email: email, password: pass}).then(function (response_) {
+        //     console.log(email)
+        //     console.log(pass)
+        //     const { navigate } = this.props.navigation;
+        //     navigate('Main')
+        // }.bind(this)).catch(function (error) {
+        //     console.log(error)
         // });
+
+        // fetch('https://wte-api.herokuapp.com/api/users/login', {
+        //     method: 'POST',
+        //     headers: {
+        //         Accept: 'application/json',
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({
+        //         'email': email,
+        //         'password': pass
+        //     }),
+        // }).then(function (response, error) {
+        //     if (error) {Alert.alert(JSON.stringify(error))}
+        //     else{
+        //         AsyncStorage.multiSet([
+        //             ["email", email],
+        //             ["password", pass]
+        //         ]);
+        //         const { navigate } = this.props.navigation;
+        //         navigate('Main');
+        //     }
+
+        // }.bind(this));
     }
 
     render() {
@@ -94,10 +167,10 @@ export default class LoginScreen extends Component<{}> {
                             <Label style={{fontSize: 15, color:'grey'}}>{'Password'}</Label>
                             <Input secureTextEntry={true} onChangeText={(pass) => { this.updatePassword(pass)}}/>
                         </Item>
-                        <Item floatingLabel>
+                        {/* <Item floatingLabel>
                             <Label style={{fontSize: 15, color:'grey'}}>{'Confirm Password'}</Label>
                             <Input secureTextEntry={true} onChangeText={(conpass) => { this.updateConPassword(conpass)}}/>
-                        </Item>
+                        </Item> */}
                     </Form>
                     <View style={styles.buttons_container}>
                         <Button block style={[styles.button, styles.button_left]} onPress={this.handleSignUp.bind(this)}><Text style={{color: 'grey'}}>SIGN UP</Text></Button>

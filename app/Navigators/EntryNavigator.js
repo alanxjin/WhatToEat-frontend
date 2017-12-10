@@ -40,7 +40,7 @@ const EntryNavigator = StackNavigator(
     }
   },
   {
-    initialRouteName: 'Main',
+    initialRouteName: 'Login',
     headerMode: 'none',
   }
 );
