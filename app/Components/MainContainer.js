@@ -19,25 +19,7 @@ const styles = StyleSheet.create({
     }
 });
 
-
-
-// const cards = [
-//     {
-//         name: 'Burger',
-//         imgUrl: 'https://static.pexels.com/photos/70497/pexels-photo-70497.jpeg'
-//     },
-//     {
-//         name: 'Fried Chicken',
-//         imgUrl: 'http://cdn-image.foodandwine.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/1502824044/royal-farms-best-gas-station-food-FT-SS0817.jpg?itok=jJwvdRJB' 
-//     },
-//     {
-//         name: 'Ramen',
-//         imgUrl:  'https://www.chowstatic.com/assets/2014/11/31178_slow_cooker_pork_ramen_3000.jpg'     
-//     }
-// ];
-
-
-const cards = [
+const cards2 = [
     {
         "_id": {
             "$oid": "5a2bbf10aece2b92b868c1cd"
@@ -171,6 +153,183 @@ const cards = [
             "name": "Dragon Fire Pizza",
             "price": 1,
             "rest_id": "a3hjBPsnpcTpcquQXLeS0w",
+            "stars": 4.5
+        },
+        "tag": {}
+    }
+]
+
+
+const cards = [
+    {
+        "_id": {
+            "$oid": "5a2bbf11aece2b92b868c46b"
+        },
+        "imgUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/rAFy2zIImv6YBY6wdyyyXg/o.jpg",
+        "name": "Smoked Salmon for brunch :)",
+        "rating": 0,
+        "restaurant": {
+            "address": {
+                "city": "Urbana",
+                "coord": [
+                    40.1066554,
+                    -88.2236278
+                ],
+                "state": "IL",
+                "street": "706 S Goodwin Ave",
+                "zipcode": "61801"
+            },
+            "hours": {
+                "Friday": "8:00-23:00",
+                "Monday": "8:00-22:00",
+                "Saturday": "11:00-23:00",
+                "Sunday": "11:00-22:00",
+                "Thursday": "8:00-22:00",
+                "Tuesday": "8:00-22:00",
+                "Wednesday": "8:00-22:00"
+            },
+            "name": "The Bread Company",
+            "price": 2,
+            "rest_id": "Ah4i15g8Ow_zphzcpulTxQ",
+            "stars": 3.5
+        },
+        "tag": {}
+    },
+    {
+        "_id": {
+            "$oid": "5a2bbf11aece2b92b868c46d"
+        },
+        "imgUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/JhhrG_XUoyICg6gJnrIndw/o.jpg",
+        "name": "Large pizza.",
+        "rating": 0,
+        "restaurant": {
+            "address": {
+                "city": "Champaign",
+                "coord": [
+                    40.0815042,
+                    -88.2963437
+                ],
+                "state": "IL",
+                "street": "2511 Village Green Pl",
+                "zipcode": "61822"
+            },
+            "hours": {
+                "Friday": "11:00-2:00",
+                "Monday": "11:00-2:00",
+                "Saturday": "11:00-2:00",
+                "Sunday": "11:00-2:00",
+                "Thursday": "11:00-2:00",
+                "Tuesday": "11:00-2:00",
+                "Wednesday": "11:00-2:00"
+            },
+            "name": "Jupiter's Pizzeria and Billards",
+            "price": 2,
+            "rest_id": "JbnNk6do3aHF3Kr1bX4HzQ",
+            "stars": 3
+        },
+        "tag": {}
+    }
+
+    ,
+    {
+        "_id": {
+            "$oid": "5a2bbf11aece2b92b868c457"
+        },
+        "imgUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/iksMb8XztzpvOji8ZuPFUw/o.jpg",
+        "name": "Ma Po Tofu",
+        "rating": 0,
+        "restaurant": {
+            "address": {
+                "city": "Champaign",
+                "coord": [
+                    40.1094391,
+                    -88.2306035
+                ],
+                "state": "IL",
+                "street": "711 S 6th St",
+                "zipcode": "61820"
+            },
+            "hours": {
+                "Friday": "11:00-21:30",
+                "Monday": "11:00-21:30",
+                "Sunday": "11:00-21:30",
+                "Thursday": "11:00-21:30",
+                "Tuesday": "11:00-21:30",
+                "Wednesday": "11:00-21:30"
+            },
+            "name": "Evo Cafe",
+            "price": 2,
+            "rest_id": "OyBStpjF5e_iRCMXflFasQ",
+            "stars": 2.5
+        },
+        "tag": {}
+    },
+
+    {
+        "_id": {
+            "$oid": "5a2bbf10aece2b92b868c2f4"
+        },
+        "imgUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/_-PJTN6ZN1iesZFEXiKgLA/o.jpg",
+        "name": "Guava juice and braised pork",
+        "rating": 0,
+        "restaurant": {
+            "address": {
+                "city": "Champaign",
+                "coord": [
+                    40.1171251,
+                    -88.2426687
+                ],
+                "state": "IL",
+                "street": "119 N Walnut St",
+                "zipcode": "61820"
+            },
+            "hours": {
+                "Friday": "15:00-2:00",
+                "Monday": "15:00-2:00",
+                "Saturday": "10:30-2:00",
+                "Sunday": "10:30-2:00",
+                "Thursday": "15:00-2:00",
+                "Tuesday": "15:00-2:00",
+                "Wednesday": "15:00-2:00"
+            },
+            "name": "Radio Maria",
+            "price": 2,
+            "rest_id": "lWmDrnqgU6w3gFaJyn_1Uw",
+            "stars": 3.5
+        },
+        "tag": {}
+    }
+    ,
+    {
+        "_id": {
+            "$oid": "5a2bbf11aece2b92b868c321"
+        },
+        "imgUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/zOfwA5pljwmXmWYUpOAShw/o.jpg",
+        "name": "Wings&Bleu Cheese",
+        "rating": 0,
+        "restaurant": {
+            "address": {
+                "city": "Urbana",
+                "coord": [
+                    40.1138182155,
+                    -88.2076892527
+                ],
+                "state": "IL",
+                "street": "201 N Broadway Ave",
+                "zipcode": "61801"
+            },
+            "hours": {
+                "Friday": "11:00-23:00",
+                "Monday": "11:00-22:00",
+                "Saturday": "11:00-23:00",
+                "Sunday": "11:00-22:00",
+                "Thursday": "11:00-22:00",
+                "Tuesday": "11:00-22:00",
+                "Wednesday": "11:00-22:00"
+            },
+            "name": "Black Dog Smoke & Ale House",
+            "price": 2,
+            "rest_id": "9MnbQg7kfb_WgxoV0hXKSQ",
             "stars": 4.5
         },
         "tag": {}
@@ -318,7 +477,7 @@ export default class MainContainer extends PureComponent {
                         getDeck={this.getDeck}
                         onSwipeRight={this.onSwipeRight}
                         onSwipeLeft={this.onSwipeLeft}
-                         />
+                    />
                 </Container>
 
                 <Footer style={styles.footer}>

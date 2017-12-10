@@ -45,17 +45,17 @@ export default class Sidebar extends PureComponent {
         <Content style={{ backgroundColor: "#F8F7F7" }}>
 
           <View style={{ padding: 15, flexDirection: 'column' }}>
-            <Button full transparent style={{ margin: 10, justifyContent: "flex-start", backgroundColor: "#F8F7F7" }}>
+            <Button full transparent style={{ margin: 15, justifyContent: "flex-start", backgroundColor: "#F8F7F7" }}>
               <Icon name='user' style={{ color: "#959899" }} />
               <Text uppercase={false} style={{ color: "#959899" }}>My Profile</Text>
             </Button>
 
-            <Button full transparent style={{ flex: 1, margin: 10, justifyContent: "flex-start" }}>
+            <Button full transparent style={{ margin: 15, justifyContent: "flex-start" }}>
               <Icon name='bookmark' style={{ color: "#959899" }} />
               <Text uppercase={false} style={{ color: "#959899" }}>Saved List</Text>
             </Button>
 
-            <Button full transparent style={{ flex: 1, margin: 10, justifyContent: "flex-start" }}>
+            <Button full transparent style={{ margin: 15, justifyContent: "flex-start" }}>
               <Icon name='cutlery' style={{ color: "#959899" }} />
               <Text uppercase={false} style={{ color: "#959899" }}>Diet History</Text>
             </Button>
@@ -69,11 +69,11 @@ export default class Sidebar extends PureComponent {
           />
 
           <View style={{ flexDirection: 'column', padding: 15, }}>
-            <Button full rounded style={{ margin: 10, backgroundColor: '#fff', justifyContent: "flex-start" }} borderRadius={50}>
+            <Button full rounded style={{ margin: 15, backgroundColor: '#fff', justifyContent: "flex-start" }} borderRadius={50}>
               <Icon name='cog' style={{ color: "#959899" }} />
               <Text uppercase={false} style={{ color: "#959899" }}>Settings</Text>
             </Button>
-            <Button full rounded style={{ margin: 10, backgroundColor: '#fff', justifyContent: "flex-start" }}>
+            <Button full rounded style={{ margin: 15, backgroundColor: '#fff', justifyContent: "flex-start" }}>
               <Icon name='power-off' style={{ color: "#959899" }} />
               <Text uppercase={false} style={{ color: "#959899" }}>Log Out</Text>
             </Button>

@@ -95,7 +95,7 @@ export default class DetailScreen extends PureComponent {
                     <View style={styles.imageView}>
                         <Image style={styles.image} source={{ uri: selectedCard.imgUrl }} />
                     </View>
-                    <DetailContent  {...this.props} />
+                    <DetailContent  {...this.props} cardInfo={selectedCard} />
 
                     <View style={styles.mapView}>
                         <MapView
