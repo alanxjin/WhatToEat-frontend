@@ -75,7 +75,8 @@ export default class MainContainer extends PureComponent {
         super(props)
         this.state = {
             selected: '',
-            loading: false
+            loading: false,
+            cards:[]
         }
 
         this.index = 0
@@ -93,11 +94,13 @@ export default class MainContainer extends PureComponent {
             if (error) console.log(error);
             else {
                 dishes = response.data.data.slice();
-                console.log(dishes)
                 this.setState({
                     loading: false,
+                    cards: dishes
                 });
             }
+            
+        console.log(dishes)
         }.bind(this));
     }
 
@@ -113,6 +116,26 @@ export default class MainContainer extends PureComponent {
     dislikeAction = () => {
         this.deck._root.swipeRight()
         this.dislike()
+    }
+
+    likeAPI = (imgUrl) => {
+        let email = this.props.navigation.state.params.email;
+        axios.put('https://wte-api.herokuapp.com/api/users/like', {'imgUrl': imgUrl, 'email':email}).then(function (response, error) {
+            if (error) console.log(error);
+            else {
+                console.log(response)
+            }
+        }.bind(this));
+    }
+
+    dislikeAPI = (imgUrl) => {
+        let email = this.props.navigation.state.params.email;
+        axios.put('https://wte-api.herokuapp.com/api/users/like', {'imgUrl': imgUrl, 'email':email}).then(function (response, error) {
+            if (error) console.log(error);
+            else {
+                console.log(response)
+            }
+        }.bind(this));
     }
 
     like = () => {
@@ -178,7 +201,7 @@ export default class MainContainer extends PureComponent {
     }
 
     render() {
-        if (false) {
+        if (this.state.loading) {
             return (<View style={styles.loading_container}>
                 <ActivityIndicator size="large" />
             </View>)
@@ -205,7 +228,7 @@ export default class MainContainer extends PureComponent {
                 <Container style={styles.container}>
                     <CardStack
                         navigation={this.props.navigation}
-                        cards={cards}
+                        cards={this.state.cards}
                         getDeck={this.getDeck}
                         onSwipeRight={this.onSwipeRight}
                         onSwipeLeft={this.onSwipeLeft} />

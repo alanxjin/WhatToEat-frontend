@@ -8,6 +8,7 @@ import theme from '../theme/theme';
 
 import MainNavigator from './MainNavigator'
 import LoginScreen from '../Screens/LoginScreen'
+import SignUpScreen from '../Screens/SignUpScreen'
 import SplashScreen from '../Screens/SplashScreen'
 import MainScreen from '../Screens/MainScreen'
 import TestScreen from '../Screens/TestScreen'
@@ -34,7 +35,10 @@ const EntryNavigator = StackNavigator(
       screen: TestScreen
     },
     Login: {
-      screen: LoginScreen,
+      screen: LoginScreen
+    },
+      SignUp: {
+      screen: SignUpScreen
     },
     Splash: {
       screen: SplashScreen,
