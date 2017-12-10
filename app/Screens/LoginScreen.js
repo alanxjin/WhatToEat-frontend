@@ -78,12 +78,15 @@ export default class LoginScreen extends Component<{}> {
         }).then(function (response, error) {
             if (error) {Alert.alert(JSON.stringify(error))}
             else{
+
                 AsyncStorage.multiSet([
                     ["email", email],
                     ["password", pass]
-                ]);
-                const { navigate } = this.props.navigation;
-                navigate('Main');
+                ], ()=>{
+                    const { navigate } = this.props.navigation;
+                    navigate('Main');
+                });
+
             }
 
         }.bind(this));
