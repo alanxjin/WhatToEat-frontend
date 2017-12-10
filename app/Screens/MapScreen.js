@@ -77,7 +77,7 @@ export default class MapScreen extends PureComponent {
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
         }
-        requestCameraPermission()
+        //requestCameraPermission()
     }
 
     returnOnPress = () => {

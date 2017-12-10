@@ -28,7 +28,7 @@ import Modal from 'react-native-modalbox';
 
 import { ActionSheetCustom as ActionSheet } from 'react-native-actionsheet'
 
-const DEMO_FLAG = false
+const DEMO_FLAG = true
 
 var axios = require('axios');
 var dishes = [];
@@ -362,7 +362,7 @@ const cards3 = [
     }
 ]
 
-const cards = (DEMO_FLAG? cards2:card3)
+const cards = (DEMO_FLAG? cards2:cards3)
 
 const selectedCard = {
     "_id": {
@@ -508,7 +508,7 @@ export default class MainContainer extends PureComponent {
     }
 
     componentDidMount() {
-        if (false) {
+        if (DEMO_FLAG) {
             Alert.alert(
                 'Tell us about your meal',
                 'Do you like "' + selectedCard.name + '" you had last time?',
