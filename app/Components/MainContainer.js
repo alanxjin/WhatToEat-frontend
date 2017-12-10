@@ -71,7 +71,8 @@ export default class MainContainer extends PureComponent {
         super(props)
         this.state = {
             selected: '',
-            loading: false
+            loading: false,
+            cards:[]
         }
 
         this.index = 0
@@ -91,8 +92,11 @@ export default class MainContainer extends PureComponent {
                 dishes = response.data.data.slice();
                 this.setState({
                     loading: false,
+                    cards: dishes
                 });
             }
+            
+        console.log(dishes)
         }.bind(this));
     }
 
@@ -191,7 +195,7 @@ export default class MainContainer extends PureComponent {
     }
 
     render() {
-        if (false) {
+        if (this.state.loading) {
             return (<View style={styles.loading_container}>
                 <ActivityIndicator size="large" />
             </View>)
@@ -218,7 +222,7 @@ export default class MainContainer extends PureComponent {
                 <Container style={styles.container}>
                     <CardStack
                         navigation={this.props.navigation}
-                        cards={cards}
+                        cards={this.state.cards}
                         getDeck={this.getDeck}
                         onSwipeRight={this.onSwipeRight}
                         onSwipeLeft={this.onSwipeLeft} />
