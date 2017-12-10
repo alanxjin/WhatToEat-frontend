@@ -76,7 +76,7 @@ export default class MainContainer extends PureComponent {
         }
 
         this.index = 0
-        this.maxIndex = cards.length
+        this.maxIndex = 0
     }
 
     componentWillMount() {
@@ -94,9 +94,12 @@ export default class MainContainer extends PureComponent {
                     loading: false,
                     cards: dishes
                 });
+
+                
+                this.maxIndex = dishes.length
+                this.props.screenProps.settings.selected = dishes[0]
             }
             
-        console.log(dishes)
         }.bind(this));
     }
 
@@ -138,7 +141,7 @@ export default class MainContainer extends PureComponent {
         
         Alert.alert(
             'You chose "Like" ',
-            'Are you going to try '+ cards[this.index].name +'?',
+            'Are you going to try '+ this.state.cards[this.index].name +'?',
             [
                 { text: 'No' },
                 { text: 'Yes',  onPress: this.likeConfirmAction },
@@ -147,12 +150,14 @@ export default class MainContainer extends PureComponent {
         )
 
         this.index = (++this.index) % this.maxIndex
+        this.props.screenProps.settings.selected = this.state.cards[this.index]
         
 
     }
 
     dislike = () => {
         this.index = (++this.index) % this.maxIndex
+        this.props.screenProps.settings.selected = this.state.cards[this.index]
     }
 
     likeConfirmAction = () => {
