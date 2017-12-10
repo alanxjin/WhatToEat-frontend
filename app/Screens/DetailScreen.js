@@ -6,6 +6,39 @@ import DetailButtonGroup from '../Components/DetailButtonGroup'
 import DetailContent from '../Components/DetailContent'
 
 
+const selectedCard = {
+    "_id": {
+        "$oid": "5a2bbf10aece2b92b868c22c"
+    },
+    "imgUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/XZwIGL_4mQHRWXPjPq6W1w/o.jpg",
+    "name": "Jalapeno, red onion and pepperoni!",
+    "rating": 0,
+    "restaurant": {
+        "address": {
+            "city": "Champaign",
+            "coord": [
+                40.1164204,
+                -88.2433829
+            ],
+            "state": "IL",
+            "street": "",
+            "zipcode": ""
+        },
+        "hours": {
+            "Friday": "11:00-14:00",
+            "Monday": "11:00-14:00",
+            "Saturday": "10:00-14:00",
+            "Thursday": "11:00-14:00",
+            "Tuesday": "11:00-14:00",
+            "Wednesday": "11:00-14:00"
+        },
+        "name": "Dragon Fire Pizza",
+        "price": 1,
+        "rest_id": "a3hjBPsnpcTpcquQXLeS0w",
+        "stars": 4.5
+    },
+    "tag": {}
+}
 
 const styles = StyleSheet.create({
     content: {
@@ -31,15 +64,19 @@ const styles = StyleSheet.create({
     }
 });
 
-const image = { uri: 'https://static.pexels.com/photos/70497/pexels-photo-70497.jpeg' }
-const initialRegion = {
-    latitude: 37.78825,
-    longitude: -122.4324,
-    latitudeDelta: 0.0922,
-    longitudeDelta: 0.0421,
-}
+
 
 export default class DetailScreen extends PureComponent {
+
+    componentWillMount(){
+        this.initialRegion = {
+            latitude: selectedCard.restaurant.address.coord[0],
+            longitude:  selectedCard.restaurant.address.coord[1],
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+        }
+
+    }
 
     mapOnPress = () => {
         this.props.navigation.navigate('Map')
@@ -56,23 +93,28 @@ export default class DetailScreen extends PureComponent {
                 <Content style={styles.content}>
 
                     <View style={styles.imageView}>
-                        <Image style={styles.image} source={image} />
+                        <Image style={styles.image} source={{ uri: selectedCard.imgUrl }} />
                     </View>
                     <DetailContent  {...this.props} />
 
                     <View style={styles.mapView}>
                         <MapView
-                            initialRegion={initialRegion}
+                            initialRegion={ this.initialRegion}
                             liteMode
                             onPress={this.mapOnPress}
+                            showsUserLocation={true}
                             style={styles.map}
-                        />
+                        >
+                            <MapView.Marker
+                                coordinate={ this.initialRegion}
+                            />
+                        </MapView>
                     </View>
                 </Content>
 
                 <Footer style={styles.footer}>
                     <FooterTab>
-                        <DetailButtonGroup {...this.props}/>
+                        <DetailButtonGroup {...this.props} />
                     </FooterTab>
                 </Footer>
             </Container>

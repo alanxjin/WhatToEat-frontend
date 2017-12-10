@@ -38,7 +38,7 @@ export default class CardStack extends PureComponent {
         return (
             <Card style={styles.card}>
                 <CardItem cardBody style={styles.card.cardBody}>
-                    <Image style={styles.image} source={this.props.image} />
+                    <Image style={styles.image} source={{ uri: this.props.imgUrl }} />
                 </CardItem>
                 <CardItem style={styles.cardFooter}>
                     <Text>{this.props.name}</Text>
