@@ -8,6 +8,10 @@ import ButtonGroup from '../Components/ButtonGroup'
 import { ActionSheetCustom as ActionSheet } from 'react-native-actionsheet'
 
 const styles = StyleSheet.create({
+    header: {
+        backgroundColor: '#F8F7F7',
+        height: 100
+    },
     container: {
         backgroundColor: '#fff'
     },
@@ -64,7 +68,7 @@ export default class MainContainer extends PureComponent {
     render() {
         return (
             <Container>
-                <Header>
+                <Header style={styles.header}>
                     <Left>
                         <Button transparent onPress={this.toggleDrawer}>
                             <Icon name='bars' />

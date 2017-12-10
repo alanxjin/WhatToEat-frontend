@@ -32,7 +32,17 @@ const styles = StyleSheet.create({
 })
 
 export default class Sidebar extends PureComponent {
+  constructor(props) {
+    super(props)
+    this.savedOnPress = this.savedOnPress.bind(this)
+  }
+  savedOnPress() {
+    console.log('navigation is :', this.navigation)
+    this.props.navigation.navigate('Saved')
+  }
+
   render() {
+    // const {navigate} = this.props.navigation
     return (
       // <Container >
       // </Container>
@@ -50,7 +60,7 @@ export default class Sidebar extends PureComponent {
               <Text uppercase={false} style={{ color: "#959899" }}>My Profile</Text>
             </Button>
 
-            <Button full transparent style={{ flex: 1, margin: 10, justifyContent: "flex-start" }}>
+            <Button full transparent style={{ flex: 1, margin: 10, justifyContent: "flex-start" }} onPress={this.savedOnPress}>
               <Icon name='bookmark' style={{ color: "#959899" }} />
               <Text uppercase={false} style={{ color: "#959899" }}>Saved List</Text>
             </Button>
