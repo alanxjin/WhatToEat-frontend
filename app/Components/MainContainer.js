@@ -28,6 +28,8 @@ import Modal from 'react-native-modalbox';
 
 import { ActionSheetCustom as ActionSheet } from 'react-native-actionsheet'
 
+const DEMO_FLAG = false
+
 var axios = require('axios');
 var dishes = [];
 const styles = StyleSheet.create({
@@ -185,7 +187,7 @@ const cards2 = [
 ]
 
 
-const cards = [
+const cards3 = [
     {
         "_id": {
             "$oid": "5a2bbf11aece2b92b868c46b"
@@ -324,8 +326,7 @@ const cards = [
         },
         "tag": {}
     }
-    ,
-    {
+    ,{
         "_id": {
             "$oid": "5a2bbf11aece2b92b868c321"
         },
@@ -361,35 +362,38 @@ const cards = [
     }
 ]
 
+const cards = (DEMO_FLAG? cards2:card3)
+
 const selectedCard = {
     "_id": {
-        "$oid": "5a2bbf10aece2b92b868c22c"
+        "$oid": "5a2bbf11aece2b92b868c321"
     },
-    "imgUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/XZwIGL_4mQHRWXPjPq6W1w/o.jpg",
-    "name": "Jalapeno, red onion and pepperoni!",
+    "imgUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/zOfwA5pljwmXmWYUpOAShw/o.jpg",
+    "name": "Wings&Bleu Cheese",
     "rating": 0,
     "restaurant": {
         "address": {
-            "city": "Champaign",
+            "city": "Urbana",
             "coord": [
-                40.1164204,
-                -88.2433829
+                40.1138182155,
+                -88.2076892527
             ],
             "state": "IL",
-            "street": "",
-            "zipcode": ""
+            "street": "201 N Broadway Ave",
+            "zipcode": "61801"
         },
         "hours": {
-            "Friday": "11:00-14:00",
-            "Monday": "11:00-14:00",
-            "Saturday": "10:00-14:00",
-            "Thursday": "11:00-14:00",
-            "Tuesday": "11:00-14:00",
-            "Wednesday": "11:00-14:00"
+            "Friday": "11:00-23:00",
+            "Monday": "11:00-22:00",
+            "Saturday": "11:00-23:00",
+            "Sunday": "11:00-22:00",
+            "Thursday": "11:00-22:00",
+            "Tuesday": "11:00-22:00",
+            "Wednesday": "11:00-22:00"
         },
-        "name": "Dragon Fire Pizza",
-        "price": 1,
-        "rest_id": "a3hjBPsnpcTpcquQXLeS0w",
+        "name": "Black Dog Smoke & Ale House",
+        "price": 2,
+        "rest_id": "9MnbQg7kfb_WgxoV0hXKSQ",
         "stars": 4.5
     },
     "tag": {}
