@@ -41,6 +41,16 @@ export default class DetailButtonGroup extends PureComponent {
         this.props.navigation.goBack();
     }
 
+    likeOnPress = () => {
+        this.returnOnPress()
+        this.props.screenProps.settings.mainContainer.likeAction()
+    }
+
+    dislikeOnPress = () => {
+        this.returnOnPress()
+        this.props.screenProps.settings.mainContainer.dislikeAction()
+    }
+
     render() {
         return (
             <View style={styles.buttonGroup}>
@@ -51,12 +61,12 @@ export default class DetailButtonGroup extends PureComponent {
                 </View>
                 <View style={styles.buttonView}>
                     <Button style={styles.button}>
-                        <Icon name='heart' style={styles.icon2} />
+                        <Icon name='heart' style={styles.icon2}  onPress={this.likeOnPress} />
                     </Button>
                 </View>
                 <View style={styles.buttonView}>
                     <Button style={styles.button}>
-                        <Icon name='close' style={styles.icon3} />
+                        <Icon name='close' style={styles.icon3}   onPress={this.dislikeOnPress}/>
                     </Button>
                 </View>
                 <View style={styles.buttonView}>

@@ -68,16 +68,24 @@ const styles = StyleSheet.create({
 
 
 export default class DetailScreen extends PureComponent {
-
-    componentWillMount(){
+    componentWillMount() {
         this.initialRegion = {
-            latitude: selectedCard.restaurant.address.coord[0],
-            longitude:  selectedCard.restaurant.address.coord[1],
+            latitude: this.props.screenProps.settings.selected.restaurant.address.coord[0],
+            longitude: this.props.screenProps.settings.selected.restaurant.address.coord[1],
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
         }
-
     }
+
+    // componentWillMount(){
+    //     this.initialRegion = {
+    //         latitude: selectedCard.restaurant.address.coord[0],
+    //         longitude:  selectedCard.restaurant.address.coord[1],
+    //         latitudeDelta: 0.0922,
+    //         longitudeDelta: 0.0421,
+    //     }
+
+    // }
 
     mapOnPress = () => {
         this.props.navigation.navigate('Map')
@@ -94,20 +102,20 @@ export default class DetailScreen extends PureComponent {
                 <Content style={styles.content}>
 
                     <View style={styles.imageView}>
-                        <Image style={styles.image} source={{ uri: selectedCard.imgUrl }} />
+                        <Image style={styles.image} source={{ uri: this.props.screenProps.settings.selected.imgUrl }} />
                     </View>
-                    <DetailContent  {...this.props} cardInfo={selectedCard} />
+                    <DetailContent  {...this.props} cardInfo={this.props.screenProps.settings.selected} />
 
                     <View style={styles.mapView}>
                         <MapView
-                            initialRegion={ this.initialRegion}
+                            initialRegion={this.initialRegion}
                             liteMode
                             onPress={this.mapOnPress}
                             showsUserLocation={true}
                             style={styles.map}
                         >
                             <MapView.Marker
-                                coordinate={ this.initialRegion}
+                                coordinate={this.initialRegion}
                             />
                         </MapView>
                     </View>

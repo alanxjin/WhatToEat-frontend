@@ -399,57 +399,42 @@ const selectedCard = {
     "tag": {}
 }
 
-
-
 export default class MainContainer extends PureComponent {
     constructor(props) {
         super(props)
         this.state = {
             selected: '',
-            loading: true
+            loading: false,
+            cards:[]
         }
 
         this.index = 0
-        this.maxIndex = cards.length
+        this.maxIndex = 0
+        this.props.screenProps.settings.mainContainer = this
     }
 
     componentWillMount() {
         this.setState({
-            loading: false,
+            loading: true,
         });
-        // axios.post('https://wte-api.herokuapp.com/api/dishes?limit=20', {'email': '123'}).then(function (response, error) {
-        //     if (error) console.log(error);
-        //     else {
-        //         dishes = response.data.data.slice();
-        //         console.log(dishes)
-        //         this.setState({
-        //             loading: false,
-        //         });
-        //     }
-        // }.bind(this));
 
-        // AsyncStorage.multiGet(['email', 'password']).then((data) => {
-        //     let email = data[0][1];
-        //     let password = data[1][1];
+        let email = this.props.navigation.state.params.email;
+        let password = this.props.navigation.state.password;
+        axios.post('https://wte-api.herokuapp.com/api/dishes?limit=20', {'email': email}).then(function (response, error) {
+            if (error) console.log(error);
+            else {
+                dishes = response.data.data.slice();
+                this.setState({
+                    loading: false,
+                    cards: dishes
+                });
 
-        //     if (email === null || password === null){
-        //         const { navigate } = this.props.navigation;
-        //         navigate('Login');
-        //     }else {
-
-        //         console.log(email)
-        //         axios.post('https://wte-api.herokuapp.com/api/dishes?limit=20', {'email': email}).then(function (response, error) {
-        //             if (error) console.log(error);
-        //             else {
-        //                 dishes = response.data.data.slice();
-        //                 console.log(dishes)
-        //                 this.setState({
-        //                     loading: false,
-        //                 });
-        //             }
-        //         }.bind(this));
-        //     }
-        // });
+                
+                this.maxIndex = dishes.length
+                this.props.screenProps.settings.selected = dishes[0]
+            }
+            
+        }.bind(this));
     }
 
     toggleDrawer = () => {
@@ -466,10 +451,30 @@ export default class MainContainer extends PureComponent {
         this.dislike()
     }
 
+    likeAPI = (imgUrl) => {
+        let email = this.props.navigation.state.params.email;
+        axios.put('https://wte-api.herokuapp.com/api/users/like', {'imgUrl': imgUrl, 'email':email}).then(function (response, error) {
+            if (error) console.log(error);
+            else {
+                console.log(response)
+            }
+        }.bind(this));
+    }
+
+    dislikeAPI = (imgUrl) => {
+        let email = this.props.navigation.state.params.email;
+        axios.put('https://wte-api.herokuapp.com/api/users/like', {'imgUrl': imgUrl, 'email':email}).then(function (response, error) {
+            if (error) console.log(error);
+            else {
+                console.log(response)
+            }
+        }.bind(this));
+    }
+
     like = () => {
         Alert.alert(
             'You chose "Like" ',
-            'Are you going to try "' + cards[this.index].name + '"?',
+            'Are you going to try '+ this.state.cards[this.index].name +'?',
             [
                 { text: 'No' },
                 { text: 'Yes', onPress: this.likeConfirmAction },
@@ -477,10 +482,14 @@ export default class MainContainer extends PureComponent {
             { cancelable: true }
         )
         this.index = (++this.index) % this.maxIndex
+        this.props.screenProps.settings.selected = this.state.cards[this.index]
+        
+
     }
 
     dislike = () => {
         this.index = (++this.index) % this.maxIndex
+        this.props.screenProps.settings.selected = this.state.cards[this.index]
     }
 
     likeConfirmAction = () => {
@@ -513,9 +522,9 @@ export default class MainContainer extends PureComponent {
                 'Tell us about your meal',
                 'Do you like "' + selectedCard.name + '" you had last time?',
                 [
-                    { text: 'No', onPress: () => console.log('OK Pressed') },
+                    { text: 'No', onPress: () =>{ this.likeAPI(selectedCard.imgUrl)} },
                     // { text: 'Skip', onPress: () => console.log('OK Pressed') },
-                    { text: 'Yes', onPress: () => console.log('OK Pressed') },
+                    { text: 'Yes', onPress: () =>{ this.dislikeAPI(selectedCard.imgUrl)} },
                 ],
                 { cancelable: true }
             )
@@ -552,7 +561,7 @@ export default class MainContainer extends PureComponent {
                 <Container style={styles.container}>
                     <CardStack
                         navigation={this.props.navigation}
-                        cards={cards}
+                        cards={this.state.cards}
                         getDeck={this.getDeck}
                         onSwipeRight={this.onSwipeRight}
                         onSwipeLeft={this.onSwipeLeft}
