@@ -82,7 +82,7 @@ export default class MainContainer extends PureComponent {
 
     componentWillMount() {
         this.setState({
-            loading: false,
+            loading: true,
         });
         // axios.post('https://wte-api.herokuapp.com/api/dishes?limit=20', {'email': '123'}).then(function (response, error) {
         //     if (error) console.log(error);
@@ -95,28 +95,28 @@ export default class MainContainer extends PureComponent {
         //     }
         // }.bind(this));
 
-        // AsyncStorage.multiGet(['email', 'password']).then((data) => {
-        //     let email = data[0][1];
-        //     let password = data[1][1];
+        AsyncStorage.multiGet(['email', 'password']).then((data) => {
+            let email = data[0][1];
+            let password = data[1][1];
 
-        //     if (email === null || password === null){
-        //         const { navigate } = this.props.navigation;
-        //         navigate('Login');
-        //     }else {
+            if (email === null || password === null){
+                const { navigate } = this.props.navigation;
+                navigate('Login');
+            }else {
 
-        //         console.log(email)
-        //         axios.post('https://wte-api.herokuapp.com/api/dishes?limit=20', {'email': email}).then(function (response, error) {
-        //             if (error) console.log(error);
-        //             else {
-        //                 dishes = response.data.data.slice();
-        //                 console.log(dishes)
-        //                 this.setState({
-        //                     loading: false,
-        //                 });
-        //             }
-        //         }.bind(this));
-        //     }
-        // });
+                console.log(email)
+                axios.post('https://wte-api.herokuapp.com/api/dishes?limit=20', {'email': email}).then(function (response, error) {
+                    if (error) console.log(error);
+                    else {
+                        dishes = response.data.data.slice();
+                        console.log(dishes)
+                        this.setState({
+                            loading: false,
+                        });
+                    }
+                }.bind(this));
+            }
+        });
     }
 
     toggleDrawer = () => {
