@@ -89,7 +89,6 @@ export default class MainContainer extends PureComponent {
             if (error) console.log(error);
             else {
                 dishes = response.data.data.slice();
-                console.log(dishes)
                 this.setState({
                     loading: false,
                 });
@@ -109,6 +108,24 @@ export default class MainContainer extends PureComponent {
     dislikeAction = () => {
         this.deck._root.swipeRight()
         this.dislike()
+    }
+
+    likeAPI = (imgUrl) => {
+        axios.put('https://wte-api.herokuapp.com/api/users/like', {'imgUrl': imgUrl}).then(function (response, error) {
+            if (error) console.log(error);
+            else {
+                console.log(response)
+            }
+        }.bind(this));
+    }
+
+    dislikeAPI = (imgUrl) => {
+        axios.put('https://wte-api.herokuapp.com/api/users/like', {'imgUrl': imgUrl}).then(function (response, error) {
+            if (error) console.log(error);
+            else {
+                console.log(response)
+            }
+        }.bind(this));
     }
 
     like = () => {

@@ -44,18 +44,6 @@ export default class LoginScreen extends Component<{}> {
         }
     }
 
-    componentWillMount() {
-        AsyncStorage.multiGet(['email', 'password']).then((data) => {
-            let email = data[0][1];
-            let password = data[1][1];
-
-            if (email !== null && password !== null){
-                const { navigate } = this.props.navigation;
-                navigate('Main');
-            }
-        });
-    }
-
     updateEmail(email) {this.setState({email})}
     updatePassword(pass) {this.setState({pass})}
     updateConPassword(conPass) {this.setState({conPass})}
@@ -78,15 +66,8 @@ export default class LoginScreen extends Component<{}> {
         }).then(function (response, error) {
             if (error) {Alert.alert(JSON.stringify(error))}
             else{
-
-                AsyncStorage.multiSet([
-                    ["email", email],
-                    ["password", pass]
-                ], ()=>{
-                    const { navigate } = this.props.navigation;
-                    navigate('Main', {'email': email, 'password': pass});
-                });
-
+                const { navigate } = this.props.navigation;
+                navigate('Main', {'email': email, 'password': pass});
             }
 
         }.bind(this));
@@ -109,10 +90,6 @@ export default class LoginScreen extends Component<{}> {
         }).then(function (response, error) {
             if (error) {Alert.alert(JSON.stringify(error))}
             else{
-                AsyncStorage.multiSet([
-                    ["email", email],
-                    ["password", pass]
-                ]);
                 const { navigate } = this.props.navigation;
                 navigate('Main', {'email': email, 'password': pass});
             }
