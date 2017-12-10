@@ -19,13 +19,17 @@ const styles = StyleSheet.create({
     cardFooter: {
         justifyContent: 'space-between'
     },
+    footerText: {
+        color: 'grey',
+    },
     image: {
         height: cardHeight,
         flex: 1
     },
     button: { height: 30 },
     icon: {
-        color: '#C3BFBF'
+        color: '#C3BFBF',
+        fontSize: 25
     }
 });
 
@@ -41,7 +45,7 @@ export default class CardStack extends PureComponent {
                     <Image style={styles.image} source={{uri:this.props.imgUrl}} />
                 </CardItem>
                 <CardItem style={styles.cardFooter}>
-                    <Text>{this.props.name}</Text>
+                    <Text style={styles.footerText}>{this.props.name}</Text>
                     <Button transparent={true} style={styles.button} onPress={this.buttonOnPress}>
                         <Icon name="info-circle" style={styles.icon} />
                     </Button>

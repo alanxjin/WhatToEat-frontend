@@ -36,22 +36,22 @@ export default class DetailContent extends Component {
         return (
             <View style={styles.content}>
                 <View style={styles.row}>
-                    <H1>Miga</H1>
+                    <H1 style={{fontSize: 24}}>Miga</H1>
                 </View>
                 <View style={styles.row}>
-                    <Text style={{ color: '#93F04F' }}>Open</Text>
-                    <Text style={{ color: '#C3BFBF' }}> until 11:00 PM</Text>
+                    <Text style={{ color: '#93F04F', fontSize: 14 }}>Open</Text>
+                    <Text style={{ color: '#C3BFBF', fontSize: 14 }}> until 11:00 PM</Text>
                 </View>
 
                 <View style={styles.row}>
-                    <Text style={{ color: '#C3BFBF' }}>Japanese, American (New), Sushi Bars</Text>
+                    <Text style={{ color: '#C3BFBF', fontSize: 14, marginBottom: 10 }}>Japanese, American (New), Sushi Bars</Text>
                 </View>
 
                 <View style={styles.row}>
                     <View style={{ flex: 0.3 }}>
                         <Text style={{ color: '#C3BFBF' }}>Price:</Text>
                     </View>
-                    <View style={{ flex: 0.15 }}>
+                    <View style={{ flex: 0.25, marginTop: 2 }}>
                         <StarRating
                             disabled={false}
                             emptyStar={'usd'}
@@ -61,7 +61,7 @@ export default class DetailContent extends Component {
                             rating={3}
                             starColor={'#FFAE40'}
                             emptyStarColor={'#C3BFBF'}
-                            starSize={20}
+                            starSize={16}
                         />
                     </View>
                 </View>
@@ -71,7 +71,7 @@ export default class DetailContent extends Component {
                     <View style={{ flex: 0.3 }}>
                         <Text style={{ color: '#C3BFBF' }}>Rating:</Text>
                     </View>
-                    <View style={{ flex: 0.35 }}>
+                    <View style={{ flex: 0.35, marginTop: 2 }}>
                         <StarRating
                             disabled={false}
                             emptyStar={'heart'}
@@ -81,7 +81,7 @@ export default class DetailContent extends Component {
                             rating={3}
                             starColor={'#FF6363'}
                             emptyStarColor={'#C3BFBF'}
-                            starSize={20}
+                            starSize={16}
                         />
                     </View>
                 </View>

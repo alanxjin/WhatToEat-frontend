@@ -22,16 +22,16 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         bottom: 40,
-        position: 'absolute'
+        position: 'absolute',
     },
     image: {
-        flex: 1,
+        flex: 2,
         width: null,
         height: null,
         opacity: 0.3
     },
     body: {
-        flex: 1,
+        flex: 2,
         margin: 10,
         flexDirection: 'column'
     },
@@ -44,7 +44,8 @@ const styles = StyleSheet.create({
     },
     text: {
         color: "#959899",
-        fontSize: 12,
+        marginTop: 15,
+        fontSize: 16,
         alignSelf: "center"
     }
 });
@@ -59,9 +60,9 @@ export default class Sidebar extends PureComponent {
                 <View style={styles.body}>
                     <View style={styles.bodyUpper}>
                         <Thumbnail large style={styles.thumbnail} source={this.props.screenProps.settings.avatarImg} />
-                        <Text> FeedMeNow! </Text>
+                        <Text style={{marginTop: 15}}> Alpaca </Text>
                     </View>
-                    <Text style={styles.text}> SuchWow_ManyCool@Doge.gov </Text>
+                    <Text style={styles.text}> alpaca@gmail.com </Text>
                 </View>
             </Body>
         )

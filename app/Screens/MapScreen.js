@@ -4,10 +4,23 @@ import { Container, Header, Left, Right, Content, Footer, FooterTab, List, ListI
 import MapView from 'react-native-maps';
 import DetailButtonGroup from '../Components/DetailButtonGroup'
 import DetailContent from '../Components/DetailContent'
+import colors from '../theme/color'
 
 
 
 const styles = StyleSheet.create({
+    header: {
+        backgroundColor: '#F8F7F7',
+        height: 80,
+        borderBottomColor: colors.lightergrey,
+    },
+    icon: {
+        marginTop: 10,
+        fontSize: 25
+    },
+    headerBody: {
+        marginTop: 15,
+    },
     map: {
         position: 'absolute',
         top: 0,
@@ -34,18 +47,18 @@ export default class MapScreen extends PureComponent {
         return (
             <Container>
                 <StatusBar translucent={false} />
-                <Header>
+                <Header style={styles.header}>
                     <Left>
                         <Button transparent onPress={this.returnOnPress}>
-                            <Icon name='chevron-left' />
+                            <Icon style={styles.icon} name='chevron-left' />
                         </Button>
                     </Left>
-                    <Body>
+                    <Body style={styles.headerBody}>
                         <Title>WhatToEat</Title>
                     </Body>
                     <Right>
                         <Button transparent>
-                            <Icon name='paper-plane-o' />
+                            <Icon style={styles.icon} name='location-arrow' />
                         </Button>
                     </Right>
                 </Header>

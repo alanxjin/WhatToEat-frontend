@@ -257,7 +257,7 @@ export default {
   noteFontSize: 14,
 
   // Title
-  titleFontfamily: platform === "ios" ? "System" : "MarkerFelt",
+  titleFontfamily: platform === "ios" ? "MarkerFelt" : "MarkerFelt",
   titleFontSize: platform === "ios" ? 17 : 19,
   subTitleFontSize: platform === "ios" ? 12 : 14,
   subtitleColor: "#FFF",
