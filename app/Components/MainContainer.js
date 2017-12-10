@@ -514,7 +514,7 @@ export default class MainContainer extends PureComponent {
                 'Do you like "' + selectedCard.name + '" you had last time?',
                 [
                     { text: 'No', onPress: () => console.log('OK Pressed') },
-                    { text: 'Skip', onPress: () => console.log('OK Pressed') },
+                    // { text: 'Skip', onPress: () => console.log('OK Pressed') },
                     { text: 'Yes', onPress: () => console.log('OK Pressed') },
                 ],
                 { cancelable: true }
