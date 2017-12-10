@@ -111,7 +111,8 @@ export default class MainContainer extends PureComponent {
     }
 
     likeAPI = (imgUrl) => {
-        axios.put('https://wte-api.herokuapp.com/api/users/like', {'imgUrl': imgUrl}).then(function (response, error) {
+        let email = this.props.navigation.state.params.email;
+        axios.put('https://wte-api.herokuapp.com/api/users/like', {'imgUrl': imgUrl, 'email':email}).then(function (response, error) {
             if (error) console.log(error);
             else {
                 console.log(response)
@@ -120,7 +121,8 @@ export default class MainContainer extends PureComponent {
     }
 
     dislikeAPI = (imgUrl) => {
-        axios.put('https://wte-api.herokuapp.com/api/users/like', {'imgUrl': imgUrl}).then(function (response, error) {
+        let email = this.props.navigation.state.params.email;
+        axios.put('https://wte-api.herokuapp.com/api/users/like', {'imgUrl': imgUrl, 'email':email}).then(function (response, error) {
             if (error) console.log(error);
             else {
                 console.log(response)
