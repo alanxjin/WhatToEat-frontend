@@ -31,54 +31,63 @@ import {
 
 
 
-export default class LoginScreen extends Component<{}> {
+export default class SignUpScreen extends Component<{}> {
     static navigationOptions = {
-        title: 'Login',
+        title: 'SignUp',
     };
     constructor(props) {
         super(props);
         this.state = {
             email: '',
             pass: '',
+            conPass: ''
         }
     }
 
     updateEmail(email) {this.setState({email})}
     updatePassword(pass) {this.setState({pass})}
+    updateConPassword(conPass) {this.setState({conPass})}
 
     handleSignUp() {
-        const { navigate } = this.props.navigation;
-        navigate('SignUp');
-    }
-
-    handleSignIn() {
         email = this.state.email;
         pass = this.state.pass;
-
-        fetch('https://wte-api.herokuapp.com/api/users/login', {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                'email': email,
-                'password': pass
-            }),
-        }).then(function (response, error) {
-            if (error) {Alert.alert(JSON.stringify(error))}
-            else{
-                console.log(response.status)
-                if (response.status === 200) {
+        conPass = this.state.conPass;
+        if (this.validate(email, pass, conPass)) {
+            fetch('https://wte-api.herokuapp.com/api/users/register', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    'email': email,
+                    'password': pass
+                }),
+            }).then(function (response, error) {
+                if (error) {Alert.alert(JSON.stringify(error))}
+                else{
                     const { navigate } = this.props.navigation;
                     navigate('Main', {'email': email, 'password': pass});
-                } else {
-                    Alert.alert('User Not Found Or Password Incorrect');
                 }
 
-            }
+            }.bind(this));
+        }
+    }
 
-        }.bind(this));
+    validate = (email, pass, conPass) => {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (!re.test(email)) {
+            console.log(email)
+            Alert.alert('Email Format Incorrect')
+            return false;
+        } else if (pass.length < 6 || pass.length > 12) {
+            Alert.alert('Password Length Should Be From 6 To 12')
+            return false;
+        } else if (pass !== conPass) {
+            Alert.alert('Password Not Matched')
+            return false;
+        }
+        return true
     }
 
     render() {
@@ -104,10 +113,13 @@ export default class LoginScreen extends Component<{}> {
                             <Label style={{fontSize: 15, color:'grey'}}>{'Password'}</Label>
                             <Input secureTextEntry={true} onChangeText={(pass) => { this.updatePassword(pass)}}/>
                         </Item>
+                        <Item floatingLabel>
+                            <Label style={{fontSize: 15, color:'grey'}}>{'Confirm Password'}</Label>
+                            <Input secureTextEntry={true} onChangeText={(conpass) => { this.updateConPassword(conpass)}}/>
+                        </Item>
                     </Form>
                     <View style={styles.buttons_container}>
                         <Button block style={[styles.button, styles.button_left]} onPress={this.handleSignUp.bind(this)}><Text style={{color: 'grey'}}>SIGN UP</Text></Button>
-                        <Button block style={[styles.button, styles.button_right]} onPress={this.handleSignIn.bind(this)}><Text style={{color: 'white'}}>SIGN IN</Text></Button>
                     </View>
                 </View>
             </View>
@@ -157,10 +169,9 @@ const styles = StyleSheet.create({
     },
     buttons_container:{
         marginTop:50,
-        marginLeft:35,
-        marginRight:35,
         flexDirection:'row',
-        justifyContent: 'space-between'
+        alignItems: 'center',
+        justifyContent:'center'
     },
     button: {
         width: '48%',
@@ -172,7 +183,5 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         borderWidth: 1,
     },
-    button_right: {
-        backgroundColor: 'black'
-    }
+
 });
