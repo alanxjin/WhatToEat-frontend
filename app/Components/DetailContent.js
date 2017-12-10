@@ -44,11 +44,11 @@ export default class DetailContent extends Component {
                 </View>
                 <View style={styles.row}>
                     <Text style={{ color: '#93F04F' }}>Open</Text>
-                    <Text style={{ color: '#C3BFBF' }}> until 9:00 PM</Text>
+                    <Text style={{ color: '#C3BFBF' }}> until 10:00 PM</Text>
                 </View>
                 
                 <View style={styles.row}>
-                    <Text style={{ color: '#C3BFBF' }}>Japanese, American (New), Sushi Bars</Text>
+                    <Text style={{ color: '#C3BFBF' }}>Barbecue, Popular</Text>
                 </View>
 
                 <View style={styles.row}>
