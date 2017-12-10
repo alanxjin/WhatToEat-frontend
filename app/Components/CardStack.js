@@ -12,56 +12,47 @@ const styles = StyleSheet.create({
 });
 
 
-const cards = [
-    {
-        text: 'Card One',
-        name: 'Yummy Burger',
-        image: { uri: 'https://static.pexels.com/photos/70497/pexels-photo-70497.jpeg' }
-    },
-    {
-        text: 'Card two',
-        name: 'Healthy Food',
-        image: { uri: 'https://static.pexels.com/photos/70497/pexels-photo-70497.jpeg' }
-        // image: require('../../images/splash.jpg')
-    }
-];
-
-
 export default class CardStack extends PureComponent {
     // constructor(props){
     //     super(props)
     // }
+
+    componentDidMount() {
+        this.props.getDeck(this.refs.deck)
+    }
+
     renderItem = (item) => {
         return <CardElement {...item} {...this.props} />
     }
 
-    onSwipeRight = (card) => {
-        // Toast.show({
-        //     text: 'Nope!',
-        //     type: 'warning',
-        //     duration: 1000,
-        //     position: 'top',
-        // })
-    }
+    // onSwipeRight = (card) => {
+    //     // Toast.show({
+    //     //     text: 'Nope!',
+    //     //     type: 'warning',
+    //     //     duration: 1000,
+    //     //     position: 'top',
+    //     // })
+    // }
 
-    onSwipeLeft = (card) => {
-        // Toast.show({
-        //     text: 'Yup!',
-        //     type: 'success',
-        //     duration: 1000,
-        //     position: 'top',
-        // })
-    }
+    // onSwipeLeft = (card) => {
+    //     // Toast.show({
+    //     //     text: 'Yup!',
+    //     //     type: 'success',
+    //     //     duration: 1000,
+    //     //     position: 'top',
+    //     // })
+    // }
 
     render() {
         return (
             <Root>
                 <View style={styles.deckView}>
                     <DeckSwiper
-                        dataSource={cards}
+                        ref={"deck"}
+                        dataSource={this.props.cards}
                         renderItem={this.renderItem}
-                        onSwipeRight={this.onSwipeRight}
-                        onSwipeLeft={this.onSwipeLeft}
+                        onSwipeRight={this.props.onSwipeRight}
+                        onSwipeLeft={this.props.onSwipeLeft}
                     />
                 </View>
             </Root>
