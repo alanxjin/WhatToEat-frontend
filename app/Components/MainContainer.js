@@ -73,7 +73,7 @@ export default class MainContainer extends PureComponent {
         super(props)
         this.state = {
             selected: '',
-            loading: true
+            loading: false
         }
 
         this.index = 0
@@ -95,28 +95,21 @@ export default class MainContainer extends PureComponent {
         //     }
         // }.bind(this));
 
-        AsyncStorage.multiGet(['email', 'password']).then((data) => {
-            let email = data[0][1];
-            let password = data[1][1];
-
-            if (email === null || password === null){
-                const { navigate } = this.props.navigation;
-                navigate('Login');
-            }else {
-
-                console.log(email)
-                axios.post('https://wte-api.herokuapp.com/api/dishes?limit=20', {'email': email}).then(function (response, error) {
-                    if (error) console.log(error);
-                    else {
-                        dishes = response.data.data.slice();
-                        console.log(dishes)
-                        this.setState({
-                            loading: false,
-                        });
-                    }
-                }.bind(this));
+        let email = this.props.navigation.state.params.email;
+        let password = this.props.navigation.state.password;
+        console.log(email)
+        axios.post('https://wte-api.herokuapp.com/api/dishes?limit=20', {'email': email}).then(function (response, error) {
+            if (error) console.log(error);
+            else {
+                dishes = response.data.data.slice();
+                console.log(dishes)
+                console.error(this)
+                this.setState({
+                    loading: false,
+                });
             }
         });
+            
     }
 
     toggleDrawer = () => {
@@ -196,7 +189,7 @@ export default class MainContainer extends PureComponent {
     }
 
     render() {
-        if (this.state.loading) {
+        if (false) {
             return (<View style={styles.loading_container}>
                 <ActivityIndicator size="large" />
             </View>)

@@ -45,15 +45,15 @@ export default class LoginScreen extends Component<{}> {
     }
 
     componentWillMount() {
-        AsyncStorage.multiGet(['email', 'password']).then((data) => {
-            let email = data[0][1];
-            let password = data[1][1];
+        // AsyncStorage.multiGet(['email', 'password']).then((data) => {
+        //     let email = data[0][1];
+        //     let password = data[1][1];
 
-            if (email !== null && password !== null){
-                const { navigate } = this.props.navigation;
-                navigate('Main');
-            }
-        });
+        //     if (email !== null && password !== null){
+        //         const { navigate } = this.props.navigation;
+        //         navigate('Main');
+        //     }
+        // });
     }
 
     updateEmail(email) {this.setState({email})}
@@ -84,7 +84,7 @@ export default class LoginScreen extends Component<{}> {
                     ["password", pass]
                 ], ()=>{
                     const { navigate } = this.props.navigation;
-                    navigate('Main');
+                    navigate('Main', {'email': email, 'password': pass});
                 });
 
             }
@@ -135,7 +135,7 @@ export default class LoginScreen extends Component<{}> {
                     ["password", pass]
                 ]);
                 const { navigate } = this.props.navigation;
-                navigate('Main');
+                navigate('Main', {'email': email, 'password': pass});
             }
 
         }.bind(this));
