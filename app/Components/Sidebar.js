@@ -35,7 +35,6 @@ export default class Sidebar extends PureComponent {
     this.savedOnPress = this.savedOnPress.bind(this)
   }
   savedOnPress() {
-    console.log('navigation is :', this.navigation)
     this.props.navigation.navigate('Saved')
   }
 
@@ -53,17 +52,17 @@ export default class Sidebar extends PureComponent {
         <Content style={{ backgroundColor: "#F8F7F7" }}>
 
           <View style={{ padding: 15, flexDirection: 'column' }}>
-            <Button full transparent style={{ margin: 10, justifyContent: "flex-start", backgroundColor: "#F8F7F7" }}>
+            <Button full transparent style={{ margin: 15, justifyContent: "flex-start", backgroundColor: "#F8F7F7" }}>
               <Icon name='user' style={{ color: "#959899" }} />
               <Text uppercase={false} style={{ color: "#959899" }}>My Profile</Text>
             </Button>
 
-            <Button full transparent style={{ flex: 1, margin: 10, justifyContent: "flex-start" }} onPress={this.savedOnPress}>
+            <Button full transparent style={{ margin: 15, justifyContent: "flex-start" }} onPress={this.savedOnPress}>
               <Icon name='bookmark' style={{ color: "#959899" }} />
               <Text uppercase={false} style={{ color: "#959899" }}>Saved List</Text>
             </Button>
 
-            <Button full transparent style={{ flex: 1, margin: 10, justifyContent: "flex-start" }}>
+            <Button full transparent style={{ margin: 15, justifyContent: "flex-start" }}>
               <Icon name='cutlery' style={{ color: "#959899" }} />
               <Text uppercase={false} style={{ color: "#959899" }}>Diet History</Text>
             </Button>

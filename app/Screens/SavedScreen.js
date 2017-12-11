@@ -3,6 +3,7 @@ import { Image, StyleSheet } from 'react-native';
 import { Container, Header, Left, Right, Content, List, ListItem, Text, Root, View, CardItem, Body, Button, Icon, Title } from 'native-base';
 
 import colors from '../theme/color'
+import CardList from '../Components/CardList'
 
 const styles = StyleSheet.create({
     header: {
@@ -45,10 +46,12 @@ export default class SavedScreen extends Component {
                     <Body style={styles.headerBody}>
                         <Title>My Saved List</Title>
                     </Body>
+                    <Right>
+                    </Right>
                 </Header>
 
                 <Container>
-
+                    <CardList />
                 </Container>
 
             </Container>

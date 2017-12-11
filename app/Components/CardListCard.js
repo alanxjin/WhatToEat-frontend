@@ -3,8 +3,8 @@ import { StyleSheet, Image, Dimensions } from 'react-native';
 import { Container, Header, View, Card, CardItem, Thumbnail, Text, Left, Body, Icon, Toast, Button } from 'native-base';
 
 const { height: screenHeight } = Dimensions.get('window');
-let cardHeight = screenHeight * 0.55;
-cardHeight = cardHeight < 360 ? 360 : cardHeight;
+let cardHeight = screenHeight * 0.3;
+cardHeight = cardHeight < 160 ? 160 : cardHeight;
 
 const styles = StyleSheet.create({
     card: {
