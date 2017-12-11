@@ -1,22 +1,27 @@
 import React, { Component, PureComponent } from 'react';
 import { View, Button, Text, Icon } from 'native-base';
 import { StyleSheet } from 'react-native';
+import colors from '../theme/color'
 
 const styles = StyleSheet.create({
     button: {
         justifyContent: 'center',
-        height: 50,
-        width: 115,
-        borderRadius: 10,
-        backgroundColor: '#3C3A3A',
-        margin: 5
+        height: 45,
+        width: 110,
+        borderRadius: 5,
+        margin: 6,
+        backgroundColor: colors.mediumgrey,
     },
     restrict: {
-        backgroundColor: '#FF6363'
+        backgroundColor: colors.red,
     },
     prefer: {
-        backgroundColor: '#53D85D',
+        backgroundColor: colors.mediumgreen,
     },
+    text: {
+        fontSize: 15,
+        color: 'white'
+    }
 })
 
 export default class Tag extends PureComponent {
@@ -50,7 +55,7 @@ export default class Tag extends PureComponent {
         return (
             <Button style={[styles.button, this.state.prefer && styles.prefer,
             this.state.restrict && styles.restrict]} onPress={this.handleTagPress}>
-                <Text>{this.props.text}</Text>
+                <Text style={styles.text}>{this.props.text}</Text>
             </Button>
         )
     }
