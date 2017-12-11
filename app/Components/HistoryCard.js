@@ -58,7 +58,7 @@ export default class HistoryCard extends PureComponent {
     }
 
     render() {
-        console.log(this.props);
+       
         return (
             <Card style={styles.card}>
                 <CardItem style={styles.cardHeader}>
