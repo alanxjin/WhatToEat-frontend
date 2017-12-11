@@ -488,10 +488,10 @@ export default class MainContainer extends PureComponent {
 
     like = () => {
         Alert.alert(
-            'You choose "Like" ',
+            'You choose "Go" ',
             'Are you going to try "' + cards[this.index].name + '" today?',
             [
-                { text: 'Maybe later' },
+                { text: 'No' },
                 { text: 'Yes', onPress: this.likeConfirmAction },
             ],
             { cancelable: true }
@@ -510,12 +510,22 @@ export default class MainContainer extends PureComponent {
     likeConfirmAction = () => {
         Alert.alert(
             'You\'re all set',
-            'Close the app and have a great meal',
+            'Your dish has been saved at your history',
             [
                 { text: 'Ok' },
             ],
             { cancelable: true }
-        )
+        ) 
+        axios.put('https://wte-api.herokuapp.com/api/users/saveHistory', {'imgUrl': this.props.screenProps.settings.selected.imgUrl, 'email':this.props.navigation.state.params.email})
+        .then((res, err)=>{
+            if(err){
+                console.log(err);
+                return;
+            }
+            else{
+                console.log(res);
+            }
+        })
     }
 
     onSwipeRight = (card) => {
@@ -528,6 +538,9 @@ export default class MainContainer extends PureComponent {
 
     likeAction = () => {
         this.deck._root.swipeLeft()
+        this.like()
+    }
+    goAction = () => {
         this.like()
     }
 
@@ -617,7 +630,7 @@ export default class MainContainer extends PureComponent {
 
                 <Footer style={styles.footer}>
                     <FooterTab>
-                        <ButtonGroup {...this.props} sflAction={this.sflAction} likeAction={this.likeAction} dislikeAction={this.dislikeAction}/>
+                        <ButtonGroup {...this.props} sflAction={this.sflAction} likeAction={this.likeAction} dislikeAction={this.dislikeAction} goAction={this.goAction}/>
                     </FooterTab>
                 </Footer>
 

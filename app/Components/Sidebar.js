@@ -57,7 +57,15 @@ export default class Sidebar extends PureComponent {
   }
 
   historyOnPress = () => {
-    this.props.navigation.navigate('History',{email:this.email});
+    axios.post('https://wte-api.herokuapp.com/api/users/getHistory', {email: this.email})
+    .then((res, err)=>{
+      if(err){
+        console.log(err);
+        return;
+      }
+      console.log(res);
+      this.props.navigation.navigate('History',{email:this.email, hist_list: res.data.data});
+    })
   }
 
   render() {

@@ -3,6 +3,7 @@ import { StyleSheet, Image, Dimensions } from 'react-native';
 import { Container, Header, View, Card, CardItem, Thumbnail, Text, Left, Body, Icon, Toast, Button } from 'native-base';
 import StarRating from 'react-native-star-rating';
 import colors from '../theme/color'
+var dateFormat = require('dateformat');
 
 const { height: screenHeight } = Dimensions.get('window');
 let cardHeight = screenHeight * 0.3;
@@ -62,7 +63,7 @@ export default class HistoryCard extends PureComponent {
         return (
             <Card style={styles.card}>
                 <CardItem style={styles.cardHeader}>
-                    <Text style={styles.headerText}>{this.props.name}</Text>
+                    <Text style={styles.headerText}>{dateFormat(new Date(this.props.dateCreated))}</Text>
                     <View style={{ flex: 1}}>
                         <StarRating
                             disabled={false}
