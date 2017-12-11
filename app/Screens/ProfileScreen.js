@@ -49,12 +49,16 @@ const styles = StyleSheet.create({
     },
     dietPreference: {
         marginTop: 200,
+        marginLeft: 10,
+        marginRight: 10,
+        alignSelf: "center",
     },
     dietPreferenceText: {
         marginTop: 0,
-        marginBottom: 10,
+        marginBottom: 18,
         alignSelf: 'center',
         fontSize: 20,
+        color: colors.darkgrey
     },
 });
 
@@ -96,7 +100,7 @@ export default class Profile extends PureComponent {
                     </View>
                     <View style={styles.dietPreference}>
                         <Text style={styles.dietPreferenceText}>My Dietary Preference</Text>
-                        <TagGroup style={styles.tagGroup}/>
+                        <TagGroup />
                     </View>
                 </View>
                

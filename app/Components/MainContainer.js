@@ -575,6 +575,10 @@ export default class MainContainer extends PureComponent {
         this.deck = deck
     }
 
+    goFilter = () => {
+        this.props.navigation.navigate('Filter')
+    }
+
     componentDidMount() {
         if (DEMO_FLAG) {
             Alert.alert(
@@ -612,7 +616,7 @@ export default class MainContainer extends PureComponent {
                         <Title>WhatToEat</Title>
                     </Body>
                     <Right>
-                        <Button transparent>
+                        <Button transparent onPress={this.goFilter}>
                             <Icon style={styles.icon} name='filter' />
                         </Button>
                     </Right >

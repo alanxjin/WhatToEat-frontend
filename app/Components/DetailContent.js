@@ -55,13 +55,13 @@ export default class DetailContent extends Component {
                     <View style={{ flex: 0.3 }}>
                         <Text style={{ color: '#C3BFBF' }}>Price:</Text>
                     </View>
-                    <View style={{ flex: 0.25, marginTop: 2 }}>
+                    <View style={{ flex: 0.15, marginTop: 2 }}>
                         <StarRating
-                            disabled={false}
+                            disabled={true}
                             emptyStar={'usd'}
                             fullStar={'usd'}
                             halfStar={'usd'}
-                            maxStars={5}
+                            maxStars={4}
                             rating={this.props.cardInfo.restaurant.price}
                             starColor={'#FFAE40'}
                             emptyStarColor={'#C3BFBF'}
@@ -77,7 +77,7 @@ export default class DetailContent extends Component {
                     </View>
                     <View style={{ flex: 0.35, marginTop: 2 }}>
                         <StarRating
-                            disabled={false}
+                            disabled={true}
                             emptyStar={'heart'}
                             fullStar={'heart'}
                             halfStar={'heart'}

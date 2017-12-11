@@ -17,7 +17,8 @@ import MapScreen from '../Screens/MapScreen'
 import SavedScreen from '../Screens/SavedScreen'
 import ProfileScreen from '../Screens/ProfileScreen'
 import SettingsStore from '../Stores/SettingsStore'
-import HistoryScreen from '../Screens/HistoryScreen';
+import HistoryScreen from '../Screens/HistoryScreen'
+import FilterScreen from '../Screens/FilterScreen'
 
 const settings = new SettingsStore()
 
@@ -52,7 +53,10 @@ const EntryNavigator = StackNavigator(
       screen: HistoryScreen,
     },
     Profile: {
-      screen: ProfileScreen
+      screen: ProfileScreen,
+    },
+    Filter: {
+      screen: FilterScreen,
     }
   },
   {
