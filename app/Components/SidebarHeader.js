@@ -43,11 +43,17 @@ const styles = StyleSheet.create({
         margin: 15,
         marginBottom: 10
     },
+    username: {
+        marginTop: 0,
+        alignSelf: 'center',
+        backgroundColor:"rgba(0,0,0,0)",
+    },
     text: {
         color: "#959899",
         marginTop: 5,
         fontSize: 14,
         alignSelf: 'center',
+        backgroundColor:"rgba(0,0,0,0)",
     }
 });
 
@@ -64,7 +70,7 @@ export default class Sidebar extends PureComponent {
                     <View style={styles.bodyUpper}>
                         <Thumbnail large style={styles.thumbnail} source={this.props.screenProps.settings.avatarImg} />
                     </View>
-                    <Text style={{marginTop: 0, alignSelf: 'center',}}>{username}</Text>
+                    <Text style={styles.username}>{username}</Text>
                     <Text style={styles.text}> {email} </Text>
                 </View>
             </Body>

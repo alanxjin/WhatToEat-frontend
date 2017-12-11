@@ -137,7 +137,8 @@ const styles = StyleSheet.create({
     title_text: {
         fontSize: 40,
         fontFamily: 'MarkerFelt',
-        color: colors.darkgrey
+        color: colors.darkgrey,
+        backgroundColor:"rgba(0,0,0,0)"
     },
     info_container: {
         flex: 5,

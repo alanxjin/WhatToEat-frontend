@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         top: 0,
         left: 0,
         right: 0,
-        bottom: 40,
+        bottom: 400,
         position: 'absolute',
         zIndex:-1
     },
@@ -34,13 +34,17 @@ const styles = StyleSheet.create({
         flex: 2,
         width: null,
         height: null,
-        opacity: 0.3
+        opacity: 0.2
+    },
+    thumbnail: {
+        marginTop: 10,
     },
     text: {
         backgroundColor:"rgba(0,0,0,0)",
         marginTop: 15,
         fontSize: 16,
-        alignSelf: "center"
+        alignSelf: "center",
+        color: '#959899'
     }
    
 });
@@ -56,7 +60,8 @@ export default class Profile extends PureComponent {
         this.props.navigation.goBack();
     }
     render(){
-        let email = "alan@alan.com";
+        console.log(this.props)
+        let {email} = this.props.navigation;
         let username = "Alan";
         return(
             <Container>
@@ -80,7 +85,7 @@ export default class Profile extends PureComponent {
                     <Text style={{marginTop: 15}}>{username}</Text>
                     <Text style={styles.text}> {email} </Text>
                 </View>
-                <View>
+                <View style={styles.haha}>
 
                 </View>
                

@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     headerText: {
         flex: 3,
         color: 'white',
+        fontSize: 14
     },
     cardFooter: {
         justifyContent: 'space-between'
@@ -70,7 +71,7 @@ export default class HistoryCard extends PureComponent {
                             maxStars={5}
                             starColor={'#FFE220'}
                             emptyStarColor={'#C3BFBF'}
-                            starSize={16}
+                            starSize={14}
                             rating={this.state.starCount}
                             selectedStar={(rating) => this.onStarRatingPress(rating)}
                         />
