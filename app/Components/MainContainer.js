@@ -420,7 +420,7 @@ export default class MainContainer extends PureComponent {
 
         let email = this.props.navigation.state.params.email;
         let password = this.props.navigation.state.password;
-        axios.post('https://wte-api.herokuapp.com/api/dishes?limit=20', {'email': email}).then(function (response, error) {
+        axios.post('https://wte-api.herokuapp.com/api/dishes?limit=100', {'email': email}).then(function (response, error) {
             if (error) console.log(error);
             else {
                 dishes = response.data.data.slice();

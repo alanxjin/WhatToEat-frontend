@@ -51,6 +51,8 @@ const styles = StyleSheet.create({
 
 export default class Sidebar extends PureComponent {
     render() {
+        let {email} = this.props.navigation.state.params;
+        let username = email.split("@")[0];
         return (
             <Body>
                 <View style={styles.imageWrapper}>
@@ -59,9 +61,9 @@ export default class Sidebar extends PureComponent {
                 <View style={styles.body}>
                     <View style={styles.bodyUpper}>
                         <Thumbnail large style={styles.thumbnail} source={this.props.screenProps.settings.avatarImg} />
-                        <Text> FeedMeNow! </Text>
+                        <Text>{username}</Text>
                     </View>
-                    <Text style={styles.text}> SuchWow_ManyCool@Doge.gov </Text>
+                    <Text style={styles.text}> {email} </Text>
                 </View>
             </Body>
         )
