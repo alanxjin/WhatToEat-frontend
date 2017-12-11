@@ -61,8 +61,8 @@ export default class CardListHistory extends PureComponent {
             <View>
             <FlatList
                 style={styles.listView}
-                data={cards}
-                //data={this.props.hist_dishes}
+                //data={cards}
+                data={this.props.hist_dishes}
                 renderItem={this.renderItem}
                 keyExtractor={(item, index) => index}
                 />
