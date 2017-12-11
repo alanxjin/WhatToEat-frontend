@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff"
     },
     imageView: {
-        height: 200
+        height: 250
     },
     image: {
         flex: 1
