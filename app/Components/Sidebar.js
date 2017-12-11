@@ -31,22 +31,21 @@ const styles = StyleSheet.create({
 
 export default class Sidebar extends PureComponent {
   constructor(props) {
-    super(props)
-    this.savedOnPress = this.savedOnPress.bind(this)
-    this.historyOnPress = this.historyOnPress.bind(this)
+    super(props);
+    this.email = this.props.navigation.state.params.email;
   }
   savedOnPress = () => {
-    this.props.navigation.navigate('Saved')
+    this.props.navigation.navigate('Saved',{email:this.email});
   }
   profileOnPress = () => {
-    this.props.navigation.navigate('Profile')
+    this.props.navigation.navigate('Profile',{email:this.email});
   }
   logOutOnPress = () => {
-    this.props.navigation.navigate('Login');
+    this.props.navigation.navigate('Login'),{email:this.email};
   }
 
-  historyOnPress() {
-    this.props.navigation.navigate('History')
+  historyOnPress = () => {
+    this.props.navigation.navigate('History',{email:this.email});
   }
 
   render() {
