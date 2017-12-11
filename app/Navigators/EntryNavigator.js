@@ -16,6 +16,7 @@ import DetailScreen from '../Screens/DetailScreen'
 import MapScreen from '../Screens/MapScreen'
 import SavedScreen from '../Screens/SavedScreen'
 import SettingsStore from '../Stores/SettingsStore'
+import HistoryScreen from '../Screens/HistoryScreen';
 
 const settings = new SettingsStore()
 
@@ -45,6 +46,9 @@ const EntryNavigator = StackNavigator(
     },
     Saved: {
       screen: SavedScreen,
+    },
+    History: {
+      screen: HistoryScreen,
     }
   },
   {

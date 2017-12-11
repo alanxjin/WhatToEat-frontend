@@ -33,9 +33,14 @@ export default class Sidebar extends PureComponent {
   constructor(props) {
     super(props)
     this.savedOnPress = this.savedOnPress.bind(this)
+    this.historyOnPress = this.historyOnPress.bind(this)
   }
   savedOnPress() {
     this.props.navigation.navigate('Saved')
+  }
+
+  historyOnPress() {
+    this.props.navigation.navigate('History')
   }
 
   render() {
@@ -62,7 +67,7 @@ export default class Sidebar extends PureComponent {
               <Text uppercase={false} style={{ color: "#959899" }}>Saved List</Text>
             </Button>
 
-            <Button full transparent style={{ margin: 15, justifyContent: "flex-start" }}>
+            <Button full transparent style={{ margin: 15, justifyContent: "flex-start" }} onPress={this.historyOnPress}>
               <Icon name='cutlery' style={{ color: "#959899" }} />
               <Text uppercase={false} style={{ color: "#959899" }}>Diet History</Text>
             </Button>
