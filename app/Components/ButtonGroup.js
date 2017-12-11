@@ -52,11 +52,6 @@ const ButtonGroup = (props) => {
                 </Button>
             </View>
             <View style={styles.buttonView}>
-                <Button style={styles.button} onPress={props.likeAction}>
-                    <Icon name='heart' style={styles.icon2} />
-                </Button>
-            </View>
-            <View style={styles.buttonView}>
                 <Button style={styles.button} onPress={props.dislikeAction}>
                     <Icon name='close' style={styles.icon3} />
                 </Button>
