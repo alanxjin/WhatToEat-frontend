@@ -419,6 +419,7 @@ export default class MainContainer extends PureComponent {
         this.state = {
             selected: '',
             loading: false,
+            cur_card: 0,
             cards:[]
         }
 
@@ -435,7 +436,10 @@ export default class MainContainer extends PureComponent {
         let email = this.props.navigation.state.params.email;
         let password = this.props.navigation.state.password;
         axios.post('https://wte-api.herokuapp.com/api/dishes?limit=100', {'email': email}).then(function (response, error) {
-            if (error) console.log(error);
+            if (error) {
+                console.log(error);
+                return;
+            }
             else {
                 dishes = response.data.data.slice();
                 this.setState({
@@ -455,20 +459,14 @@ export default class MainContainer extends PureComponent {
         this.props.navigation.navigate('DrawerToggle')
     }
 
-    likeAction = () => {
-        this.deck._root.swipeLeft()
-        this.like()
-    }
-
-    dislikeAction = () => {
-        this.deck._root.swipeRight()
-        this.dislike()
-    }
 
     likeAPI = (imgUrl) => {
         let email = this.props.navigation.state.params.email;
         axios.put('https://wte-api.herokuapp.com/api/users/like', {'imgUrl': imgUrl, 'email':email}).then(function (response, error) {
-            if (error) console.log(error);
+            if (error) {
+                console.log(error);
+                return;
+            }
             else {
                 console.log(response)
             }
@@ -478,7 +476,10 @@ export default class MainContainer extends PureComponent {
     dislikeAPI = (imgUrl) => {
         let email = this.props.navigation.state.params.email;
         axios.put('https://wte-api.herokuapp.com/api/users/like', {'imgUrl': imgUrl, 'email':email}).then(function (response, error) {
-            if (error) console.log(error);
+            if (error) {
+                console.log(error);
+                return;
+            }
             else {
                 console.log(response)
             }
@@ -497,13 +498,13 @@ export default class MainContainer extends PureComponent {
         )
         this.index = (++this.index) % this.maxIndex
         this.props.screenProps.settings.selected = this.state.cards[this.index]
-        
 
     }
 
     dislike = () => {
         this.index = (++this.index) % this.maxIndex
         this.props.screenProps.settings.selected = this.state.cards[this.index]
+
     }
 
     likeConfirmAction = () => {
@@ -522,9 +523,38 @@ export default class MainContainer extends PureComponent {
     }
 
     onSwipeLeft = (card) => {
+        this.dislike()
+    }
+
+
+    likeAction = () => {
+        this.deck._root.swipeLeft()
         this.like()
     }
 
+    dislikeAction = () => {
+        this.deck._root.swipeRight()
+        this.dislike()
+    }
+
+    sflAction = () =>{
+        this.deck._root.swipeLeft()
+        axios.put('https://wte-api.herokuapp.com/api/users/saveForLater', {'imgUrl': this.props.screenProps.settings.selected.imgUrl, 'email':this.props.navigation.state.params.email})
+        .then((res, err)=>{
+            if(err){
+                console.log(err);
+                return;
+            }
+            else{
+                console.log(res);
+            }
+        })
+        // let cur_card_ = this.state.cur_card;
+        // cur_card_++;
+        // this.setState({
+        //     cur_card: cur_card_,
+        // })
+    }
 
     getDeck = (deck) => {
         this.deck = deck
@@ -548,6 +578,7 @@ export default class MainContainer extends PureComponent {
     }
 
     render() {
+        console.log(this.props.screenProps)
         if (this.state.loading) {
             return (<View style={styles.loading_container}>
                 <ActivityIndicator size="large" />
@@ -584,7 +615,7 @@ export default class MainContainer extends PureComponent {
 
                 <Footer style={styles.footer}>
                     <FooterTab>
-                        <ButtonGroup {...this.props} likeAction={this.likeAction} dislikeAction={this.dislikeAction} />
+                        <ButtonGroup {...this.props} sflAction={this.sflAction} likeAction={this.likeAction} dislikeAction={this.dislikeAction}/>
                     </FooterTab>
                 </Footer>
 

@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -56,6 +55,7 @@
 		F4CE8B48495B42E79BA3AA93 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAB579173723429CBEF1DEC3 /* MaterialIcons.ttf */; };
 		F5C30D7931FF4ADC9EF6E63A /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 846F355DBFA14A90A271F0BA /* FontAwesome.ttf */; };
 		FE4FAC5F17A64F42AAC00493 /* HelveticaNeueThin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 487B5C3B8B6840CB97B322B7 /* HelveticaNeueThin.ttf */; };
+		47210D1FE09C4A27A6FC9CC9 /* PhosphateInline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3CF1CD91B1A840C39B5B9AC9 /* PhosphateInline.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -381,6 +381,7 @@
 		C7F83361A9B9490DAD622267 /* HelveticaNeue.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = HelveticaNeue.ttf; path = ../fonts/HelveticaNeue.ttf; sourceTree = "<group>"; };
 		E67F91A6C0574B0E97F2D477 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		FC596E3866E64441AF3611E3 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		3CF1CD91B1A840C39B5B9AC9 /* PhosphateInline.ttf */ = {isa = PBXFileReference; name = "PhosphateInline.ttf"; path = "../fonts/PhosphateInline.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -543,6 +544,7 @@
 				C7F83361A9B9490DAD622267 /* HelveticaNeue.ttf */,
 				7C15A1460580403AA99FA4C8 /* MarkerFelt.ttf */,
 				487B5C3B8B6840CB97B322B7 /* HelveticaNeueThin.ttf */,
+				3CF1CD91B1A840C39B5B9AC9 /* PhosphateInline.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1160,6 +1162,7 @@
 				475C450B27A34BACADCCD5DE /* HelveticaNeue.ttf in Resources */,
 				2F72119E24FF422EB94EE516 /* MarkerFelt.ttf in Resources */,
 				FE4FAC5F17A64F42AAC00493 /* HelveticaNeueThin.ttf in Resources */,
+				47210D1FE09C4A27A6FC9CC9 /* PhosphateInline.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
