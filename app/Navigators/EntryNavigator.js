@@ -15,7 +15,9 @@ import TestScreen from '../Screens/TestScreen'
 import DetailScreen from '../Screens/DetailScreen'
 import MapScreen from '../Screens/MapScreen'
 import SavedScreen from '../Screens/SavedScreen'
+import ProfileScreen from '../Screens/ProfileScreen'
 import SettingsStore from '../Stores/SettingsStore'
+import HistoryScreen from '../Screens/HistoryScreen';
 
 const settings = new SettingsStore()
 
@@ -41,10 +43,16 @@ const EntryNavigator = StackNavigator(
       screen: SignUpScreen
     },
     Splash: {
-      screen: SplashScreen,
+      screen: SplashScreen
     },
     Saved: {
       screen: SavedScreen,
+    },
+    History: {
+      screen: HistoryScreen,
+    },
+    Profile: {
+      screen: ProfileScreen
     }
   },
   {
@@ -60,6 +68,7 @@ const props = {
 const EntryNavigatorWrapper = () => <StyleProvider style={getTheme(theme)}><EntryNavigator screenProps={props} /></StyleProvider>
 
 export default EntryNavigatorWrapper;
+
 
 
 

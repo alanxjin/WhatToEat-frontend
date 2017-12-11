@@ -31,15 +31,21 @@ const styles = StyleSheet.create({
 
 export default class Sidebar extends PureComponent {
   constructor(props) {
-    super(props)
-    this.savedOnPress = this.savedOnPress.bind(this);
-    this.logOutOnPress = this.logOutOnPress.bind(this);
+    super(props);
+    this.email = this.props.navigation.state.params.email;
   }
-  savedOnPress() {
-    this.props.navigation.navigate('Saved')
+  savedOnPress = () => {
+    this.props.navigation.navigate('Saved',{email:this.email});
   }
-  logOutOnPress() {
-    this.props.navigation.navigate('Login');
+  profileOnPress = () => {
+    this.props.navigation.navigate('Profile',{email:this.email});
+  }
+  logOutOnPress = () => {
+    this.props.navigation.navigate('Login'),{email:this.email};
+  }
+
+  historyOnPress = () => {
+    this.props.navigation.navigate('History',{email:this.email});
   }
 
   render() {
@@ -56,7 +62,7 @@ export default class Sidebar extends PureComponent {
         <Content style={{ backgroundColor: "#F8F7F7" }}>
 
           <View style={{ padding: 15, flexDirection: 'column' }}>
-            <Button full transparent style={{ margin: 15, justifyContent: "flex-start", backgroundColor: "#F8F7F7" }}>
+            <Button full transparent style={{ margin: 15, justifyContent: "flex-start", backgroundColor: "#F8F7F7" }} onPress={this.profileOnPress}>
               <Icon name='user' style={{ color: "#959899" }} />
               <Text uppercase={false} style={{ color: "#959899" }}>My Profile</Text>
             </Button>
@@ -66,7 +72,7 @@ export default class Sidebar extends PureComponent {
               <Text uppercase={false} style={{ color: "#959899" }}>Saved List</Text>
             </Button>
 
-            <Button full transparent style={{ margin: 15, justifyContent: "flex-start" }}>
+            <Button full transparent style={{ margin: 15, justifyContent: "flex-start" }} onPress={this.historyOnPress}>
               <Icon name='cutlery' style={{ color: "#959899" }} />
               <Text uppercase={false} style={{ color: "#959899" }}>Diet History</Text>
             </Button>
@@ -88,9 +94,6 @@ export default class Sidebar extends PureComponent {
               <Icon name='power-off' style={{ color: "#959899" }} />
               <Text uppercase={false} style={{ color: "#959899" }}>Log Out</Text>
             </Button>
-
-       
-              
           </View>
 
         </Content>

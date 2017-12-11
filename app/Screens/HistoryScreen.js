@@ -3,7 +3,7 @@ import { Image, StyleSheet } from 'react-native';
 import { Container, Header, Left, Right, Content, List, ListItem, Text, Root, View, CardItem, Body, Button, Icon, Title } from 'native-base';
 
 import colors from '../theme/color'
-import CardList from '../Components/CardList'
+import CardListHistory from '../Components/CardListHistory'
 
 const styles = StyleSheet.create({
     header: {
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
 });
 
 
-export default class SavedScreen extends Component {
+export default class HistoryScreen extends Component {
 
     returnOnPress = () => {
         this.props.navigation.goBack();
@@ -44,14 +44,14 @@ export default class SavedScreen extends Component {
                         </Button>
                     </Left>
                     <Body style={styles.headerBody}>
-                        <Title>My Saved List</Title>
+                        <Title>My Diet History</Title>
                     </Body>
                     <Right>
                     </Right>
                 </Header>
 
                 <Container>
-                    <CardList 
+                    <CardListHistory
                         navigation={this.props.navigation}
                     />
                 </Container>
