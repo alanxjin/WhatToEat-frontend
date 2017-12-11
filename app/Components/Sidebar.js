@@ -36,17 +36,18 @@ export default class Sidebar extends PureComponent {
     this.historyOnPress = this.historyOnPress.bind(this)
   }
   savedOnPress = () => {
-    this.props.navigation.navigate('Saved')
+    let {email} = this.props.navigation.state.params;
+    this.props.navigation.navigate('Saved', {email:email});
   }
   profileOnPress = () => {
-    this.props.navigation.navigate('Profile')
+    this.props.navigation.navigate('Profile', {email:email});
   }
   logOutOnPress = () => {
-    this.props.navigation.navigate('Login');
+    this.props.navigation.navigate('Login', {email:email});
   }
 
   historyOnPress() {
-    this.props.navigation.navigate('History')
+    this.props.navigation.navigate('History', {email:email});
   }
 
   render() {
