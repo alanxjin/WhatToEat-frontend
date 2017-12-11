@@ -60,10 +60,11 @@ export default class HistoryCard extends PureComponent {
 
     render() {
        
+        console.log(this.props);
         return (
             <Card style={styles.card}>
                 <CardItem style={styles.cardHeader}>
-                    <Text style={styles.headerText}>{dateFormat(new Date(this.props.dateCreated))}</Text>
+                    <Text style={styles.headerText}>{dateFormat(new Date(Number(this.props.dateCreated)))}</Text>
                     <View style={{ flex: 1}}>
                         <StarRating
                             disabled={false}
