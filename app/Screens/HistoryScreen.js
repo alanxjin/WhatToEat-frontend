@@ -53,6 +53,7 @@ export default class HistoryScreen extends Component {
                 <Container>
                     <CardListHistory
                         navigation={this.props.navigation}
+                        hist_dishes={this.props.navigation.state.params.hist_list}
                     />
                 </Container>
 

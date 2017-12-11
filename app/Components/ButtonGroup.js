@@ -86,7 +86,7 @@ const ButtonGroup = (props) => {
 
 
             <View style={styles.buttonView}>
-                <Button style={styles.button_ok} onPress={props.likeAction}>
+                <Button style={styles.button_ok} onPress={props.goAction}>
                     <Text style={styles.go_text}>GO</Text>
                     {/* <Icon name='heart' style={styles.icon2} /> */}
                     {/* <Text>Go</Text> */}
