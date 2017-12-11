@@ -52,7 +52,7 @@ const EntryNavigator = StackNavigator(
     }
   },
   {
-    initialRouteName: 'Login',
+    initialRouteName: 'Profile',
     headerMode: 'none',
   }
 );

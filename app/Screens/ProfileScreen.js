@@ -1,9 +1,15 @@
 import React, { Component, PureComponent } from 'react'
 import { Image, StyleSheet } from 'react-native';
-import { Container, Header, Left, Body, Right,Title, Text, Button, Icon, View} from 'native-base';
+import { Container, Header, Left, Body, Right,Title, Text, Button, Icon, View,Thumbnail} from 'native-base';
 import colors from '../theme/color'
 
 const styles = StyleSheet.create({
+    basicInfo: {
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'center',
+        marginTop:10
+    },
     header: {
         backgroundColor: '#F8F7F7',
         height: 80,
@@ -16,28 +22,42 @@ const styles = StyleSheet.create({
     headerBody: {
         marginTop: 15,
     },
-    map: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-    },
     imageWrapper: {
         top: 0,
         left: 0,
         right: 0,
         bottom: 40,
         position: 'absolute',
+        zIndex:-1
     },
+    image: {
+        flex: 2,
+        width: null,
+        height: null,
+        opacity: 0.3
+    },
+    text: {
+        backgroundColor:"rgba(0,0,0,0)",
+        marginTop: 15,
+        fontSize: 16,
+        alignSelf: "center"
+    }
+   
 });
 
 export default class Profile extends PureComponent {
+    constructor(props){
+        super(props);
+        this.state={
 
+        }
+    }
     returnOnPress = () => {
         this.props.navigation.goBack();
     }
     render(){
+        let email = "alan@alan.com";
+        let username = "Alan";
         return(
             <Container>
                  <Header style={styles.header}>
@@ -55,22 +75,15 @@ export default class Profile extends PureComponent {
                 <View style={styles.imageWrapper}>
                     <Image style={styles.image} source={this.props.screenProps.settings.siderbarImg} />
                 </View>
-                <View style={{ padding: 15, flexDirection: 'column' }}>
-                    <Button full transparent style={{ margin: 15, justifyContent: "flex-start", backgroundColor: "#F8F7F7" }} onPress={this.profileOnPress}>
-                      <Icon name='user' style={{ color: "#959899" }} />
-                      <Text uppercase={false} style={{ color: "#959899" }}>My Profile</Text>
-                    </Button>
-
-                    <Button full transparent style={{ margin: 15, justifyContent: "flex-start" }} onPress={this.savedOnPress}>
-                      <Icon name='bookmark' style={{ color: "#959899" }} />
-                      <Text uppercase={false} style={{ color: "#959899" }}>Saved List</Text>
-                    </Button>
-
-                    <Button full transparent style={{ margin: 15, justifyContent: "flex-start" }}>
-                      <Icon name='cutlery' style={{ color: "#959899" }} />
-                      <Text uppercase={false} style={{ color: "#959899" }}>Diet History</Text>
-                    </Button>
+                <View style={styles.basicInfo}>
+                    <Thumbnail large style={styles.thumbnail} source={this.props.screenProps.settings.avatarImg} />
+                    <Text style={{marginTop: 15}}>{username}</Text>
+                    <Text style={styles.text}> {email} </Text>
                 </View>
+                <View>
+
+                </View>
+               
             </Container>
         )
     }
