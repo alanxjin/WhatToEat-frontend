@@ -32,10 +32,14 @@ const styles = StyleSheet.create({
 export default class Sidebar extends PureComponent {
   constructor(props) {
     super(props)
-    this.savedOnPress = this.savedOnPress.bind(this)
+    this.savedOnPress = this.savedOnPress.bind(this);
+    this.logOutOnPress = this.logOutOnPress.bind(this);
   }
   savedOnPress() {
     this.props.navigation.navigate('Saved')
+  }
+  logOutOnPress() {
+    this.props.navigation.navigate('Login');
   }
 
   render() {
@@ -80,7 +84,7 @@ export default class Sidebar extends PureComponent {
               <Icon name='cog' style={{ color: "#959899" }} />
               <Text uppercase={false} style={{ color: "#959899" }}>Settings</Text>
             </Button>
-            <Button full rounded style={{ margin: 18, backgroundColor: '#fff', justifyContent: "flex-start" }}>
+            <Button full rounded style={{ margin: 18, backgroundColor: '#fff', justifyContent: "flex-start" }} onPress={this.logOutOnPress}>
               <Icon name='power-off' style={{ color: "#959899" }} />
               <Text uppercase={false} style={{ color: "#959899" }}>Log Out</Text>
             </Button>
