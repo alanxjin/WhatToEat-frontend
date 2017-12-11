@@ -34,6 +34,10 @@ export default class SavedScreen extends Component {
         this.props.navigation.goBack();
     }
 
+    // get_save_list = () => {
+
+    // }
+
     render() {
         return (
             <Container>
@@ -52,7 +56,7 @@ export default class SavedScreen extends Component {
 
                 <Container>
                     <CardList 
-                        navigation={this.props.navigation}
+                        navigation={this.props.navigation} saved_dishes={this.props.navigation.state.params.saved_list}
                     />
                 </Container>
 

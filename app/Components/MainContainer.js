@@ -526,7 +526,6 @@ export default class MainContainer extends PureComponent {
         this.dislike()
     }
 
-
     likeAction = () => {
         this.deck._root.swipeLeft()
         this.like()
@@ -539,6 +538,9 @@ export default class MainContainer extends PureComponent {
 
     sflAction = () =>{
         this.deck._root.swipeLeft()
+        this.dislike()
+        console.log(this.props)
+        console.log(this.props.screenProps.settings.selected.imgUrl)
         axios.put('https://wte-api.herokuapp.com/api/users/saveForLater', {'imgUrl': this.props.screenProps.settings.selected.imgUrl, 'email':this.props.navigation.state.params.email})
         .then((res, err)=>{
             if(err){

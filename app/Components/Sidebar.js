@@ -18,6 +18,7 @@ import {
 
 import SidebarHeader from './SidebarHeader'
 import { Button as RNButton } from 'react-native-elements'
+import axios from 'axios'
 
 const styles = StyleSheet.create({
   header: {
@@ -34,8 +35,19 @@ export default class Sidebar extends PureComponent {
     super(props);
     this.email = this.props.navigation.state.params.email;
   }
+
   savedOnPress = () => {
-    this.props.navigation.navigate('Saved',{email:this.email});
+    axios.post('https://wte-api.herokuapp.com/api/users/getSaveForLater', {email: this.email})
+    .then((res, err)=>{
+      if(err){
+        console.log(err);
+        return;
+      }
+      console.log(res);
+      this.props.navigation.navigate('Saved',{email:this.email, saved_list: res.data.data});
+    })
+
+    
   }
   profileOnPress = () => {
     this.props.navigation.navigate('Profile',{email:this.email});
