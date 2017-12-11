@@ -144,10 +144,6 @@ const cards = [
 ]
 
 const styles = StyleSheet.create({
-    // container: {
-    //     flex: 1,
-    //     paddingTop: 22
-    // },
     listView: {
         margin: 10,
         marginTop: 0
@@ -160,15 +156,15 @@ export default class CardList extends PureComponent {
     }
     render() {
         return (
-            <View>
-            <FlatList
-                style={styles.listView}
-                // data={cards}
-                data={this.props.saved_dishes}
-                renderItem={this.renderItem}
-                keyExtractor={(item, index) => index}
-                />
-            </View>
+            <Container>
+                <FlatList
+                    style={styles.listView}
+                    // data={cards}
+                    data={this.props.saved_dishes}
+                    renderItem={this.renderItem}
+                    keyExtractor={(item, index) => index}
+                    />
+            </Container>
         );
     }
 }

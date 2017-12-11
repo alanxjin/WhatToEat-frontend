@@ -43,7 +43,7 @@ export default class Sidebar extends PureComponent {
         console.log(err);
         return;
       }
-      console.log(res);
+      // console.log(res);
       this.props.navigation.navigate('Saved',{email:this.email, saved_list: res.data.data});
     })
 
@@ -63,7 +63,7 @@ export default class Sidebar extends PureComponent {
         console.log(err);
         return;
       }
-      console.log(res);
+      // console.log(res);
       this.props.navigation.navigate('History',{email:this.email, hist_list: res.data.data});
     })
   }

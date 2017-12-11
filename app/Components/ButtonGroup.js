@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
 
 const buttonOnPress = (props) => {
     //console.error("adasd")
-    console.log(props);
+    // console.log(props);
 }
 
 

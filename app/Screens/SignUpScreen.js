@@ -78,7 +78,7 @@ export default class SignUpScreen extends Component<{}> {
     validate = (email, pass, conPass) => {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if (!re.test(email)) {
-            console.log(email)
+            // console.log(email)
             Alert.alert('Email Format Incorrect')
             return false;
         } else if (pass.length < 6 || pass.length > 12) {
