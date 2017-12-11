@@ -43,7 +43,7 @@ const buttonOnPress = (props) => {
 
 
 const ButtonGroup = (props) => {
-
+    // console.log(props.screenProps)
     return (
         <View style={styles.buttonGroup}>
             <View style={styles.buttonView}>

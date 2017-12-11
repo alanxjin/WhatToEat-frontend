@@ -36,7 +36,7 @@ export default class HistoryScreen extends Component {
 
     render() {
         return (
-            <Container>
+            <Container style={{backgroundColor: 'white'}}>
                 <Header style={styles.header}>
                     <Left>
                         <Button transparent onPress={this.returnOnPress}>
