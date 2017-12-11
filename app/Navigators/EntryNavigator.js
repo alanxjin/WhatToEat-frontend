@@ -52,7 +52,7 @@ const EntryNavigator = StackNavigator(
     }
   },
   {
-    initialRouteName: 'Profile',
+    initialRouteName: 'Login',
     headerMode: 'none',
   }
 );
@@ -64,6 +64,7 @@ const props = {
 const EntryNavigatorWrapper = () => <StyleProvider style={getTheme(theme)}><EntryNavigator screenProps={props} /></StyleProvider>
 
 export default EntryNavigatorWrapper;
+
 
 
 
