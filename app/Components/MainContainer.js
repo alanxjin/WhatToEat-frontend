@@ -468,7 +468,7 @@ export default class MainContainer extends PureComponent {
                 return;
             }
             else {
-                console.log(response)
+                // console.log(response)
             }
         }.bind(this));
     }
@@ -481,7 +481,7 @@ export default class MainContainer extends PureComponent {
                 return;
             }
             else {
-                console.log(response)
+                // console.log(response)
             }
         }.bind(this));
     }
@@ -523,7 +523,7 @@ export default class MainContainer extends PureComponent {
                 return;
             }
             else{
-                console.log(res);
+                // console.log(res);
             }
         })
     }
@@ -552,8 +552,8 @@ export default class MainContainer extends PureComponent {
     sflAction = () =>{
         this.deck._root.swipeLeft()
         this.dislike()
-        console.log(this.props)
-        console.log(this.props.screenProps.settings.selected.imgUrl)
+        // console.log(this.props)
+        // console.log(this.props.screenProps.settings.selected.imgUrl)
         axios.put('https://wte-api.herokuapp.com/api/users/saveForLater', {'imgUrl': this.props.screenProps.settings.selected.imgUrl, 'email':this.props.navigation.state.params.email})
         .then((res, err)=>{
             if(err){
@@ -561,7 +561,7 @@ export default class MainContainer extends PureComponent {
                 return;
             }
             else{
-                console.log(res);
+                // console.log(res);
             }
         })
         // let cur_card_ = this.state.cur_card;
@@ -597,7 +597,7 @@ export default class MainContainer extends PureComponent {
     }
 
     render() {
-        console.log(this.props.screenProps)
+        // console.log(this.props.screenProps)
         if (this.state.loading) {
             return (<View style={styles.loading_container}>
                 <ActivityIndicator size="large" />
