@@ -5,6 +5,7 @@
  */
 
 import React, {Component} from 'react';
+import colors from '../theme/color';
 
 import {
     Platform,
@@ -90,6 +91,10 @@ export default class SignUpScreen extends Component<{}> {
         return true
     }
 
+    handleBack = () => {
+        this.props.navigation.goBack();
+    }
+
     render() {
         return (
             <View style={styles.main_container}>
@@ -100,7 +105,7 @@ export default class SignUpScreen extends Component<{}> {
                         resizeMode= 'stretch'
                     />
                     <View style={styles.title_container}>
-                        <Text>What To Eat</Text>
+                        <Text style={styles.title_text}>What To Eat</Text>
                     </View>
                 </View>
                 <View style={styles.info_container}>
@@ -119,7 +124,8 @@ export default class SignUpScreen extends Component<{}> {
                         </Item>
                     </Form>
                     <View style={styles.buttons_container}>
-                        <Button block style={[styles.button, styles.button_left]} onPress={this.handleSignUp.bind(this)}><Text style={{color: 'grey'}}>SIGN UP</Text></Button>
+                        <Button block style={[styles.button, styles.button_left]} onPress={this.handleSignUp.bind(this)}><Text style={{color: colors.darkgrey, letterSpacing: 2}}>SIGN UP</Text></Button>
+                        <Button block style={[styles.button, styles.button_right]} onPress={this.handleBack.bind(this)}><Text style={{color: 'white', letterSpacing: 2}}>BACK</Text></Button>
                     </View>
                 </View>
             </View>
@@ -139,11 +145,16 @@ const styles = StyleSheet.create({
     },
     title_container: {
         position: 'absolute',
-        top: 30,
+        top: 120,
         bottom: 0,
         left: 0,
         right: 0,
         alignItems: 'center'
+    },
+    title_text: {
+        fontSize: 40,
+        fontFamily: 'MarkerFelt',
+        color: colors.darkgrey
     },
     info_container: {
         flex: 5,
@@ -162,6 +173,7 @@ const styles = StyleSheet.create({
         flex: 1,
         height: 'auto',
         width: '100%',
+        opacity: 0.3
     },
     label: {
         fontSize: 12,
@@ -169,9 +181,10 @@ const styles = StyleSheet.create({
     },
     buttons_container:{
         marginTop:50,
+        marginLeft:35,
+        marginRight:35,
         flexDirection:'row',
-        alignItems: 'center',
-        justifyContent:'center'
+        justifyContent: 'space-between'
     },
     button: {
         width: '48%',
@@ -180,8 +193,10 @@ const styles = StyleSheet.create({
     },
     button_left: {
         backgroundColor: 'white',
-        borderColor: 'black',
+        borderColor: colors.darkgrey,
         borderWidth: 1,
     },
-
+    button_right: {
+        backgroundColor: colors.darkgrey
+    }
 });

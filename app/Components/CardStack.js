@@ -7,7 +7,7 @@ import CardElement from './Card'
 
 const styles = StyleSheet.create({
     deckView: {
-        marginTop: 27,
+        marginTop: 28,
         margin: 20
     },
 });

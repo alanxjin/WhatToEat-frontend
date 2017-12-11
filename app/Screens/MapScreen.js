@@ -50,7 +50,7 @@ export default class MapScreen extends PureComponent {
                 <Header style={styles.header}>
                     <Left>
                         <Button transparent onPress={this.returnOnPress}>
-                            <Icon style={styles.icon} name='chevron-left' />
+                            <Icon style={styles.icon} name='angle-left' />
                         </Button>
                     </Left>
                     <Body style={styles.headerBody}>

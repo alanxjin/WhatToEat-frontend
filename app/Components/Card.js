@@ -4,7 +4,7 @@ import { Container, Header, View, Card, CardItem, Thumbnail, Text, Left, Body, I
 
 const { height: screenHeight } = Dimensions.get('window');
 let cardHeight = screenHeight * 0.5;
-cardHeight = cardHeight < 300 ? 300 : cardHeight;
+cardHeight = cardHeight < 365 ? 365 : cardHeight;
 
 const styles = StyleSheet.create({
     card: {
