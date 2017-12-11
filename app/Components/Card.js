@@ -36,11 +36,11 @@ export default class CardStack extends PureComponent {
 
     render() {
         return (
-            <Card style={styles.card}>
-                <CardItem cardBody style={styles.cardBody}>
+            <Card  style={styles.card} >
+                <CardItem button cardBody style={styles.cardBody} onPress={this.buttonOnPress}>
                     <Image style={styles.image} source={{ uri: this.props.imgUrl }} />
                 </CardItem>
-                <CardItem style={styles.cardFooter}>
+                <CardItem button style={styles.cardFooter} onPress={this.buttonOnPress}>
                     <Text style={styles.footerText}>{this.props.name}</Text>
                     <Button transparent={true} style={styles.button} onPress={this.buttonOnPress}>
                         <Icon name="info-circle" style={styles.icon} />

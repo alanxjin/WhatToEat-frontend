@@ -1,6 +1,6 @@
 import React, { Component, PureComponent } from 'react'
 import { Image, StyleSheet } from 'react-native';
-import { Container, Header, Left, Body, Right,Title, Text, Button, Icon} from 'native-base';
+import { Container, Header, Left, Body, Right,Title, Text, Button, Icon, View} from 'native-base';
 import colors from '../theme/color'
 
 const styles = StyleSheet.create({
@@ -22,7 +22,14 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         bottom: 0,
-    }
+    },
+    imageWrapper: {
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 40,
+        position: 'absolute',
+    },
 });
 
 export default class Profile extends PureComponent {
@@ -45,6 +52,25 @@ export default class Profile extends PureComponent {
                     <Right>
                     </Right>
                 </Header>
+                <View style={styles.imageWrapper}>
+                    <Image style={styles.image} source={this.props.screenProps.settings.siderbarImg} />
+                </View>
+                <View style={{ padding: 15, flexDirection: 'column' }}>
+                    <Button full transparent style={{ margin: 15, justifyContent: "flex-start", backgroundColor: "#F8F7F7" }} onPress={this.profileOnPress}>
+                      <Icon name='user' style={{ color: "#959899" }} />
+                      <Text uppercase={false} style={{ color: "#959899" }}>My Profile</Text>
+                    </Button>
+
+                    <Button full transparent style={{ margin: 15, justifyContent: "flex-start" }} onPress={this.savedOnPress}>
+                      <Icon name='bookmark' style={{ color: "#959899" }} />
+                      <Text uppercase={false} style={{ color: "#959899" }}>Saved List</Text>
+                    </Button>
+
+                    <Button full transparent style={{ margin: 15, justifyContent: "flex-start" }}>
+                      <Icon name='cutlery' style={{ color: "#959899" }} />
+                      <Text uppercase={false} style={{ color: "#959899" }}>Diet History</Text>
+                    </Button>
+                </View>
             </Container>
         )
     }
