@@ -2,13 +2,14 @@ import React, { Component, PureComponent } from 'react'
 import { Image, StyleSheet } from 'react-native';
 import { Container, Header, Left, Body, Right,Title, Text, Button, Icon, View,Thumbnail} from 'native-base';
 import colors from '../theme/color'
+import TagGroup from '../Components/TagGroup'
 
 const styles = StyleSheet.create({
     basicInfo: {
         flex: 1,
         flexDirection: 'column',
         alignItems: 'center',
-        marginTop:10
+        marginTop:10,
     },
     header: {
         backgroundColor: '#F8F7F7',
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
         top: 0,
         left: 0,
         right: 0,
-        bottom: 40,
+        bottom: 350,
         position: 'absolute',
         zIndex:-1
     },
@@ -34,15 +35,27 @@ const styles = StyleSheet.create({
         flex: 2,
         width: null,
         height: null,
-        opacity: 0.3
+        opacity: 0.2
+    },
+    thumbnail: {
+        marginTop: 10,
     },
     text: {
         backgroundColor:"rgba(0,0,0,0)",
         marginTop: 15,
         fontSize: 16,
-        alignSelf: "center"
-    }
-   
+        alignSelf: "center",
+        color: '#959899'
+    },
+    dietPreference: {
+        marginTop: 200,
+    },
+    dietPreferenceText: {
+        marginTop: 0,
+        marginBottom: 10,
+        alignSelf: 'center',
+        fontSize: 20,
+    },
 });
 
 export default class Profile extends PureComponent {
@@ -56,10 +69,10 @@ export default class Profile extends PureComponent {
         this.props.navigation.goBack();
     }
     render(){
-        let email = "alan@alan.com";
-        let username = "Alan";
+        let {email} = this.props.navigation.state.params;
+        let username = email.split("@")[0];
         return(
-            <Container>
+            <Container style={{backgroundColor: 'white'}}>
                  <Header style={styles.header}>
                     <Left>
                         <Button transparent onPress={this.returnOnPress}>
@@ -72,16 +85,19 @@ export default class Profile extends PureComponent {
                     <Right>
                     </Right>
                 </Header>
-                <View style={styles.imageWrapper}>
-                    <Image style={styles.image} source={this.props.screenProps.settings.siderbarImg} />
-                </View>
-                <View style={styles.basicInfo}>
-                    <Thumbnail large style={styles.thumbnail} source={this.props.screenProps.settings.avatarImg} />
-                    <Text style={{marginTop: 15}}>{username}</Text>
-                    <Text style={styles.text}> {email} </Text>
-                </View>
                 <View>
-
+                    <View style={styles.imageWrapper}>
+                        <Image style={styles.image} source={this.props.screenProps.settings.siderbarImg} />
+                    </View>
+                    <View style={styles.basicInfo}>
+                        <Thumbnail large style={styles.thumbnail} source={this.props.screenProps.settings.avatarImg} />
+                        <Text style={{marginTop: 15}}>{username}</Text>
+                        <Text style={styles.text}> {email} </Text>
+                    </View>
+                    <View style={styles.dietPreference}>
+                        <Text style={styles.dietPreferenceText}>My Dietary Preference</Text>
+                        <TagGroup style={styles.tagGroup}/>
+                    </View>
                 </View>
                
             </Container>
