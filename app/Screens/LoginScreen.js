@@ -99,7 +99,7 @@ export default class LoginScreen extends Component<{}> {
                     <Form style={styles.form}>
                         <Item floatingLabel >
                             <Label style={{fontSize: 15, color:'grey'}}>{'Email'}</Label>
-                            <Input onEndEditing={Keyboard.dismiss} keyboardType="email-address" onChangeText={(email) => { this.updateEmail(email)}}/>
+                            <Input onEndEditing={Keyboard.dismiss} autoCapitalize = 'none' keyboardType="email-address" onChangeText={(email) => { this.updateEmail(email)}}/>
                         </Item>
                         <Item floatingLabel>
                             <Label style={{fontSize: 15, color:'grey'}}>{'Password'}</Label>
