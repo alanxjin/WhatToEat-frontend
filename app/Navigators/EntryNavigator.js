@@ -14,6 +14,7 @@ import MainScreen from '../Screens/MainScreen'
 import TestScreen from '../Screens/TestScreen'
 import DetailScreen from '../Screens/DetailScreen'
 import MapScreen from '../Screens/MapScreen'
+import SavedScreen from '../Screens/SavedScreen'
 import SettingsStore from '../Stores/SettingsStore'
 
 const settings = new SettingsStore()
@@ -41,6 +42,9 @@ const EntryNavigator = StackNavigator(
     },
     Splash: {
       screen: SplashScreen,
+    },
+    Saved: {
+      screen: SavedScreen,
     }
   },
   {

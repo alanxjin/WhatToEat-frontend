@@ -164,7 +164,7 @@ export default {
   searchBarHeight: platform === "ios" ? 30 : 40,
   toolbarInverseBg: "#222",
   toolbarTextColor: "#fff",
-  iosStatusbar: "light-content",
+  iosStatusbar: "dark-content",
   toolbarDefaultBorder: "#2874F0",
   get statusBarColor() {
     return color(this.toolbarDefaultBg)
@@ -257,7 +257,7 @@ export default {
   noteFontSize: 14,
 
   // Title
-  titleFontfamily: platform === "ios" ? "System" : "MarkerFelt",
+  titleFontfamily: platform === "ios" ? "MarkerFelt" : "MarkerFelt",
   titleFontSize: platform === "ios" ? 17 : 19,
   subTitleFontSize: platform === "ios" ? 12 : 14,
   subtitleColor: "#FFF",

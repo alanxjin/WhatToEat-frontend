@@ -5,6 +5,7 @@
  */
 
 import React, {Component} from 'react';
+import colors from '../theme/color';
 
 import {
     Platform,
@@ -91,7 +92,7 @@ export default class LoginScreen extends Component<{}> {
                         // resizeMode= 'stretch'
                     />
                     <View style={styles.title_container}>
-                        <Text>What To Eat</Text>
+                        <Text style={styles.title_text}>What To Eat</Text>
                     </View>
                 </View>
                 <View style={styles.info_container}>
@@ -106,8 +107,8 @@ export default class LoginScreen extends Component<{}> {
                         </Item>
                     </Form>
                     <View style={styles.buttons_container}>
-                        <Button block style={[styles.button, styles.button_left]} onPress={this.handleSignUp.bind(this)}><Text style={{color: 'grey'}}>SIGN UP</Text></Button>
-                        <Button block style={[styles.button, styles.button_right]} onPress={this.handleSignIn.bind(this)}><Text style={{color: 'white'}}>SIGN IN</Text></Button>
+                        <Button block style={[styles.button, styles.button_left]} onPress={this.handleSignUp.bind(this)}><Text style={{color: colors.darkgrey, letterSpacing: 2}}>SIGN UP</Text></Button>
+                        <Button block style={[styles.button, styles.button_right]} onPress={this.handleSignIn.bind(this)}><Text style={{color: 'white', letterSpacing: 2}}>SIGN IN</Text></Button>
                     </View>
                 </View>
             </View>
@@ -123,15 +124,20 @@ const styles = StyleSheet.create({
         backgroundColor:'white',
     },
     logo_container: {
-        flex: 3,
+        flex: 3.5,
     },
     title_container: {
         position: 'absolute',
-        top: 30,
+        top: 120,
         bottom: 0,
         left: 0,
         right: 0,
         alignItems: 'center'
+    },
+    title_text: {
+        fontSize: 40,
+        fontFamily: 'MarkerFelt',
+        color: colors.darkgrey
     },
     info_container: {
         flex: 5,
@@ -150,10 +156,11 @@ const styles = StyleSheet.create({
         flex: 1,
         height: 'auto',
         width: '100%',
+        opacity: 0.3
     },
     label: {
         fontSize: 12,
-        color:'grey'
+        color: 'grey'
     },
     buttons_container:{
         marginTop:50,
@@ -169,10 +176,10 @@ const styles = StyleSheet.create({
     },
     button_left: {
         backgroundColor: 'white',
-        borderColor: 'black',
+        borderColor: colors.darkgrey,
         borderWidth: 1,
     },
     button_right: {
-        backgroundColor: 'black'
+        backgroundColor: colors.darkgrey
     }
 });

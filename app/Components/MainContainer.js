@@ -21,29 +21,43 @@ import {
     Icon,
     Body,
     Title } from 'native-base';
-import Sidebar from '../Components/Sidebar'
-import CardStack from '../Components/CardStack'
-import ButtonGroup from '../Components/ButtonGroup'
+import Sidebar from '../Components/Sidebar';
+import CardStack from '../Components/CardStack';
+import ButtonGroup from '../Components/ButtonGroup';
 import Modal from 'react-native-modalbox';
+import colors from '../theme/color';
 
 import { ActionSheetCustom as ActionSheet } from 'react-native-actionsheet'
 
-const DEMO_FLAG = true
+const DEMO_FLAG = false
 
 var axios = require('axios');
 var dishes = [];
 const styles = StyleSheet.create({
+    header: {
+        backgroundColor: '#F8F7F7',
+        height: 80,
+        borderBottomColor: colors.lightergrey,
+    },
+    icon: {
+        marginTop: 10,
+        fontSize: 25
+    },
+    headerBody: {
+        marginTop: 15,
+    },
     container: {
         backgroundColor: '#fff'
     },
     footer: {
         backgroundColor: '#F8F7F7',
-        height: 100
+        height: 100,
+        borderTopColor: colors.lightergrey,
     },
     loading_container : {
         flex: 1,
         justifyContent: 'center'
-    }
+    },
 });
 
 const cards2 = [
@@ -473,10 +487,10 @@ export default class MainContainer extends PureComponent {
 
     like = () => {
         Alert.alert(
-            'You chose "Like" ',
-            'Are you going to try '+ this.state.cards[this.index].name +'?',
+            'You choose "Like" ',
+            'Are you going to try "' + cards[this.index].name + '" today?',
             [
-                { text: 'No' },
+                { text: 'Maybe later' },
                 { text: 'Yes', onPress: this.likeConfirmAction },
             ],
             { cancelable: true }
@@ -520,7 +534,7 @@ export default class MainContainer extends PureComponent {
         if (DEMO_FLAG) {
             Alert.alert(
                 'Tell us about your meal',
-                'Do you like "' + selectedCard.name + '" you had last time?',
+                'Did you like "' + selectedCard.name + '" you had last time?',
                 [
                     { text: 'No', onPress: () =>{ this.likeAPI(selectedCard.imgUrl)} },
                     // { text: 'Skip', onPress: () => console.log('OK Pressed') },
@@ -542,18 +556,18 @@ export default class MainContainer extends PureComponent {
         return (
 
             <Container>
-                <Header>
+                <Header style={styles.header}>
                     <Left>
                         <Button transparent onPress={this.toggleDrawer}>
-                            <Icon name='bars' />
+                            <Icon style={styles.icon} name='bars' />
                         </Button>
                     </Left>
-                    <Body>
+                    <Body style={styles.headerBody}>
                         <Title>WhatToEat</Title>
                     </Body>
                     <Right>
                         <Button transparent>
-                            <Icon name='filter' />
+                            <Icon style={styles.icon} name='filter' />
                         </Button>
                     </Right >
                 </Header>
