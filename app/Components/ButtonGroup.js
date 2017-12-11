@@ -22,6 +22,14 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         backgroundColor: "#fff"
     },
+    button_ok:{
+        justifyContent: 'center',
+        alignSelf: 'auto',
+        height: 56,
+        width: 150,
+        borderRadius: 50,
+        backgroundColor: "#fff"
+    },
     icon1: {
         color: "#FFAE40"
     },
@@ -33,31 +41,61 @@ const styles = StyleSheet.create({
     },
     icon4: {
         color: "#93F04F"
+    },
+    go_text: {
+        color: 'red', fontFamily: 'PhosphateInline', fontSize: 35, letterSpacing: 3, paddingTop: 22
     }
 });
 
 
 const buttonOnPress = (props) => {
     //console.error("adasd")
+    console.log(props);
 }
 
 
+// const sflAction = (props)=>{
+//     // sflAction = ()=>{
+//         console.log("inside")
+//         console.log(props.cur_card);
+//         // this.props.sflAction(this.props.screenProps.settings.selected.imUrl);
+//     // }
+// }
+
 const ButtonGroup = (props) => {
-    // console.log(props.screenProps)
+    
+    // sflAction = ()=>{
+    //     console.log(this.props.screenProps.settings.selected.imUrl);
+    //     // this.props.sflAction(this.props.screenProps.settings.selected.imUrl);
+    // }
+
     return (
+
+        // console.log(props);
         <View style={styles.buttonGroup}>
-            <View style={styles.buttonView}>
+            {/* <View style={styles.buttonView}>
                 <Button style={styles.button} onPress={buttonOnPress}>
                     <Icon name='undo' style={styles.icon1} />
                 </Button>
-            </View>
+            </View> */}
             <View style={styles.buttonView}>
                 <Button style={styles.button} onPress={props.dislikeAction}>
                     <Icon name='close' style={styles.icon3} />
                 </Button>
             </View>
+
+
             <View style={styles.buttonView}>
-                <Button style={styles.button} onPress={buttonOnPress}>
+                <Button style={styles.button_ok} onPress={props.likeAction}>
+                    <Text style={styles.go_text}>GO</Text>
+                    {/* <Icon name='heart' style={styles.icon2} /> */}
+                    {/* <Text>Go</Text> */}
+                    {/* <Text style={{color: colors.darkgrey, letterSpacing: 2}}>SIGN UP</Text> */}
+                </Button>
+            </View>
+            
+            <View style={styles.buttonView}>
+                <Button style={styles.button} onPress={props.sflAction}>
                     <Icon name='bookmark' style={styles.icon4} />
                 </Button>
             </View>

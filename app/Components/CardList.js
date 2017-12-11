@@ -163,7 +163,8 @@ export default class CardList extends PureComponent {
             <View>
             <FlatList
                 style={styles.listView}
-                data={cards}
+                // data={cards}
+                data={this.props.saved_dishes}
                 renderItem={this.renderItem}
                 keyExtractor={(item, index) => index}
                 />
