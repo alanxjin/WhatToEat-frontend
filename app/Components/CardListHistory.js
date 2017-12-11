@@ -1,7 +1,7 @@
 import React, { Component, PureComponent } from 'react';
 import { StyleSheet, Image, FlatList } from 'react-native';
 import { Container, Header, View, Card, CardItem, Text, Left, Body, Root } from 'native-base';
-import CardElement from './ListCard'
+import CardElement from './HistoryCard'
 
 const cards = [
     {
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
     },
 })
 
-export default class CardList extends PureComponent {
+export default class CardListHistory extends PureComponent {
     renderItem = (item) => {
         return <CardElement {...item.item} {...this.props} />
     }

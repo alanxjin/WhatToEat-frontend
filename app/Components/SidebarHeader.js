@@ -21,14 +21,14 @@ const styles = StyleSheet.create({
         top: 0,
         left: 0,
         right: 0,
-        bottom: 40,
+        bottom: 0,
         position: 'absolute',
     },
     image: {
         flex: 2,
         width: null,
         height: null,
-        opacity: 0.3
+        opacity: 0.2
     },
     body: {
         flex: 2,
@@ -40,13 +40,14 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     thumbnail: {
-        margin: 15
+        margin: 15,
+        marginBottom: 10
     },
     text: {
         color: "#959899",
-        marginTop: 15,
-        fontSize: 16,
-        alignSelf: "center"
+        marginTop: 5,
+        fontSize: 14,
+        alignSelf: 'center',
     }
 });
 
@@ -62,8 +63,8 @@ export default class Sidebar extends PureComponent {
                 <View style={styles.body}>
                     <View style={styles.bodyUpper}>
                         <Thumbnail large style={styles.thumbnail} source={this.props.screenProps.settings.avatarImg} />
-                        <Text style={{marginTop: 15}}>{username}</Text>
                     </View>
+                    <Text style={{marginTop: 0, alignSelf: 'center',}}>{username}</Text>
                     <Text style={styles.text}> {email} </Text>
                 </View>
             </Body>
