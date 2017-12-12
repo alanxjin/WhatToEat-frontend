@@ -37,7 +37,7 @@ export default class StackCard extends PureComponent {
     render() {
         return (
             <Card  style={styles.card} >
-                <CardItem button cardBody style={styles.cardBody} onPress={this.buttonOnPress}>
+                <CardItem cardBody style={styles.cardBody}>
                     <Image style={styles.image} source={{ uri: this.props.imgUrl }} />
                 </CardItem>
                 <CardItem button style={styles.cardFooter} onPress={this.buttonOnPress}>
