@@ -48,16 +48,6 @@ export default class DetailScreen extends PureComponent {
        
     }
 
-    // componentWillMount(){
-    //     this.initialRegion = {
-    //         latitude: selectedCard.restaurant.address.coord[0],
-    //         longitude:  selectedCard.restaurant.address.coord[1],
-    //         latitudeDelta: 0.0922,
-    //         longitudeDelta: 0.0421,
-    //     }
-
-    // }
-
     mapOnPress = () => {
         this.props.navigation.navigate('Map',this.initialRegion)
     }
@@ -76,7 +66,7 @@ export default class DetailScreen extends PureComponent {
                     <View style={styles.imageView}>
                         <Image style={styles.image} source={{ uri: this.dish_info.imgUrl }} />
                     </View>
-                    <DetailContent  {...this.props} cardInfo={this.dish_info} />
+                    <DetailContent  cardInfo={this.dish_info} />
 
                     <View style={styles.mapView}>
                         <MapView

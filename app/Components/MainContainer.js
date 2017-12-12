@@ -137,7 +137,7 @@ export default class MainContainer extends PureComponent {
 
         let email = this.props.navigation.state.params.email;
         let password = this.props.navigation.state.password;
-        axios.post('https://wte-api.herokuapp.com/api/dishes?limit=10', {'email': email}).then(function (response, error) {
+        axios.post('https://wte-api.herokuapp.com/api/dishes?limit=100', {'email': email}).then(function (response, error) {
             if (error) {
                 console.log(error);
                 return;
@@ -147,7 +147,7 @@ export default class MainContainer extends PureComponent {
                     console.log(loc_res.coords.latitude);
                     console.log(loc_res.coords.longitude);
 
-                    let filter_distance_in_km = 5;
+                    let filter_distance_in_km = 3000;
                     let temp_dishes = response.data.data.slice();
                     dishes = temp_dishes.map((val)=>{
                     console.log(val.restaurant.address.coord[0])
