@@ -32,6 +32,9 @@ const styles = StyleSheet.create({
     },
     icon4: {
         color: "#93F04F"
+    },
+    go_text: {
+        color: 'red', fontFamily: 'PhosphateInline', fontSize: 35, letterSpacing: 3, paddingTop: 22
     }
 });
 
@@ -69,7 +72,7 @@ export default class DetailButtonGroup extends PureComponent {
                 </View>
                 <View style={styles.buttonView}>
                     <Button style={styles.button} onPress={this.goOnPress}>
-                        <Icon name='heart' style={styles.icon2}   />
+                        <Text style={styles.go_text}>G</Text>
                     </Button>
                 </View>
                 <View style={styles.buttonView}>
