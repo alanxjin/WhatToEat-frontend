@@ -141,37 +141,6 @@ export default class MainContainer extends PureComponent {
         this.props.navigation.navigate('DrawerToggle')
     }
 
-
-    likeAPI = (imgUrl) => {
-        let email = this.props.navigation.state.params.email;
-        axios.put('https://wte-api.herokuapp.com/api/users/like', {'imgUrl': imgUrl, 'email':email}).then(function (response, error) {
-            if (error) {
-                console.log(error);
-                return;
-            }
-            else {
-                console.log(response)
-            }
-        }.bind(this));
-    }
-
-    dislikeAPI = (imgUrl) => {
-        let email = this.props.navigation.state.params.email;
-        axios.put('https://wte-api.herokuapp.com/api/users/like', {'imgUrl': imgUrl, 'email':email}).then(function (response, error) {
-            if (error) {
-                console.log(error);
-                return;
-            }
-            else {
-                console.log(response)
-            }
-        }.bind(this));
-    }
-
-   
-    
-
-
     nextDish= () => {
         this.index = (++this.index) % this.maxIndex;
         this.props.screenProps.settings.selected = this.state.cards[this.index];
@@ -211,16 +180,14 @@ export default class MainContainer extends PureComponent {
                 return;
             }
             else{
-                console.log(res);
+                // console.log(res);
             }
         })
         this.nextDish(); 
     }
 
-    sflAction = () =>{
+    saveAction = () =>{
         this.deck._root.swipeLeft()
-        console.log(this.props)
-        console.log(this.props.screenProps.settings.selected.imgUrl)
         axios.put('https://wte-api.herokuapp.com/api/users/saveForLater', {'imgUrl': this.props.screenProps.settings.selected.imgUrl, 'email':this.props.navigation.state.params.email})
         .then((res, err)=>{
             if(err){
@@ -228,7 +195,7 @@ export default class MainContainer extends PureComponent {
                 return;
             }
             else{
-                console.log(res);
+                // console.log(res);
             }
         })
         this.nextDish();
@@ -265,7 +232,7 @@ export default class MainContainer extends PureComponent {
     }
 
     render() {
-        console.log(this.props.screenProps)
+        // console.log(this.props.screenProps)
         if (this.state.loading) {
             return (<View style={styles.loading_container}>
                 <ActivityIndicator size="large" />
@@ -302,7 +269,7 @@ export default class MainContainer extends PureComponent {
 
                 <Footer style={styles.footer}>
                     <FooterTab>
-                        <ButtonGroup {...this.props} sflAction={this.sflAction} likeAction={this.likeAction} dislikeAction={this.dislikeAction} goAction={this.goAction}/>
+                        <ButtonGroup {...this.props} saveAction={this.saveAction}  goAction={this.goAction}/>
                     </FooterTab>
                 </Footer>
 

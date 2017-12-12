@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
 
 const buttonOnPress = (props) => {
     //console.error("adasd")
-    console.log(props);
+    // console.log(props);
 }
 
 
@@ -95,7 +95,7 @@ const ButtonGroup = (props) => {
             </View>
             
             <View style={styles.buttonView}>
-                <Button style={styles.button} onPress={props.sflAction}>
+                <Button style={styles.button} onPress={props.saveAction}>
                     <Icon name='bookmark' style={styles.icon4} />
                 </Button>
             </View>
