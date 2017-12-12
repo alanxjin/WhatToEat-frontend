@@ -69,6 +69,12 @@ export default class DetailContent extends Component {
                 color = {color:"red"};
             }
         }
+        let tags = this.props.cardInfo.restaurant.tag;
+        // console.log(tags)
+        let restaurantType = {'american': 'American', 'chinese': 'Chinese', 'japanese': 'Japanese'}
+        if (tags !== undefined) {
+            tags = Object.keys(tags)
+        }
         return (
             <View style={styles.content}>
                 <View style={styles.row}>
@@ -80,7 +86,7 @@ export default class DetailContent extends Component {
                 </View>
                 
                 <View style={styles.row}>
-                    <Text style={{ color: '#C3BFBF', fontSize: 14, marginBottom: 10 }}>Barbecue, Popular</Text>
+                    <Text style={{ color: '#C3BFBF', fontSize: 14, marginBottom: 10 }}>{tags}</Text>
                 </View>
 
                 <View style={styles.row}>
