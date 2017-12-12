@@ -168,27 +168,34 @@ export default class MainContainer extends PureComponent {
         }.bind(this));
     }
 
-    like = () => {
+   
+    
+
+
+    nextDish= () => {
+        this.index = (++this.index) % this.maxIndex;
+        this.props.screenProps.settings.selected = this.state.cards[this.index];
+    }
+    onSwipeRight = (card) => {
+        this.nextDish()
+    }
+
+    onSwipeLeft = (card) => {
+        this.nextDish()
+    }
+
+    goAction = () => {
         Alert.alert(
             'You choose "Go" ',
             'Are you going to try "' + this.state.cards[this.index].name + '" today?',
             [
                 { text: 'No' },
-                { text: 'Yes', onPress: this.likeConfirmAction },
+                { text: 'Yes', onPress: this.goConfirmAction },
             ],
             { cancelable: true }
         )
-        this.props.screenProps.settings.selected = this.state.cards[this.index];
-        this.index = (++this.index) % this.maxIndex;
-
     }
-
-    dislike = () => {
-        this.props.screenProps.settings.selected = this.state.cards[this.index];
-        this.index = (++this.index) % this.maxIndex;
-    }
-
-    likeConfirmAction = () => {
+    goConfirmAction = () => {
         Alert.alert(
             'You\'re all set',
             'Your dish has been saved at your history',
@@ -207,32 +214,11 @@ export default class MainContainer extends PureComponent {
                 console.log(res);
             }
         })
-    }
-
-    onSwipeRight = (card) => {
-        this.dislike()
-    }
-
-    onSwipeLeft = (card) => {
-        this.dislike()
-    }
-
-    likeAction = () => {
-        this.deck._root.swipeLeft()
-        this.like()
-    }
-    goAction = () => {
-        this.like()
-    }
-
-    dislikeAction = () => {
-        this.deck._root.swipeRight()
-        this.dislike()
+        this.nextDish(); 
     }
 
     sflAction = () =>{
         this.deck._root.swipeLeft()
-        this.dislike()
         console.log(this.props)
         console.log(this.props.screenProps.settings.selected.imgUrl)
         axios.put('https://wte-api.herokuapp.com/api/users/saveForLater', {'imgUrl': this.props.screenProps.settings.selected.imgUrl, 'email':this.props.navigation.state.params.email})
@@ -245,6 +231,7 @@ export default class MainContainer extends PureComponent {
                 console.log(res);
             }
         })
+        this.nextDish();
         // let cur_card_ = this.state.cur_card;
         // cur_card_++;
         // this.setState({
