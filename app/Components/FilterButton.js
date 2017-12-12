@@ -43,7 +43,6 @@ export default class FilterButton extends PureComponent {
         }
 
         this.props.onPress();
-    
     }
     render() {
         return (

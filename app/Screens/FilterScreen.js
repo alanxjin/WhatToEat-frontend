@@ -93,6 +93,10 @@ export default class Filter extends PureComponent {
         });
     }
 
+    trigger = () =>{
+        this.props.navigation.state.params.updateFilter('123')
+    }
+
     render(){
         return(
             <Container style={{backgroundColor: 'white'}}>
@@ -112,8 +116,8 @@ export default class Filter extends PureComponent {
                     <View style={styles.filterPreference}>
                         <View>
                             <Text style={styles.filterPreferenceText}>Price</Text>
-                            <View style={styles.buttonGroup}>
-                                <FilterButton starType='usd' starMax='4' starNumber='1' starColor={colors.priceyellow} emptyColor={colors.lightgrey} onPress={}/>
+                            <View style={styles.buttonGroup} >
+                                <FilterButton starType='usd' starMax='4' starNumber='1' starColor={colors.priceyellow} emptyColor={colors.lightgrey} onPress={()=>{this.trigger()}}/>
                                 <FilterButton starType='usd' starMax='4' starNumber='2' starColor={colors.priceyellow} emptyColor={colors.lightgrey} />
                             </View>
                             <View style={styles.buttonGroup}>

@@ -1,11 +1,6 @@
 import React, { Component, PureComponent } from 'react'
-<<<<<<< HEAD
-import { Image, StyleSheet, ScrollView } from 'react-native';
-import { Container, Header, Left, Body, Right,Title, Text, Button, Icon, View,Thumbnail} from 'native-base';
-=======
 import { Image, StyleSheet } from 'react-native';
 import { Container, Header, Left, Body, Right, Content, Title, Text, Button, Icon, View,Thumbnail} from 'native-base';
->>>>>>> 12dbd8056aa8f48a2185123a1a343ba5cf8b2f6e
 import colors from '../theme/color'
 import TagGroup from '../Components/TagGroup'
 

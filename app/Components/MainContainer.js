@@ -147,11 +147,6 @@ export default class MainContainer extends PureComponent {
             }
             else {
                 Geolocation.getCurrentPosition((loc_res)=>{
-<<<<<<< HEAD
-                    let filter_distance_in_km = 5;
-                    let temp_dishes = response.data.data.slice();
-                    dishes = temp_dishes.map((val)=>{
-=======
                     // console.log(loc_res.coords.latitude);
                     // console.log(loc_res.coords.longitude);
 
@@ -162,7 +157,6 @@ export default class MainContainer extends PureComponent {
                     // console.log(val.restaurant.address.coord[1])
                     
                         // console.log(this.getDistanceFromLatLonInKm(loc_res.coords.latitude, loc_res.coords.longitude, val.restaurant.address.coord[0], val.restaurant.address.coord[1]));
->>>>>>> 12dbd8056aa8f48a2185123a1a343ba5cf8b2f6e
                         if(this.getDistanceFromLatLonInKm(loc_res.coords.latitude, loc_res.coords.longitude, val.restaurant.address.coord[0], val.restaurant.address.coord[1]) <= filter_distance_in_km){
                             return val;
                         }
@@ -264,18 +258,19 @@ export default class MainContainer extends PureComponent {
         this.deck = deck
     }
 
-    updateFilter = () =>{
-        let filteredTempDishes = this.state.cards.map((val, ind)=>{
-            if(ind >= this.index){
-                return val;
-            }
-        })        
+    updateFilter = (cur_filter) =>{
+        // let filteredTempDishes = this.state.cards.map((val, ind)=>{
+        //     if(ind >= this.index){
+        //         return val;
+        //     }
+        // })        
+        console.log(cur_filter);
 
 
     }
 
     goFilter = () => {
-        this.props.navigation.navigate('Filter', {filter_pass_to_parent_fn: this.updateFilter})
+        this.props.navigation.navigate('Filter', {updateFilter: this.updateFilter})
     }
 
     componentDidMount() {
