@@ -88,7 +88,7 @@ export default class Profile extends PureComponent {
     constructor(props){
         super(props);
         this.state={
-
+            
         }
     }
     returnOnPress = () => {

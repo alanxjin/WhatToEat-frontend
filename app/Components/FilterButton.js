@@ -27,7 +27,11 @@ export default class FilterButton extends PureComponent {
             prefer: true,
         }
     }
+
+
+
     handleButtonPress = () => {
+        // console.log(dishes);
         if (this.state.prefer === false) {
             this.setState({
                 prefer: true
@@ -37,6 +41,8 @@ export default class FilterButton extends PureComponent {
                 prefer: false
             })
         }
+
+        this.props.onPress();
     }
     render() {
         return (

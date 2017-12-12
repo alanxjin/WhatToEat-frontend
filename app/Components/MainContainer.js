@@ -103,12 +103,15 @@ export default class MainContainer extends PureComponent {
             selected: '',
             loading: false,
             cur_card: 0,
-            cards:[]//,
-            //index:0
+            cards:[],
+            cards_filtered_not_used: [],            
         }
 
         this.index = 0
         this.maxIndex = 0
+        this.filter = {oneheart: true, twoheart: true, threeheart: true, fourheart: true, fiveheart: true,
+            oneusd: true, twousd: true, threeusd: true, fourusd: true
+        }
         this.props.screenProps.settings.mainContainer = this
     }
 
@@ -158,19 +161,15 @@ export default class MainContainer extends PureComponent {
                             return val;
                         }
                     })
-
                     // dishes = response.data.data.slice();
                     dishes.sort(function(a, b){return 0.5 - Math.random()});
                     this.setState({
                         loading: false,
-                        cards: dishes
+                        cards: dishes,
                     });
-    
                     this.maxIndex = dishes.length
                     this.props.screenProps.settings.selected = dishes[0]            
-                
                 })
-                
             }
             
         }.bind(this));
@@ -259,8 +258,19 @@ export default class MainContainer extends PureComponent {
         this.deck = deck
     }
 
+    updateFilter = (cur_filter) =>{
+        // let filteredTempDishes = this.state.cards.map((val, ind)=>{
+        //     if(ind >= this.index){
+        //         return val;
+        //     }
+        // })        
+        console.log(cur_filter);
+
+
+    }
+
     goFilter = () => {
-        this.props.navigation.navigate('Filter')
+        this.props.navigation.navigate('Filter', {updateFilter: this.updateFilter})
     }
 
     componentDidMount() {
@@ -270,7 +280,6 @@ export default class MainContainer extends PureComponent {
                 'Did you like "' + selectedCard.name + '" you had last time?',
                 [
                     { text: 'No', onPress: () =>{ this.likeAPI(selectedCard.imgUrl)} },
-                    // { text: 'Skip', onPress: () => console.log('OK Pressed') },
                     { text: 'Yes', onPress: () =>{ this.dislikeAPI(selectedCard.imgUrl)} },
                 ],
                 { cancelable: true }
