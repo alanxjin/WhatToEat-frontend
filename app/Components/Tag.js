@@ -1,7 +1,8 @@
 import React, { Component, PureComponent } from 'react';
 import { View, Button, Text, Icon } from 'native-base';
 import { StyleSheet } from 'react-native';
-import colors from '../theme/color'
+import colors from '../theme/color';
+import axios from 'axios';
 
 const styles = StyleSheet.create({
     button: {
@@ -33,6 +34,17 @@ export default class Tag extends PureComponent {
             restrict: false,
         }
     }
+
+    handleTagPress = () => {
+        
+        axios.put()
+        .then((res)=>{
+
+        })
+
+
+    }
+
     handleTagPress = () => {
         if (this.state.notPrefer === true) {
             this.setState({

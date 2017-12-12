@@ -1,5 +1,5 @@
 import React, { Component, PureComponent } from 'react'
-import { Image, StyleSheet } from 'react-native';
+import { Image, StyleSheet, ScrollView } from 'react-native';
 import { Container, Header, Left, Body, Right,Title, Text, Button, Icon, View,Thumbnail} from 'native-base';
 import colors from '../theme/color'
 import TagGroup from '../Components/TagGroup'
@@ -66,7 +66,7 @@ export default class Profile extends PureComponent {
     constructor(props){
         super(props);
         this.state={
-
+            
         }
     }
     returnOnPress = () => {
@@ -89,6 +89,7 @@ export default class Profile extends PureComponent {
                     <Right>
                     </Right>
                 </Header>
+
                 <View>
                     <View style={styles.imageWrapper}>
                         <Image style={styles.image} source={this.props.screenProps.settings.siderbarImg} />

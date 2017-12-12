@@ -16,6 +16,8 @@ const styles = StyleSheet.create({
 })
 
 export default class TagGroup extends PureComponent {
+
+
     render() {
         return (
             <View>
@@ -24,24 +26,43 @@ export default class TagGroup extends PureComponent {
                     <Tag style={styles.tagView} text='American'/>
                     <Tag style={styles.tagView} text='Korean'/>
                 </View>
+
                 <View style={styles.tagGroup}>
                     <Tag style={styles.tagView} text='Japanese'/>
                     <Tag style={styles.tagView} text='French'/>
                     <Tag style={styles.tagView} text='Italian'/>
                 </View>
+
+
                 <View style={styles.tagGroup}>
                     <Tag style={styles.tagView} text='Indian'/>
                     <Tag style={styles.tagView} text='Mexican'/>
                     <Tag style={styles.tagView} text='Spicy'/>
                 </View>
+
                 <View style={styles.tagGroup}>
                     <Tag style={styles.tagView} text='Beef'/>
                     <Tag style={styles.tagView} text='Pork'/>
                     <Tag style={styles.tagView} text='Vegetarian'/>
                 </View>
+
                 <View style={styles.tagGroup}>
                     <Tag style={styles.tagView} text='Vegan'/>
+                    <Tag style={styles.tagView} text='Thai'/>
+                    <Tag style={styles.tagView} text='Dessert'/>
                 </View>
+
+                {/* <View style={styles.tagGroup}>
+                    <Tag style={styles.tagView} text='Chicken'/>
+                    <Tag style={styles.tagView} text='Noodles'/>
+                    <Tag style={styles.tagView} text='Soup'/>
+
+                </View><View style={styles.tagGroup}>
+                    <Tag style={styles.tagView} text='Salad'/>
+                    <Tag style={styles.tagView} text='Rice'/>
+                    <Tag style={styles.tagView} text='Steak'/>
+                </View> */}
+                
             </View>
         )
     }

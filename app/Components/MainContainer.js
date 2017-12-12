@@ -103,12 +103,15 @@ export default class MainContainer extends PureComponent {
             selected: '',
             loading: false,
             cur_card: 0,
-            cards:[]//,
-            //index:0
+            cards:[],
+            cards_filtered_not_used: [],            
         }
 
         this.index = 0
         this.maxIndex = 0
+        this.filter = {oneheart: true, twoheart: true, threeheart: true, fourheart: true, fiveheart: true,
+            oneusd: true, twousd: true, threeusd: true, fourusd: true
+        }
         this.props.screenProps.settings.mainContainer = this
     }
 
@@ -137,40 +140,29 @@ export default class MainContainer extends PureComponent {
 
         let email = this.props.navigation.state.params.email;
         let password = this.props.navigation.state.password;
-        axios.post('https://wte-api.herokuapp.com/api/dishes?limit=10', {'email': email}).then(function (response, error) {
+        axios.post('https://wte-api.herokuapp.com/api/dishes?limit=100', {'email': email}).then(function (response, error) {
             if (error) {
                 console.log(error);
                 return;
             }
             else {
                 Geolocation.getCurrentPosition((loc_res)=>{
-                    console.log(loc_res.coords.latitude);
-                    console.log(loc_res.coords.longitude);
-
                     let filter_distance_in_km = 5;
                     let temp_dishes = response.data.data.slice();
                     dishes = temp_dishes.map((val)=>{
-                    console.log(val.restaurant.address.coord[0])
-                    console.log(val.restaurant.address.coord[1])
-                    
-                        console.log(this.getDistanceFromLatLonInKm(loc_res.coords.latitude, loc_res.coords.longitude, val.restaurant.address.coord[0], val.restaurant.address.coord[1]));
                         if(this.getDistanceFromLatLonInKm(loc_res.coords.latitude, loc_res.coords.longitude, val.restaurant.address.coord[0], val.restaurant.address.coord[1]) <= filter_distance_in_km){
                             return val;
                         }
                     })
-
                     // dishes = response.data.data.slice();
                     dishes.sort(function(a, b){return 0.5 - Math.random()});
                     this.setState({
                         loading: false,
-                        cards: dishes
+                        cards: dishes,
                     });
-    
                     this.maxIndex = dishes.length
                     this.props.screenProps.settings.selected = dishes[0]            
-                
                 })
-                
             }
             
         }.bind(this));
@@ -259,8 +251,18 @@ export default class MainContainer extends PureComponent {
         this.deck = deck
     }
 
+    updateFilter = () =>{
+        let filteredTempDishes = this.state.cards.map((val, ind)=>{
+            if(ind >= this.index){
+                return val;
+            }
+        })        
+
+
+    }
+
     goFilter = () => {
-        this.props.navigation.navigate('Filter')
+        this.props.navigation.navigate('Filter', {filter_pass_to_parent_fn: this.updateFilter})
     }
 
     componentDidMount() {
@@ -270,7 +272,6 @@ export default class MainContainer extends PureComponent {
                 'Did you like "' + selectedCard.name + '" you had last time?',
                 [
                     { text: 'No', onPress: () =>{ this.likeAPI(selectedCard.imgUrl)} },
-                    // { text: 'Skip', onPress: () => console.log('OK Pressed') },
                     { text: 'Yes', onPress: () =>{ this.dislikeAPI(selectedCard.imgUrl)} },
                 ],
                 { cancelable: true }
