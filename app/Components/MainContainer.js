@@ -26,6 +26,7 @@ import CardStack from '../Components/CardStack';
 import ButtonGroup from '../Components/ButtonGroup';
 import Modal from 'react-native-modalbox';
 import colors from '../theme/color';
+import Geolocation from 'Geolocation';
 
 import { ActionSheetCustom as ActionSheet } from 'react-native-actionsheet'
 
@@ -111,6 +112,24 @@ export default class MainContainer extends PureComponent {
         this.props.screenProps.settings.mainContainer = this
     }
 
+    getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+        var R = 6371; // Radius of the earth in km
+        var dLat = this.deg2rad(lat2-lat1);  // deg2rad below
+        var dLon = this.deg2rad(lon2-lon1); 
+        var a = 
+          Math.sin(dLat/2) * Math.sin(dLat/2) +
+          Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) * 
+          Math.sin(dLon/2) * Math.sin(dLon/2)
+          ; 
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+        var d = R * c; // Distance in km
+        return d;
+      }
+      
+      deg2rad(deg) {
+        return deg * (Math.PI/180)
+      }
+
     componentWillMount() {
         this.setState({
             loading: true,
@@ -118,23 +137,40 @@ export default class MainContainer extends PureComponent {
 
         let email = this.props.navigation.state.params.email;
         let password = this.props.navigation.state.password;
-        axios.post('https://wte-api.herokuapp.com/api/dishes?limit=100', {'email': email}).then(function (response, error) {
+        axios.post('https://wte-api.herokuapp.com/api/dishes?limit=10', {'email': email}).then(function (response, error) {
             if (error) {
                 console.log(error);
                 return;
             }
             else {
-                dishes = response.data.data.slice();
-                //dishes.sort(function(a, b){return 0.5 - Math.random()});
-                this.setState({
-                    loading: false,
-                    cards: dishes
-                });
+                Geolocation.getCurrentPosition((loc_res)=>{
+                    console.log(loc_res.coords.latitude);
+                    console.log(loc_res.coords.longitude);
 
+                    let filter_distance_in_km = 5;
+                    let temp_dishes = response.data.data.slice();
+                    dishes = temp_dishes.map((val)=>{
+                    console.log(val.restaurant.address.coord[0])
+                    console.log(val.restaurant.address.coord[1])
+                    
+                        console.log(this.getDistanceFromLatLonInKm(loc_res.coords.latitude, loc_res.coords.longitude, val.restaurant.address.coord[0], val.restaurant.address.coord[1]));
+                        if(this.getDistanceFromLatLonInKm(loc_res.coords.latitude, loc_res.coords.longitude, val.restaurant.address.coord[0], val.restaurant.address.coord[1]) <= filter_distance_in_km){
+                            return val;
+                        }
+                    })
+
+                    // dishes = response.data.data.slice();
+                    dishes.sort(function(a, b){return 0.5 - Math.random()});
+                    this.setState({
+                        loading: false,
+                        cards: dishes
+                    });
+    
+                    this.maxIndex = dishes.length
+                    this.props.screenProps.settings.selected = dishes[0]            
                 
-                this.maxIndex = dishes.length
+                })
                 
-                this.props.screenProps.settings.selected = dishes[0]
             }
             
         }.bind(this));
@@ -194,6 +230,9 @@ export default class MainContainer extends PureComponent {
     }
 
     saveAction = () =>{
+        Geolocation.getCurrentPosition((res)=>{
+            console.log(res);
+        })
         this.deck._root.swipeLeft()
         axios.put('https://wte-api.herokuapp.com/api/users/saveForLater', {'imgUrl': this.props.screenProps.settings.selected.imgUrl, 'email':this.props.navigation.state.params.email})
         .then((res, err)=>{
