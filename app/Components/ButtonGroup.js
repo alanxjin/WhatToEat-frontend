@@ -48,28 +48,9 @@ const styles = StyleSheet.create({
 });
 
 
-const buttonOnPress = (props) => {
-    //console.error("adasd")
-    // console.log(props);
-}
-
-
-// const sflAction = (props)=>{
-//     // sflAction = ()=>{
-//         console.log("inside")
-//         console.log(props.cur_card);
-//         // this.props.sflAction(this.props.screenProps.settings.selected.imUrl);
-//     // }
-// }
-
 const ButtonGroup = (props) => {
     
-    // sflAction = ()=>{
-    //     console.log(this.props.screenProps.settings.selected.imUrl);
-    //     // this.props.sflAction(this.props.screenProps.settings.selected.imUrl);
-    // }
-
-    return (
+      return (
 
         // console.log(props);
         <View style={styles.buttonGroup}>
@@ -79,7 +60,7 @@ const ButtonGroup = (props) => {
                 </Button>
             </View> */}
             <View style={styles.buttonView}>
-                <Button style={styles.button} onPress={props.dislikeAction}>
+                <Button style={styles.button} onPress={props.nextAction}>
                     <Icon name='close' style={styles.icon3} />
                 </Button>
             </View>
@@ -104,41 +85,3 @@ const ButtonGroup = (props) => {
 };
 
 export default ButtonGroup
-
-// export default class ButtonGroup extends PureComponent {
-//     constructor() {
-//         super()
-//         this.buttonOnPress = this.buttonOnPress.bind(this)
-//     }
-
-//     buttonOnPress() {
-//         console.error("adasd")
-//     }
-//     render() {
-//         return (
-//             <View style={styles.buttonGroup}>
-//                 <View style={styles.buttonView}>
-//                     <Button style={styles.button} onPress={this.buttonOnPress}>
-//                         <Icon name='undo' style={styles.icon1} />
-//                     </Button>
-//                 </View>
-//                 <View style={styles.buttonView}>
-//                     <Button style={styles.button} onPress={this.buttonOnPress}>
-//                         <Icon name='heart' style={styles.icon2} />
-//                     </Button>
-//                 </View>
-//                 <View style={styles.buttonView}>
-//                     <Button style={styles.button} onPress={this.buttonOnPress}>
-//                         <Icon name='close' style={styles.icon3} />
-//                     </Button>
-//                 </View>
-//                 <View style={styles.buttonView}>
-//                     <Button style={styles.button} onPress={this.buttonOnPress}>
-//                         <Icon name='bookmark' style={styles.icon4} />
-//                     </Button>
-//                 </View>
-//             </View>
-//         );
-//     }
-// };
-

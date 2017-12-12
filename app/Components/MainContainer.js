@@ -141,7 +141,7 @@ export default class MainContainer extends PureComponent {
         this.props.navigation.navigate('DrawerToggle')
     }
 
-    nextDish= () => {
+    nextDish = () => {
         this.index = (++this.index) % this.maxIndex;
         this.props.screenProps.settings.selected = this.state.cards[this.index];
     }
@@ -183,7 +183,6 @@ export default class MainContainer extends PureComponent {
                 // console.log(res);
             }
         })
-        this.nextDish(); 
     }
 
     saveAction = () =>{
@@ -205,7 +204,10 @@ export default class MainContainer extends PureComponent {
         //     cur_card: cur_card_,
         // })
     }
-
+    nextAction = () => {
+        this.deck._root.swipeRight();
+        this.nextDish(); 
+    }
     getDeck = (deck) => {
         this.deck = deck
     }
@@ -269,7 +271,7 @@ export default class MainContainer extends PureComponent {
 
                 <Footer style={styles.footer}>
                     <FooterTab>
-                        <ButtonGroup {...this.props} saveAction={this.saveAction}  goAction={this.goAction}/>
+                        <ButtonGroup {...this.props} saveAction={this.saveAction}  goAction={this.goAction} nextAction={this.nextAction}/>
                     </FooterTab>
                 </Footer>
 
