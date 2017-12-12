@@ -37,19 +37,34 @@ export default class TagGroup extends PureComponent {
                 <View style={styles.tagGroup}>
                     <Tag style={styles.tagView} text='Indian'/>
                     <Tag style={styles.tagView} text='Mexican'/>
-                    <Tag style={styles.tagView} text='Spicy'/>
+                    <Tag style={styles.tagView} text='Thai'/>
                 </View>
 
                 <View style={styles.tagGroup}>
+                    <Tag style={styles.tagView} text='Chicken'/>
                     <Tag style={styles.tagView} text='Beef'/>
                     <Tag style={styles.tagView} text='Pork'/>
-                    <Tag style={styles.tagView} text='Vegetarian'/>
                 </View>
 
                 <View style={styles.tagGroup}>
+                    <Tag style={styles.tagView} text='Vegetarian'/>
                     <Tag style={styles.tagView} text='Vegan'/>
-                    <Tag style={styles.tagView} text='Thai'/>
+                    <Tag style={styles.tagView} text='Seafood'/>
+                </View>
+                <View style={styles.tagGroup}>
                     <Tag style={styles.tagView} text='Dessert'/>
+                    <Tag style={styles.tagView} text='Burger'/>
+                    <Tag style={styles.tagView} text='Chip'/>
+                </View>
+                <View style={styles.tagGroup}>
+                    <Tag style={styles.tagView} text='Noodles'/>
+                    <Tag style={styles.tagView} text='Fish'/>
+                    <Tag style={styles.tagView} text='Soup'/>
+                </View>
+                <View style={styles.tagGroup}>
+                    <Tag style={styles.tagView} text='Rice'/>
+                    <Tag style={styles.tagView} text='Salad'/>
+                    <Tag style={styles.tagView} text='Spicy'/>
                 </View>
 
                 {/* <View style={styles.tagGroup}>

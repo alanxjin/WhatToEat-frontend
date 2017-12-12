@@ -1,6 +1,11 @@
 import React, { Component, PureComponent } from 'react'
+<<<<<<< HEAD
 import { Image, StyleSheet, ScrollView } from 'react-native';
 import { Container, Header, Left, Body, Right,Title, Text, Button, Icon, View,Thumbnail} from 'native-base';
+=======
+import { Image, StyleSheet } from 'react-native';
+import { Container, Header, Left, Body, Right, Content, Title, Text, Button, Icon, View,Thumbnail} from 'native-base';
+>>>>>>> 12dbd8056aa8f48a2185123a1a343ba5cf8b2f6e
 import colors from '../theme/color'
 import TagGroup from '../Components/TagGroup'
 
@@ -27,7 +32,7 @@ const styles = StyleSheet.create({
         top: 0,
         left: 0,
         right: 0,
-        bottom: 350,
+        bottom: 480,
         position: 'absolute',
         zIndex:-1
     },
@@ -42,24 +47,46 @@ const styles = StyleSheet.create({
     },
     text: {
         backgroundColor:"rgba(0,0,0,0)",
-        marginTop: 15,
-        fontSize: 16,
+        marginTop: 10,
+        fontSize: 14,
         alignSelf: "center",
         color: '#959899'
     },
     dietPreference: {
-        marginTop: 200,
+        marginTop: 25,
         marginLeft: 10,
         marginRight: 10,
         alignSelf: "center",
     },
     dietPreferenceText: {
-        marginTop: 0,
-        marginBottom: 18,
-        alignSelf: 'center',
-        fontSize: 20,
-        color: colors.darkgrey
+        marginBottom: 14,
+        fontSize: 18,
+        color: colors.darkgrey,
+        alignSelf: "center",
     },
+    sampleButtonRed: {
+        justifyContent: 'center',
+        height: 30,
+        width: 80,
+        borderRadius: 5,
+        margin: 6,
+        marginLeft: 10,
+        backgroundColor: colors.red,
+    },
+    sampleButtonGreen: {
+        justifyContent: 'center',
+        height: 30,
+        width: 80,
+        borderRadius: 5,
+        margin: 6,
+        marginRight: 10,
+        backgroundColor: colors.mediumgreen,
+    },
+    sampleButtons: {
+        flexDirection: 'row',
+        alignSelf: "center",
+        marginBottom: 10
+    }
 });
 
 export default class Profile extends PureComponent {
@@ -89,8 +116,7 @@ export default class Profile extends PureComponent {
                     <Right>
                     </Right>
                 </Header>
-
-                <View>
+                <Content>
                     <View style={styles.imageWrapper}>
                         <Image style={styles.image} source={this.props.screenProps.settings.siderbarImg} />
                     </View>
@@ -101,9 +127,13 @@ export default class Profile extends PureComponent {
                     </View>
                     <View style={styles.dietPreference}>
                         <Text style={styles.dietPreferenceText}>My Dietary Preference</Text>
+                        <View style={styles.sampleButtons}>
+                            <Button style={styles.sampleButtonGreen}><Text style={{fontSize: 14}}>Prefer</Text></Button>
+                            <Button style={styles.sampleButtonRed}><Text style={{fontSize: 14}}>Never</Text></Button>
+                        </View>
                         <TagGroup />
                     </View>
-                </View>
+                </Content>
                
             </Container>
         )

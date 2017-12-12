@@ -7,9 +7,9 @@ import axios from 'axios';
 const styles = StyleSheet.create({
     button: {
         justifyContent: 'center',
-        height: 45,
+        height: 35,
         width: 110,
-        borderRadius: 5,
+        borderRadius: 50,
         margin: 6,
         backgroundColor: colors.mediumgrey,
     },
