@@ -44,7 +44,7 @@ export default class HistoryCard extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            starCount: 0
+            starCount: global[this.props.dateCreated]
         };
     }
     
@@ -52,6 +52,8 @@ export default class HistoryCard extends PureComponent {
     this.setState({
         starCount: rating
     });
+    //this is not good implementation
+    global[this.props.dateCreated]= rating
     }
 
     buttonOnPress = () => {
@@ -65,8 +67,7 @@ export default class HistoryCard extends PureComponent {
     }
 
     render() {
-       
-        // console.log(this.props);
+        
         return (
             <Card style={styles.card}>
                 <CardItem style={styles.cardHeader}>
