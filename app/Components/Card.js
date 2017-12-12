@@ -41,6 +41,7 @@ export default class StackCard extends PureComponent {
     }
 
     render() {
+        console.log(global.test);
         return (
             <Card  style={styles.card} >
                 <CardItem cardBody style={styles.cardBody}>

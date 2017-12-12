@@ -126,7 +126,7 @@ export default class Profile extends PureComponent {
                             <Button style={styles.sampleButtonGreen}><Text style={{fontSize: 14}}>Prefer</Text></Button>
                             <Button style={styles.sampleButtonRed}><Text style={{fontSize: 14}}>Never</Text></Button>
                         </View>
-                        <TagGroup />
+                        <TagGroup/>
                     </View>
                 </Content>
                

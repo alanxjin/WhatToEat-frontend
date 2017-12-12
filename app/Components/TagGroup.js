@@ -20,44 +20,44 @@ export default class TagGroup extends PureComponent {
         return (
             <View>
                 <View style={styles.tagGroup}>
-                    <Tag style={styles.tagView} text='Chinese'/>
-                    <Tag style={styles.tagView} text='American'/>
-                    <Tag style={styles.tagView} text='Korean'/>
+                    <Tag  style={styles.tagView} text='Chinese'/>
+                    <Tag  style={styles.tagView} text='American'/>
+                    <Tag  style={styles.tagView} text='Korean'/>
                 </View>
                 <View style={styles.tagGroup}>
-                    <Tag style={styles.tagView} text='Japanese'/>
-                    <Tag style={styles.tagView} text='French'/>
-                    <Tag style={styles.tagView} text='Italian'/>
+                    <Tag  style={styles.tagView} text='Japanese'/>
+                    <Tag  style={styles.tagView} text='French'/>
+                    <Tag  style={styles.tagView} text='Italian'/>
                 </View>
                 <View style={styles.tagGroup}>
-                    <Tag style={styles.tagView} text='Indian'/>
-                    <Tag style={styles.tagView} text='Mexican'/>
-                    <Tag style={styles.tagView} text='Thai'/>
+                    <Tag  style={styles.tagView} text='Indian'/>
+                    <Tag  style={styles.tagView} text='Mexican'/>
+                    <Tag  style={styles.tagView} text='Thai'/>
                 </View>
                 <View style={styles.tagGroup}>
-                    <Tag style={styles.tagView} text='Chicken'/>
-                    <Tag style={styles.tagView} text='Beef'/>
-                    <Tag style={styles.tagView} text='Pork'/>
+                    <Tag  style={styles.tagView} text='Chicken'/>
+                    <Tag  style={styles.tagView} text='Beef'/>
+                    <Tag  style={styles.tagView} text='Pork'/>
                 </View>
                 <View style={styles.tagGroup}>
-                    <Tag style={styles.tagView} text='Vegetarian'/>
-                    <Tag style={styles.tagView} text='Vegan'/>
-                    <Tag style={styles.tagView} text='Seafood'/>
+                    <Tag  style={styles.tagView} text='Vegetarian'/>
+                    <Tag  style={styles.tagView} text='Vegan'/>
+                    <Tag  style={styles.tagView} text='Seafood'/>
                 </View>
                 <View style={styles.tagGroup}>
-                    <Tag style={styles.tagView} text='Dessert'/>
-                    <Tag style={styles.tagView} text='Burger'/>
-                    <Tag style={styles.tagView} text='Chip'/>
+                    <Tag  style={styles.tagView} text='Dessert'/>
+                    <Tag  style={styles.tagView} text='Burger'/>
+                    <Tag  style={styles.tagView} text='Chip'/>
                 </View>
                 <View style={styles.tagGroup}>
-                    <Tag style={styles.tagView} text='Noodles'/>
-                    <Tag style={styles.tagView} text='Fish'/>
-                    <Tag style={styles.tagView} text='Soup'/>
+                    <Tag  style={styles.tagView} text='Noodles'/>
+                    <Tag  style={styles.tagView} text='Fish'/>
+                    <Tag  style={styles.tagView} text='Soup'/>
                 </View>
                 <View style={styles.tagGroup}>
-                    <Tag style={styles.tagView} text='Rice'/>
-                    <Tag style={styles.tagView} text='Salad'/>
-                    <Tag style={styles.tagView} text='Spicy'/>
+                    <Tag  style={styles.tagView} text='Rice'/>
+                    <Tag  style={styles.tagView} text='Salad'/>
+                    <Tag  style={styles.tagView} text='Spicy'/>
                 </View>
             </View>
         )

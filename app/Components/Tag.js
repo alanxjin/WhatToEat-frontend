@@ -28,9 +28,9 @@ export default class Tag extends PureComponent {
     constructor(props) {
         super(props)
         this.state = {
-            notPrefer: true,
-            prefer: false,
-            restrict: false,
+            notPrefer: global[this.props.text] == undefined || global[this.props.text] == 0,
+            prefer: global[this.props.text] == 1,
+            restrict: global[this.props.text] == -1,
         }
     }
     handleTagPress = () => {
@@ -39,19 +39,23 @@ export default class Tag extends PureComponent {
                 notPrefer: false,
                 prefer: true
             })
+            global[this.props.text] = 1;
         } else if (this.state.prefer === true) {
             this.setState({
                 prefer: false,
                 restrict: true
             })
+            global[this.props.text] = -1;
         } else if (this.state.restrict === true) {
             this.setState({
                 restrict: false,
                 notPrefer: true
             })
+            global[this.props.text] = 0;
         }
     }
     render() {
+        console.log(global[this.props.text]);
         return (
             <Button style={[styles.button, this.state.prefer && styles.prefer,
             this.state.restrict && styles.restrict]} onPress={this.handleTagPress}>
