@@ -65,7 +65,7 @@ export default class DetailContent extends Component {
                 openStatus = "Open";
                 color = {color:"#93F04F"};
             }else{
-                openStatus = "Close";
+                openStatus = "Closed";
                 color = {color:"red"};
             }
         }
