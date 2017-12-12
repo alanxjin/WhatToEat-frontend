@@ -3,6 +3,8 @@ import { Image, StyleSheet, Dimensions } from 'react-native';
 import { Container, Header, Footer, Content, Left, Body, Right,Title, Text, Button, Icon, View,Thumbnail} from 'native-base';
 import colors from '../theme/color'
 import FilterButton from '../Components/FilterButton'
+import { Slider } from 'react-native-elements'
+import StarRating from 'react-native-star-rating';
 
 const { width: screenWidth } = Dimensions.get('window');
 
@@ -53,12 +55,17 @@ const styles = StyleSheet.create({
         marginTop: 20,
         padding: 40,
     },
+    stars: {
+        marginTop: 10,
+        marginLeft: 30,
+        marginRight: 180,
+    },
     filterPreferenceText: {
         marginTop: 45,
         marginBottom: 10,
         marginLeft: 30,
         fontSize: 18,
-        color: colors.mediumgrey
+        color: colors.mediumgrey,
     },
     buttonGroup: {
         flexDirection: 'row',
@@ -67,15 +74,24 @@ const styles = StyleSheet.create({
 });
 
 export default class Filter extends PureComponent {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state={
-
-        }
+        this.state = {
+            starCount: 1,
+            filterValue: 2.5
+        };
     }
+
     returnOnPress = () => {
         this.props.navigation.goBack();
     }
+
+    onStarRatingPress = (rating) => {
+        this.setState({
+            starCount: rating
+        });
+    }
+
     render(){
         return(
             <Container style={{backgroundColor: 'white'}}>
@@ -105,17 +121,37 @@ export default class Filter extends PureComponent {
                             </View>
                         </View>
                         <View style={styles.filterPreference}>
-                            <Text style={styles.filterPreferenceText}>Rating</Text>
-                            <View style={styles.buttonGroup}>
-                                <FilterButton starType='heart' starMax='5' starNumber='1' starColor={colors.red} emptyColor={colors.lightgrey} />
-                                <FilterButton starType='heart' starMax='5' starNumber='2' starColor={colors.red} emptyColor={colors.lightgrey} />
+                            <Text style={styles.filterPreferenceText}>Rating no less than</Text>
+                            <View style={styles.stars}>
+                                <StarRating
+                                    disabled={false}
+                                    emptyStar={'star'}
+                                    fullStar={'star'}
+                                    halfStar={'star'}
+                                    maxStars={5}
+                                    starColor={'#FFE220'}
+                                    emptyStarColor={'#C3BFBF'}
+                                    starSize={26}
+                                    rating={this.state.starCount}
+                                    selectedStar={(rating) => this.onStarRatingPress(rating)}
+                                />
                             </View>
-                            <View style={styles.buttonGroup}>
-                                <FilterButton starType='heart' starMax='5' starNumber='3' starColor={colors.red} emptyColor={colors.lightgrey} />
-                                <FilterButton starType='heart' starMax='5' starNumber='4' starColor={colors.red} emptyColor={colors.lightgrey} />
-                            </View>
-                            <View style={styles.buttonGroup}>
-                                <FilterButton starType='heart' starMax='5' starNumber='5' starColor={colors.red} emptyColor={colors.lightgrey} />
+                        </View>
+                        <View style={styles.filterPreference}>
+                            <Text style={styles.filterPreferenceText}>Distance</Text>
+                            <View style={{flexDirection: 'row'}}>
+                                <View style={{flex: 4, marginLeft: 30, marginRight: 20}}>
+                                    <Slider
+                                        value={this.state.filterValue}
+                                        onValueChange={(filterValue) => this.setState({filterValue})}
+                                        maximumValue={10}
+                                        step={0.1}
+                                        minimumTrackTintColor={colors.darkgrey}
+                                        maximumTrackTintColor={colors.mediumgrey}
+                                        thumbStyle={{borderColor: 'black', borderWidth: 0.1, borderRadius: 30, backgroundColor: 'white', width: 30, height: 30}}
+                                    />
+                                </View>
+                                <Text style={{flex: 1, marginTop: 10, fontSize: 14, color: colors.darkgrey}}>{Math.round( this.state.filterValue * 10 ) / 10} Mile </Text>
                             </View>
                         </View>
                     </View>

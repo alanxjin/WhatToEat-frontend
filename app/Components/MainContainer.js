@@ -144,16 +144,16 @@ export default class MainContainer extends PureComponent {
             }
             else {
                 Geolocation.getCurrentPosition((loc_res)=>{
-                    console.log(loc_res.coords.latitude);
-                    console.log(loc_res.coords.longitude);
+                    // console.log(loc_res.coords.latitude);
+                    // console.log(loc_res.coords.longitude);
 
                     let filter_distance_in_km = 3000;
                     let temp_dishes = response.data.data.slice();
                     dishes = temp_dishes.map((val)=>{
-                    console.log(val.restaurant.address.coord[0])
-                    console.log(val.restaurant.address.coord[1])
+                    // console.log(val.restaurant.address.coord[0])
+                    // console.log(val.restaurant.address.coord[1])
                     
-                        console.log(this.getDistanceFromLatLonInKm(loc_res.coords.latitude, loc_res.coords.longitude, val.restaurant.address.coord[0], val.restaurant.address.coord[1]));
+                        // console.log(this.getDistanceFromLatLonInKm(loc_res.coords.latitude, loc_res.coords.longitude, val.restaurant.address.coord[0], val.restaurant.address.coord[1]));
                         if(this.getDistanceFromLatLonInKm(loc_res.coords.latitude, loc_res.coords.longitude, val.restaurant.address.coord[0], val.restaurant.address.coord[1]) <= filter_distance_in_km){
                             return val;
                         }
