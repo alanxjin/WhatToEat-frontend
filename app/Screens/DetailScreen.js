@@ -6,40 +6,6 @@ import DetailButtonGroup from '../Components/DetailButtonGroup'
 import DetailContent from '../Components/DetailContent'
 
 
-const selectedCard = {
-    "_id": {
-        "$oid": "5a2bbf11aece2b92b868c321"
-    },
-    "imgUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/zOfwA5pljwmXmWYUpOAShw/o.jpg",
-    "name": "Wings&Bleu Cheese",
-    "rating": 0,
-    "restaurant": {
-        "address": {
-            "city": "Urbana",
-            "coord": [
-                40.1138182155,
-                -88.2076892527
-            ],
-            "state": "IL",
-            "street": "201 N Broadway Ave",
-            "zipcode": "61801"
-        },
-        "hours": {
-            "Friday": "11:00-23:00",
-            "Monday": "11:00-22:00",
-            "Saturday": "11:00-23:00",
-            "Sunday": "11:00-22:00",
-            "Thursday": "11:00-22:00",
-            "Tuesday": "11:00-22:00",
-            "Wednesday": "11:00-22:00"
-        },
-        "name": "Black Dog Smoke & Ale House",
-        "price": 2,
-        "rest_id": "9MnbQg7kfb_WgxoV0hXKSQ",
-        "stars": 4.5
-    },
-    "tag": {}
-}
 
 const styles = StyleSheet.create({
     content: {
@@ -68,13 +34,18 @@ const styles = StyleSheet.create({
 
 
 export default class DetailScreen extends PureComponent {
-    componentWillMount() {
+    constructor(props){
+        super(props);
+        this.dish_info =  this.props.navigation.state.params;
         this.initialRegion = {
-            latitude: this.props.screenProps.settings.selected.restaurant.address.coord[0],
-            longitude: this.props.screenProps.settings.selected.restaurant.address.coord[1],
+            latitude: this.dish_info.restaurant.address.coord[0],
+            longitude: this.dish_info.restaurant.address.coord[1],
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
         }
+    }
+    componentWillMount() {
+       
     }
 
     // componentWillMount(){
@@ -88,10 +59,11 @@ export default class DetailScreen extends PureComponent {
     // }
 
     mapOnPress = () => {
-        this.props.navigation.navigate('Map')
+        this.props.navigation.navigate('Map',this.initialRegion)
     }
 
     render() {
+       
         return (
             <Container>
                 <StatusBar
@@ -102,9 +74,9 @@ export default class DetailScreen extends PureComponent {
                 <Content style={styles.content}>
 
                     <View style={styles.imageView}>
-                        <Image style={styles.image} source={{ uri: this.props.screenProps.settings.selected.imgUrl }} />
+                        <Image style={styles.image} source={{ uri: this.dish_info.imgUrl }} />
                     </View>
-                    <DetailContent  {...this.props} cardInfo={this.props.screenProps.settings.selected} />
+                    <DetailContent  {...this.props} cardInfo={this.dish_info} />
 
                     <View style={styles.mapView}>
                         <MapView

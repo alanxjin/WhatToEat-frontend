@@ -48,11 +48,10 @@ const styles = StyleSheet.create({
 });
 
 
-const ButtonGroup = (props) => {
-    
+class ButtonGroup extends PureComponent {
+    render(){
+     
       return (
-
-        // console.log(props);
         <View style={styles.buttonGroup}>
             {/* <View style={styles.buttonView}>
                 <Button style={styles.button} onPress={buttonOnPress}>
@@ -60,14 +59,14 @@ const ButtonGroup = (props) => {
                 </Button>
             </View> */}
             <View style={styles.buttonView}>
-                <Button style={styles.button} onPress={props.nextAction}>
+                <Button style={styles.button} onPress={this.props.nextAction}>
                     <Icon name='close' style={styles.icon3} />
                 </Button>
             </View>
 
 
             <View style={styles.buttonView}>
-                <Button style={styles.button_ok} onPress={props.goAction}>
+                <Button style={styles.button_ok} onPress={this.props.goAction}>
                     <Text style={styles.go_text}>GO</Text>
                     {/* <Icon name='heart' style={styles.icon2} /> */}
                     {/* <Text>Go</Text> */}
@@ -76,12 +75,13 @@ const ButtonGroup = (props) => {
             </View>
             
             <View style={styles.buttonView}>
-                <Button style={styles.button} onPress={props.saveAction}>
+                <Button style={styles.button} onPress={this.props.saveAction}>
                     <Icon name='bookmark' style={styles.icon4} />
                 </Button>
             </View>
         </View>
-    );
+        );
+    }
 };
 
 export default ButtonGroup

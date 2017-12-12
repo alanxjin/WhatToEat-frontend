@@ -57,7 +57,13 @@ export default class ListCard extends PureComponent {
     }
 
     buttonOnPress = () => {
-        this.props.navigation.navigate('Detail')
+        let dish_info = {}; 
+        dish_info["imgUrl"] = this.props.imgUrl;
+        dish_info["name"] = this.props.name;
+        dish_info["rating"] = this.props.rating;
+        dish_info["restaurant"] = this.props.restaurant;
+        dish_info["tag"] = this.props.tag;
+        this.props.navigation.navigate('Detail',dish_info);
     }
 
     render() {

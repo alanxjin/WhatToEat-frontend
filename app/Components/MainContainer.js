@@ -102,7 +102,8 @@ export default class MainContainer extends PureComponent {
             selected: '',
             loading: false,
             cur_card: 0,
-            cards:[]
+            cards:[]//,
+            //index:0
         }
 
         this.index = 0
@@ -124,6 +125,7 @@ export default class MainContainer extends PureComponent {
             }
             else {
                 dishes = response.data.data.slice();
+                //dishes.sort(function(a, b){return 0.5 - Math.random()});
                 this.setState({
                     loading: false,
                     cards: dishes
@@ -131,6 +133,7 @@ export default class MainContainer extends PureComponent {
 
                 
                 this.maxIndex = dishes.length
+                
                 this.props.screenProps.settings.selected = dishes[0]
             }
             
@@ -142,6 +145,11 @@ export default class MainContainer extends PureComponent {
     }
 
     nextDish = () => {
+        // let curIndex = this.state.index;
+        // curIndex++;
+        // this.setState({
+        //     index:curIndex
+        // });
         this.index = (++this.index) % this.maxIndex;
         this.props.screenProps.settings.selected = this.state.cards[this.index];
     }
@@ -271,7 +279,8 @@ export default class MainContainer extends PureComponent {
 
                 <Footer style={styles.footer}>
                     <FooterTab>
-                        <ButtonGroup {...this.props} saveAction={this.saveAction}  goAction={this.goAction} nextAction={this.nextAction}/>
+                        
+                        <ButtonGroup {...this.props}  saveAction={this.saveAction}  goAction={this.goAction} nextAction={this.nextAction}/>
                     </FooterTab>
                 </Footer>
 

@@ -83,21 +83,18 @@ async function requestCameraPermission() {
 }
 
 export default class MapScreen extends PureComponent {
-    componentWillMount() {
-        this.initialRegion = {
-            latitude: selectedCard.restaurant.address.coord[0],
-            longitude: selectedCard.restaurant.address.coord[1],
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-        }
-        //requestCameraPermission()
+    constructor(props){
+        super(props);
+        this.initialRegion =  this.props.navigation.state.params;
     }
+   
 
     returnOnPress = () => {
         this.props.navigation.goBack();
     }
 
     render() {
+       
         return (
             <Container>
                 <StatusBar translucent={false} />

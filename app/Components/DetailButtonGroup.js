@@ -41,36 +41,39 @@ export default class DetailButtonGroup extends PureComponent {
         this.props.navigation.goBack();
     }
 
-    likeOnPress = () => {
-        this.returnOnPress()
-        this.props.screenProps.settings.mainContainer.likeAction()
+    goOnPress = () => {
+        this.returnOnPress();
+        this.props.screenProps.settings.mainContainer.goAction();
     }
 
-    dislikeOnPress = () => {
-        this.returnOnPress()
-        this.props.screenProps.settings.mainContainer.dislikeAction()
+    nextOnPress = () => {
+        this.returnOnPress();
+        this.props.screenProps.settings.mainContainer.nextAction();
     }
-
+    saveOnPress = () =>{
+        this.returnOnPress();
+        this.props.screenProps.settings.mainContainer.saveAction();
+    }
     render() {
         return (
             <View style={styles.buttonGroup}>
                 <View style={styles.buttonView}>
-                    <Button style={styles.button}  onPress={this.returnOnPress}>
+                    <Button style={styles.button} onPress={this.returnOnPress}>
                         <Icon name='chevron-left' style={styles.icon1} />
                     </Button>
                 </View>
                 <View style={styles.buttonView}>
-                    <Button style={styles.button}>
-                        <Icon name='heart' style={styles.icon2}  onPress={this.likeOnPress} />
+                    <Button style={styles.button} onPress={this.nextOnPress}>
+                        <Icon name='close' style={styles.icon3}   />
                     </Button>
                 </View>
                 <View style={styles.buttonView}>
-                    <Button style={styles.button}>
-                        <Icon name='close' style={styles.icon3}   onPress={this.dislikeOnPress}/>
+                    <Button style={styles.button} onPress={this.goOnPress}>
+                        <Icon name='heart' style={styles.icon2}   />
                     </Button>
                 </View>
                 <View style={styles.buttonView}>
-                    <Button style={styles.button}>
+                    <Button style={styles.button} onPress={this.saveOnPress}>
                         <Icon name='bookmark' style={styles.icon4} />
                     </Button>
                 </View>
