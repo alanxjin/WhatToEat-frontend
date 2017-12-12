@@ -73,7 +73,7 @@ export default class ListCard extends PureComponent {
             <Card style={styles.card}>
                 <CardItem style={styles.cardHeader}>
                     {/* <Text style={styles.headerText}>{dateFormat(new Date(date.dateCreated))}</Text> */}
-                    <Text style={styles.headerText}>Mon Dec 11 2017</Text>
+                    <Text style={styles.headerText}>Tue Dec 12 2017</Text>
                 </CardItem>
                 <CardItem cardBody style={styles.cardBody}>
                     <Image style={styles.image} source={{ uri: this.props.imgUrl }} />
