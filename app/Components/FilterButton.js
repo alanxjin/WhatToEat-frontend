@@ -42,7 +42,7 @@ export default class FilterButton extends PureComponent {
             })
         }
 
-        this.props.onPress();
+        // this.props.onPress();
     }
     render() {
         return (
