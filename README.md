@@ -1,6 +1,9 @@
 # WhatToEat-frontend
 CS498Web final project by Team WTE
 
+## Demo
+https://youtu.be/AeCaNcud0I4
+
 ## Get Started
 
 Check out this website from react-native, https://facebook.github.io/react-native/docs/getting-started.html
